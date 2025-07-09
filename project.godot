@@ -14,6 +14,19 @@ config/name="Homework"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://assets/audio/default_bus_layout.tres"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "blue",
+"res://scenes/": "red",
+"res://scripts/": "green",
+"res://ui/": "pink"
+}
+
 [rendering]
 
 renderer/rendering_method="mobile"
