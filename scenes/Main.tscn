@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuqwiwbmexb2b"]
+
+[ext_resource type="Script" uid="uid://cskd1pbx25sbl" path="res://scripts/main.gd" id="1_elqb8"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_elqb8")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 4.0
+offset_right = 42.0
+offset_bottom = 15.0
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+offset_left = 86.0
+offset_top = 1.0
+offset_right = 128.0
+offset_bottom = 16.0
+
+[node name="Button3" type="Button" parent="CanvasLayer"]
+offset_left = 45.0
+offset_right = 85.0
+offset_bottom = 16.0
