@@ -9,18 +9,18 @@ script = ExtResource("1_elqb8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="HouseButton" type="Button" parent="CanvasLayer"]
 offset_left = 4.0
 offset_right = 42.0
 offset_bottom = 15.0
 
-[node name="Button2" type="Button" parent="CanvasLayer"]
+[node name="BarnButton" type="Button" parent="CanvasLayer"]
 offset_left = 86.0
 offset_top = 1.0
 offset_right = 128.0
 offset_bottom = 16.0
 
-[node name="Button3" type="Button" parent="CanvasLayer"]
+[node name="MillButton" type="Button" parent="CanvasLayer"]
 offset_left = 45.0
 offset_right = 85.0
 offset_bottom = 16.0
