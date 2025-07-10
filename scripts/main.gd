@@ -8,26 +8,35 @@ extends Node2D
 var _mode_scene: PackedScene
 var _mode_footprint: Vector2i = Vector2i(1, 1)
 
-# ghost-спрайт
+# ghost-превью
 var _ghost: Sprite2D
 var _placing := false
 
-# какие клетки заняты (Vector2i -> bool)
-var _occupied: Dictionary = {}
+# pending-координаты до подтверждения
+var _pending_cell
+var _pending_snap
+
+# занятые клетки (Vector2i → bool)
+var _occupied := {}
 
 func _ready() -> void:
-	# 1) Ghost
+	# создаём ghost
 	_ghost = Sprite2D.new()
-	_ghost.modulate = Color(0, 1, 0, 0.5)
 	add_child(_ghost)
 	_ghost.visible = false
 
-	# 2) UI-кнопки
+	# UI-кнопки
 	$CanvasLayer/HouseButton.pressed.connect(self._on_house_button)
 	$CanvasLayer/BarnButton.pressed.connect(self._on_barn_button)
 	$CanvasLayer/MillButton.pressed.connect(self._on_mill_button)
 
-	# 3) Процесс
+	# ConfirmationDialog под CanvasLayer, имя — PlaceDialog
+	var dlg = $CanvasLayer/PlaceDialog as ConfirmationDialog
+	dlg.ok_button_text     = "OK"
+	dlg.cancel_button_text = "Отмена"
+	dlg.connect("confirmed", Callable(self, "_on_place_confirmed"))
+	dlg.connect("canceled",   Callable(self, "_on_place_cancelled"))
+
 	set_process(true)
 
 func _on_house_button() -> void:
@@ -39,18 +48,16 @@ func _on_mill_button() -> void:
 
 func _start_placing(scene: PackedScene) -> void:
 	_mode_scene = scene
-
-	# Вытаскиваем footprint у сцены
-	var tmp = _mode_scene.instantiate() as Node2D
+	# инстанс для получения footprint и текстуры
+	var tmp = scene.instantiate() as Node2D
 	if tmp.has_method("get_footprint"):
 		_mode_footprint = tmp.call("get_footprint")
 	else:
-		_mode_footprint = Vector2i(1, 1)
-	# И текстуру ghost
+		_mode_footprint = Vector2i(1,1)
 	_ghost.texture = tmp.get_node("Sprite2D").texture
 	tmp.queue_free()
 
-	_ghost.modulate = Color(0, 1, 0, 0.5)
+	_ghost.modulate = Color(0,1,0,0.5)
 	_ghost.visible  = true
 	_placing        = true
 
@@ -58,48 +65,66 @@ func _process(_delta: float) -> void:
 	if not _placing:
 		return
 
-	# 1) Ячейка под мышью
+	# привязка курсора к сетке 32×32
 	var mp   = get_viewport().get_mouse_position()
-	var cell = Vector2i(int(mp.x / 64), int(mp.y / 64))
-	var snap = Vector2(cell.x * 64, cell.y * 64)
+	var cell = Vector2i(int(mp.x / 32), int(mp.y / 32))
+	var snap = Vector2(cell.x * 32, cell.y * 32)
 
-	# 2) Проверка footprint + 1 клетка вокруг
+	# проверяем **только** footprint-клетки (без буфера)
 	var can_place = true
-	for dx in range(-1, _mode_footprint.x + 1):
-		for dy in range(-1, _mode_footprint.y + 1):
-			var check = cell + Vector2i(dx, dy)
-			if _occupied.has(check):
+	for dx in range(0, _mode_footprint.x):
+		for dy in range(0, _mode_footprint.y):
+			if _occupied.has(cell + Vector2i(dx,dy)):
 				can_place = false
 				break
 		if not can_place:
 			break
 
-	# 3) Позиционируем и красим ghost
-	var center_offset = Vector2(64, 64) * 0.5 * Vector2(_mode_footprint.x, _mode_footprint.y)
-	_ghost.global_position = snap + center_offset
+	# рисуем ghost
+	var center = Vector2(32,32) * 0.5 * Vector2(_mode_footprint.x, _mode_footprint.y)
+	_ghost.global_position = snap + center
 	if can_place:
-		_ghost.modulate = Color(0, 1, 0, 0.5)
+		_ghost.modulate = Color(0,1,0,0.5)
 	else:
-		_ghost.modulate = Color(1, 0, 0, 0.5)
+		_ghost.modulate = Color(1,0,0,0.5)
 
-	# 4) ЛКМ — ставим, ПКМ — отменяем
+	# ЛКМ — показываем диалог, ПКМ — отменяем
 	if can_place and Input.is_action_just_pressed("mouse_left"):
-		_place_building(cell, snap)
+		_pending_cell = cell
+		_pending_snap = snap
+		$CanvasLayer/PlaceDialog.popup_centered()
 	elif Input.is_action_just_pressed("mouse_right"):
 		_cancel_placing()
 
-func _place_building(cell: Vector2i, snap: Vector2) -> void:
-	# Инстанс и позиция
-	var bld = _mode_scene.instantiate() as Node2D
-	var center_offset = Vector2(64, 64) * 0.5 * Vector2(_mode_footprint.x, _mode_footprint.y)
-	bld.global_position = snap + center_offset
-	$Buildings.add_child(bld)
+func _on_place_confirmed() -> void:
+	# OK — строим
+	if _pending_cell != null and _pending_snap != null:
+		_place_building(_pending_cell, _pending_snap)
+	_pending_cell = null
+	_pending_snap = null
 
-	# Помечаем именно footprint-клетки занятыми
-	for dx in range(0, _mode_footprint.x):
-		for dy in range(0, _mode_footprint.y):
-			var mark = cell + Vector2i(dx, dy)
-			_occupied[mark] = true
+func _on_place_cancelled() -> void:
+	# Отмена — освобождаем pending-клетки
+	if _pending_cell != null:
+		for dx in range(_mode_footprint.x):
+			for dy in range(_mode_footprint.y):
+				_occupied.erase(_pending_cell + Vector2i(dx,dy))
+	_cancel_placing()
+	_pending_cell = null
+	_pending_snap = null
+
+func _place_building(cell: Vector2i, snap: Vector2) -> void:
+	# резервируем сами footprint-клетки
+	for dx in range(_mode_footprint.x):
+		for dy in range(_mode_footprint.y):
+			_occupied[cell + Vector2i(dx,dy)] = true
+
+	# инстансим здание и запускаем его таймер
+	var bld = _mode_scene.instantiate() as Area2D
+	var center = Vector2(32,32) * 0.5 * Vector2(_mode_footprint.x, _mode_footprint.y)
+	bld.global_position = snap + center
+	$Buildings.add_child(bld)
+	bld.start_build()
 
 	_ghost.visible = false
 	_placing       = false

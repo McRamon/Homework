@@ -1,8 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://chi8mgnkjlrte"]
+[gd_scene load_steps=4 format=3 uid="uid://chi8mgnkjlrte"]
 
-[ext_resource type="Script" uid="uid://8to4jfgtsuqu" path="res://scripts/building.gd" id="1_on67h"]
+[ext_resource type="Script" uid="uid://8to4jfgtsuqu" path="res://scripts/buildings/building.gd" id="1_on67h"]
+[ext_resource type="Texture2D" uid="uid://dy0wau37l2pty" path="res://assets/spritesTEST/256x256.png" id="2_r14oo"]
 
-[node name="House" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r14oo"]
+size = Vector2(253, 258)
+
+[node name="House" type="Area2D"]
 script = ExtResource("1_on67h")
+footprint = Vector2i(8, 8)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_r14oo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_r14oo")
+
+[node name="BuildTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CountdownLabel" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -170.0
+offset_right = 32.0
+offset_bottom = -147.0
+text = "00:00:00"
+metadata/_edit_use_anchors_ = true
