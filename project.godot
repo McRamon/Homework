@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="res://assets/audio/default_bus_layout.tres"
 
+[autoload]
+
+ResourceManager="*res://scripts/resource_manager.gd"
+
 [display]
 
 window/size/viewport_width=1920
