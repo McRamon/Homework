@@ -1,24 +1,24 @@
 [gd_scene load_steps=8 format=3 uid="uid://cuqwiwbmexb2b"]
 
-[ext_resource type="Script" uid="uid://cskd1pbx25sbl" path="res://scripts/main.gd" id="1_elqb8"]
-[ext_resource type="PackedScene" uid="uid://bg0fpe7icftou" path="res://scenes/house.tscn" id="2_rarhs"]
-[ext_resource type="PackedScene" uid="uid://cskwht2ywc8fl" path="res://scenes/barn.tscn" id="3_vcsgt"]
-[ext_resource type="PackedScene" uid="uid://chi8mgnkjlrte" path="res://scenes/mill.tscn" id="4_c01mt"]
-[ext_resource type="Script" uid="uid://bnklsggrwv3r5" path="res://scripts/resource_manager.gd" id="5_c01mt"]
-[ext_resource type="Script" uid="uid://cwih4o76gqssw" path="res://scripts/grid.gd" id="5_vcsgt"]
-[ext_resource type="Script" uid="uid://b2gpdxyluowho" path="res://scripts/UIManager.gd" id="7_nxtc6"]
+[ext_resource type="Script" uid="uid://cskd1pbx25sbl" path="res://scripts/base/main.gd" id="1_s73ds"]
+[ext_resource type="PackedScene" uid="uid://bg0fpe7icftou" path="res://scenes/base/buildings/house.tscn" id="2_m8tcs"]
+[ext_resource type="PackedScene" uid="uid://cskwht2ywc8fl" path="res://scenes/base/buildings/barn.tscn" id="3_5nnj5"]
+[ext_resource type="PackedScene" uid="uid://chi8mgnkjlrte" path="res://scenes/base/buildings/mill.tscn" id="4_spyfa"]
+[ext_resource type="Script" uid="uid://bnklsggrwv3r5" path="res://scripts/autoloads/resource_manager.gd" id="5_bvkwx"]
+[ext_resource type="Script" uid="uid://cwih4o76gqssw" path="res://scripts/base/grid.gd" id="6_podhj"]
+[ext_resource type="Script" uid="uid://b2gpdxyluowho" path="res://scripts/base/UIManager.gd" id="7_y3jew"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_elqb8")
-house_scene = ExtResource("2_rarhs")
-barn_scene = ExtResource("3_vcsgt")
-mill_scene = ExtResource("4_c01mt")
+script = ExtResource("1_s73ds")
+house_scene = ExtResource("2_m8tcs")
+barn_scene = ExtResource("3_5nnj5")
+mill_scene = ExtResource("4_spyfa")
 
 [node name="ResourceManager" type="Node" parent="."]
-script = ExtResource("5_c01mt")
+script = ExtResource("5_bvkwx")
 
 [node name="Grid" type="Node2D" parent="."]
-script = ExtResource("5_vcsgt")
+script = ExtResource("6_podhj")
 
 [node name="Buildings" type="Node2D" parent="."]
 
@@ -81,7 +81,7 @@ text = "100 дерево
 [node name="PlaceDialog" type="ConfirmationDialog" parent="CanvasLayer"]
 
 [node name="HBoxContainer" type="CanvasLayer" parent="."]
-script = ExtResource("7_nxtc6")
+script = ExtResource("7_y3jew")
 
 [node name="food_label" type="Label" parent="HBoxContainer"]
 offset_left = 1687.0
