@@ -10,6 +10,10 @@ size = Vector2(256, 128)
 script = ExtResource("1_xlpyp")
 footprint = Vector2i(8, 4)
 build_time = 5.0
+cost = {
+"stone": 10,
+"wood": 50
+}
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ldo1f")
@@ -26,5 +30,18 @@ offset_left = -32.0
 offset_top = -102.0
 offset_right = 32.0
 offset_bottom = -79.0
+text = "00:00:00"
+metadata/_edit_use_anchors_ = true
+
+[node name="CostLabel" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 5.86957
+anchor_right = 0.5
+anchor_bottom = 5.86957
+offset_left = -31.0
+offset_top = 66.0
+offset_right = 33.0
+offset_bottom = 89.0
 text = "00:00:00"
 metadata/_edit_use_anchors_ = true

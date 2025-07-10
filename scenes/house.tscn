@@ -24,5 +24,13 @@ offset_bottom = -34.0
 text = "00:00:00"
 metadata/_edit_use_anchors_ = true
 
+[node name="CostLabel" type="Label" parent="."]
+offset_left = -31.0
+offset_top = 33.0
+offset_right = 33.0
+offset_bottom = 56.0
+text = "00:00:00"
+metadata/_edit_use_anchors_ = true
+
 [node name="BuildTimer" type="Timer" parent="."]
 one_shot = true
