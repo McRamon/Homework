@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://17nrav3nunwu"]
+[gd_scene load_steps=3 format=3 uid="uid://17nrav3nunwu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hkb3q"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_hkb3q"]
+font_size = 32
+
 [node name="BaseUIWindow" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -2.0
@@ -40,6 +44,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 1
 text = "TITLE"
+label_settings = SubResource("LabelSettings_hkb3q")
 
 [node name="Button (close)" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
