@@ -16,7 +16,7 @@ var origin_scene: PackedScene
 @onready var build_timer: Timer            = $BuildTimer
 @onready var long_press_timer: Timer       = $LongPressTimer
 @onready var info_menu: PopupPanel         = $InfoMenu
-@onready var move_button: Button           = $InfoMenu/MoveButton
+#@onready var move_button: Button           = $InfoMenu/MoveButton
 
 var _time_left: float = 0.0
 var _in_progress: bool = false
@@ -30,7 +30,7 @@ func _ready() -> void:
 	long_press_timer.one_shot = true
 	long_press_timer.connect("timeout", Callable(self, "_on_long_press"))
 
-	move_button.connect("pressed", Callable(self, "_on_move_pressed"))
+	#move_button.connect("pressed", Callable(self, "_on_move_pressed"))
 
 	_update_cost_label()
 	cost_label.visible = true

@@ -48,20 +48,6 @@ text = "Это дом"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MoveButton" type="Button" parent="InfoMenu"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 311.0
-offset_bottom = 206.0
-scale = Vector2(0.511521, 0.297856)
-
-[node name="Label" type="Label" parent="InfoMenu/MoveButton"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-scale = Vector2(2.92789, 8.48074)
-text = "переместить"
-
 [node name="LongPressTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
