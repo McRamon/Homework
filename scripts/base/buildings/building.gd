@@ -29,6 +29,8 @@ func _ready() -> void:
 	long_press_timer.wait_time = 2.0
 	long_press_timer.one_shot = true
 	long_press_timer.connect("timeout", Callable(self, "_on_long_press"))
+	# Запускаем логику производства
+	#$Production.start_production()
 
 	#move_button.connect("pressed", Callable(self, "_on_move_pressed"))
 
@@ -74,6 +76,13 @@ func _on_build_complete() -> void:
 	_in_progress = false
 	set_process(false)
 	emit_signal("build_completed")
+	
+	# Запустить производство
+	if has_node("Production"):
+		get_node("Production").start_production()
+	
+		
+	
 
 func _update_cost_label() -> void:
 	var text := ""
@@ -104,3 +113,5 @@ func _open_info_menu() -> void:
 func _on_move_pressed() -> void:
 	info_menu.hide()
 	emit_signal("move_requested", self)
+	
+	

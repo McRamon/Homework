@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://l3rxcdrrixgh"]
+[gd_scene load_steps=5 format=3 uid="uid://l3rxcdrrixgh"]
 
-[ext_resource type="Script" path="res://scripts/buildings/building.gd" id="1_d7po0"]
+[ext_resource type="Script" uid="uid://8to4jfgtsuqu" path="res://scripts/base/buildings/building.gd" id="1_d7po0"]
 [ext_resource type="Texture2D" uid="uid://brbrqtlh0exxd" path="res://assets/spritesTEST/64x64.png" id="2_qtlar"]
+[ext_resource type="Script" uid="uid://h5pwy2bvu23f" path="res://scripts/base/buildings/resource_producer.gd" id="3_rk7hg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtlar"]
 size = Vector2(64, 64)
 
 [node name="House" type="Area2D"]
 script = ExtResource("1_d7po0")
-footprint = Vector2i(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_qtlar")
@@ -51,3 +51,10 @@ vertical_alignment = 1
 [node name="LongPressTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="Production" type="Node2D" parent="."]
+script = ExtResource("3_rk7hg")
+amount = 5
+
+[node name="Timer" type="Timer" parent="Production"]
+autostart = true

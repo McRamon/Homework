@@ -11,6 +11,7 @@ func _ready() -> void:
 	_on_resource_changed("food",  ResourceManager.resources["food"])
 	# Подписка на изменения
 	ResourceManager.connect("resource_changed", Callable(self, "_on_resource_changed"))
+	
 
 func _on_resource_changed(type: String, amount: int) -> void:
 	match type:
@@ -22,3 +23,4 @@ func _on_resource_changed(type: String, amount: int) -> void:
 			food_label.text  = "Food: %d"  % amount
 		_:
 			pass
+	print("Обновляем ресурс:", type, amount) # ← это должно появиться в Output
