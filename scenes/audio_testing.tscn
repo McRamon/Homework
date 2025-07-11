@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://17nrav3nunwu" path="res://ui/scenes/base_ui_window.tscn" id="1_txoe5"]
 [ext_resource type="Texture2D" uid="uid://xjefgwu114ni" path="res://ui/sprites/buttons_sound_test.png" id="2_v4oi6"]
-[ext_resource type="Script" uid="uid://dgafnfd0mmxw4" path="res://scripts/button_sound_test.gd" id="3_065er"]
+[ext_resource type="Script" path="res://scripts/button_sound_test.gd" id="3_065er"]
 [ext_resource type="AudioStream" uid="uid://cwtn4uocma24d" path="res://assets/audio/music/music_test.mp3" id="4_t4omb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v4oi6"]
