@@ -71,25 +71,37 @@ text = "close"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/NinePatchRect"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/NinePatchRect/VBoxContainer/ScrollContainer"]
 layout_mode = 2
-offset_top = 49.0
-offset_right = 20.0
-offset_bottom = 1000.0
 size_flags_horizontal = 2
 size_flags_vertical = 3
 
-[node name="ColorRect" type="ColorRect" parent="PanelContainer/MarginContainer/NinePatchRect/VBoxContainer2"]
-custom_minimum_size = Vector2(20, 20)
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/MarginContainer/NinePatchRect/VBoxContainer/ScrollContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ColorRect2" type="ColorRect" parent="PanelContainer/MarginContainer/NinePatchRect/VBoxContainer2"]
-custom_minimum_size = Vector2(20, 20)
+[node name="ColorRect2" type="ColorRect" parent="PanelContainer/MarginContainer/NinePatchRect/VBoxContainer/ScrollContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ColorRect3" type="ColorRect" parent="PanelContainer/MarginContainer/NinePatchRect/VBoxContainer2"]
-custom_minimum_size = Vector2(20, 20)
+[node name="ColorRect3" type="ColorRect" parent="PanelContainer/MarginContainer/NinePatchRect/VBoxContainer/ScrollContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ColorRect4" type="ColorRect" parent="PanelContainer/MarginContainer/NinePatchRect/VBoxContainer/ScrollContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ColorRect5" type="ColorRect" parent="PanelContainer/MarginContainer/NinePatchRect/VBoxContainer/ScrollContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ColorRect6" type="ColorRect" parent="PanelContainer/MarginContainer/NinePatchRect/VBoxContainer/ScrollContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
