@@ -1,0 +1,310 @@
+[gd_scene load_steps=18 format=3 uid="uid://m02a01eip73q"]
+
+[ext_resource type="PackedScene" uid="uid://17nrav3nunwu" path="res://ui/scenes/base_ui_window.tscn" id="1_txoe5"]
+[ext_resource type="Texture2D" uid="uid://xjefgwu114ni" path="res://ui/sprites/buttons_sound_test.png" id="2_v4oi6"]
+[ext_resource type="Script" uid="uid://dgafnfd0mmxw4" path="res://scripts/button_sound_test.gd" id="3_065er"]
+[ext_resource type="AudioStream" uid="uid://cwtn4uocma24d" path="res://assets/audio/music/music_test.mp3" id="4_t4omb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v4oi6"]
+font_size = 18
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4oi6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_065er"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4omb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qygk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1h73q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hfn6w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_065er"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("2_v4oi6")
+region_rect = Rect2(5, 5, 22, 22)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j08iq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v4oi6"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("2_v4oi6")
+region_rect = Rect2(5, 37, 22, 22)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7apuw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4omb"]
+texture = ExtResource("2_v4oi6")
+region_rect = Rect2(37, 5, 22, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2qygk"]
+texture = ExtResource("2_v4oi6")
+region_rect = Rect2(37, 37, 22, 22)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="BaseUIWindow" parent="CanvasLayer" instance=ExtResource("1_txoe5")]
+
+[node name="Label (title)" parent="CanvasLayer/BaseUIWindow/PanelContainer/MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer" index="0"]
+text = "SOUND TESTING"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -527.0
+offset_top = -273.0
+offset_right = -314.0
+offset_bottom = -166.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="music" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer/music"]
+custom_minimum_size = Vector2(105, 33)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/music/Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 22)
+layout_mode = 1
+offset_right = 70.0
+offset_bottom = 22.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_v4oi6")
+region_rect = Rect2(5, 69, 70, 22)
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/music/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = -11.5
+offset_right = 25.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "MUSIC"
+label_settings = SubResource("LabelSettings_v4oi6")
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/music"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v4oi6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_065er")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t4omb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2qygk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1h73q")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hfn6w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_065er")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_j08iq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v4oi6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7apuw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_065er")
+script = ExtResource("3_065er")
+music_stream = ExtResource("4_t4omb")
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/music"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v4oi6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_065er")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t4omb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2qygk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1h73q")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hfn6w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t4omb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_j08iq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2qygk")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7apuw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t4omb")
+
+[node name="ambience" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer/ambience"]
+custom_minimum_size = Vector2(105, 33)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/ambience/Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 22)
+layout_mode = 1
+offset_right = 70.0
+offset_bottom = 22.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_v4oi6")
+region_rect = Rect2(5, 69, 70, 22)
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/ambience/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = -11.5
+offset_right = 25.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "AMBIENCE"
+label_settings = SubResource("LabelSettings_v4oi6")
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/ambience"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v4oi6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_065er")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t4omb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2qygk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1h73q")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hfn6w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_065er")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_j08iq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v4oi6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7apuw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_065er")
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/ambience"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v4oi6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_065er")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t4omb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2qygk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1h73q")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hfn6w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t4omb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_j08iq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2qygk")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7apuw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t4omb")
+
+[node name="effects" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer/effects"]
+custom_minimum_size = Vector2(105, 33)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/effects/Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 22)
+layout_mode = 1
+offset_right = 70.0
+offset_bottom = 22.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_v4oi6")
+region_rect = Rect2(5, 69, 70, 22)
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/effects/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = -11.5
+offset_right = 25.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "EFFECTS"
+label_settings = SubResource("LabelSettings_v4oi6")
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/effects"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v4oi6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_065er")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t4omb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2qygk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1h73q")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hfn6w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_065er")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_j08iq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v4oi6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7apuw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_065er")
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/effects"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v4oi6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_065er")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t4omb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2qygk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1h73q")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hfn6w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t4omb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_j08iq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2qygk")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7apuw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t4omb")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 684.0
+offset_top = 263.0
+offset_right = 724.0
+offset_bottom = 303.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+
+[editable path="CanvasLayer/BaseUIWindow"]

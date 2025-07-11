@@ -22,11 +22,13 @@ buses/default_bus_layout="res://assets/audio/default_bus_layout.tres"
 [autoload]
 
 ResourceManager="*res://scripts/autoloads/resource_manager.gd"
+AudioManager="*res://scripts/autoloads/AudioManager.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="viewport"
 
 [file_customization]
 

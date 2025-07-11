@@ -85,7 +85,8 @@ func _create_stream_player(bus_name: String, stream: AudioStream, loop: bool = t
 	player.bus = bus_name
 	player.stream = stream
 	player.autoplay = false
-	player.loop = loop
+	if stream is AudioStreamWAV or stream is AudioStreamOggVorbis or stream is AudioStreamMP3:
+		stream.loop = loop
 	return player
 
 func _fade_in_player(player: AudioStreamPlayer, duration: float):
