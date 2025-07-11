@@ -16,6 +16,8 @@ const BUS_SFX := "SFX"
 var current_music: AudioStreamPlayer = null
 var current_ambience: AudioStreamPlayer = null
 
+var fading_players = []
+
 func _ready():
 	# Apply initial volumes
 	_update_bus_volumes()
@@ -50,7 +52,7 @@ func stop_ambience(fade_time := 1.0):
 
 # --- SFX ---
 func play_sfx(stream: AudioStream, volume: float = 1.0):
-	var sfx_player = _create_stream_player(BUS_SFX, stream)
+	var sfx_player = _create_stream_player(BUS_SFX, stream, false)
 	sfx_player.volume_db = linear2db(volume * sfx_volume * master_volume)
 	sfx_player.connect("finished", Callable(sfx_player, "queue_free"))
 	add_child(sfx_player)
@@ -96,15 +98,30 @@ func _fade_in_player(player: AudioStreamPlayer, duration: float):
 		tween.tween_property(player, "volume_db", 0, duration)
 
 func _fade_out_player(player: AudioStreamPlayer, duration: float):
-	if player:
-		var tween = create_tween()
-		tween.tween_property(player, "volume_db", -80, duration).finished.connect(
-			func (): _on_fade_out_complete(player)
-		)
+	if not player or not is_instance_valid(player):
+		return  # Already freed or invalid
+
+	# Prevent duplicate fades
+	if fading_players.has(player):
+		return
+
+	fading_players.append(player)
+
+	var tween = create_tween()
+	tween.tween_property(player, "volume_db", -80, duration)
+	tween.finished.connect(
+		func ():
+		_on_fade_out_complete(player)
+	)
 
 func _on_fade_out_complete(player: AudioStreamPlayer):
-	player.stop()
+	if not player or not is_instance_valid(player):
+		return  # Player already freed
+	fading_players.erase(player)  # Remove from tracking
+	if player.playing:
+		player.stop()
 	player.queue_free()
+
 	if player == current_music:
 		current_music = null
 	elif player == current_ambience:
