@@ -3,20 +3,18 @@ extends Area2D
 signal build_completed
 signal move_requested(building: Area2D)
 
-# Храним ссылку на оригинальную сцену для повторного размещения
 var origin_scene: PackedScene
 
 @export var footprint: Vector2i = Vector2i(1, 1)
 @export var build_time: float = 3.0
 @export var cost: Dictionary = {"wood": 10, "stone": 5}
 
-@onready var cost_label: Label             = $CostLabel
-@onready var countdown_label: Label        = $CountdownLabel
+@onready var cost_label: Label = $CostLabel
+@onready var countdown_label: Label = $CountdownLabel
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
-@onready var build_timer: Timer            = $BuildTimer
-@onready var long_press_timer: Timer       = $LongPressTimer
-@onready var info_menu: PopupPanel         = $InfoMenu
-#@onready var move_button: Button           = $InfoMenu/MoveButton
+@onready var build_timer: Timer = $BuildTimer
+@onready var long_press_timer: Timer = $LongPressTimer
+@onready var info_menu: PopupPanel = $InfoMenu
 
 var _time_left: float = 0.0
 var _in_progress: bool = false
@@ -29,10 +27,6 @@ func _ready() -> void:
 	long_press_timer.wait_time = 2.0
 	long_press_timer.one_shot = true
 	long_press_timer.connect("timeout", Callable(self, "_on_long_press"))
-	# Запускаем логику производства
-	#$Production.start_production()
-
-	#move_button.connect("pressed", Callable(self, "_on_move_pressed"))
 
 	_update_cost_label()
 	cost_label.visible = true
@@ -59,8 +53,7 @@ func _process(delta: float) -> void:
 		return
 	_time_left = max(_time_left - delta, 0)
 	_update_countdown()
-	if _time_left <= 0:
-		_on_build_complete()
+	# ! НЕ вызываем _on_build_complete() здесь!
 
 func _update_countdown() -> void:
 	var ts = int(ceil(_time_left))
@@ -70,19 +63,23 @@ func _update_countdown() -> void:
 	countdown_label.text = "%02d:%02d:%02d" % [h, m, s]
 
 func _on_build_complete() -> void:
+	# Вызывается только build_timer'ом!
 	modulate = Color(1, 1, 1, 1)
 	collision_shape.disabled = false
 	countdown_label.visible = false
 	_in_progress = false
 	set_process(false)
+	
+	# Запуск производства, если есть Production
+	var producer = get_node_or_null("Production")
+	if producer:
+		producer.start_production()
+		print("✅ Производство запущено!")
+	else:
+		print("❌ Production не найден!")
+	
 	emit_signal("build_completed")
-	
-	# Запустить производство
-	if has_node("Production"):
-		get_node("Production").start_production()
-	
-		
-	
+	print("🏗 Строительство завершено")
 
 func _update_cost_label() -> void:
 	var text := ""
@@ -113,5 +110,3 @@ func _open_info_menu() -> void:
 func _on_move_pressed() -> void:
 	info_menu.hide()
 	emit_signal("move_requested", self)
-	
-	

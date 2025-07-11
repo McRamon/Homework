@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cskwht2ywc8fl"]
+[gd_scene load_steps=5 format=3 uid="uid://bd48uceokvd1w"]
 
 [ext_resource type="Script" uid="uid://8to4jfgtsuqu" path="res://scripts/base/buildings/building.gd" id="1_xlpyp"]
 [ext_resource type="Texture2D" uid="uid://c0uhnt1ai5fq6" path="res://assets/spritesTEST/128x256.png" id="2_ldo1f"]
+[ext_resource type="PackedScene" uid="uid://d0rqnrgndrvtl" path="res://scenes/base/production.tscn" id="3_c5yko"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlpyp"]
 size = Vector2(256, 128)
@@ -76,3 +77,8 @@ text = "переместить"
 [node name="LongPressTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="Production" parent="." instance=ExtResource("3_c5yko")]
+resource_type = "stone"
+
+[node name="Timer2" type="Timer" parent="Production"]

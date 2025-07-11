@@ -182,9 +182,6 @@ func _cancel_placing() -> void:
 	_ghost.visible = false
 	_placing = false
 
-func _on_build_completed() -> void:
-	print("Строительство завершено")
-
 func _on_move_requested(bld: Area2D) -> void:
 	var fp = bld.get_footprint()
 	var pos = bld.global_position - Vector2(fp.x * 16, fp.y * 16)

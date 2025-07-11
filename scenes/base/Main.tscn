@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://cuqwiwbmexb2b"]
 
 [ext_resource type="Script" uid="uid://cskd1pbx25sbl" path="res://scripts/base/main.gd" id="1_s73ds"]
-[ext_resource type="PackedScene" uid="uid://bg0fpe7icftou" path="res://scenes/base/buildings/house.tscn" id="2_m8tcs"]
-[ext_resource type="PackedScene" uid="uid://cskwht2ywc8fl" path="res://scenes/base/buildings/barn.tscn" id="3_5nnj5"]
-[ext_resource type="PackedScene" uid="uid://chi8mgnkjlrte" path="res://scenes/base/buildings/mill.tscn" id="4_spyfa"]
+[ext_resource type="PackedScene" uid="uid://cyikw003e0004" path="res://scenes/base/buildings/passive_production.tscn" id="2_m8tcs"]
+[ext_resource type="PackedScene" uid="uid://bd48uceokvd1w" path="res://scenes/base/buildings/barn.tscn" id="3_5nnj5"]
+[ext_resource type="PackedScene" uid="uid://bsup87cdmtjvq" path="res://scenes/base/buildings/mill.tscn" id="4_spyfa"]
 [ext_resource type="Script" uid="uid://bnklsggrwv3r5" path="res://scripts/autoloads/resource_manager.gd" id="5_bvkwx"]
 [ext_resource type="Script" uid="uid://cwih4o76gqssw" path="res://scripts/base/grid.gd" id="6_podhj"]
 [ext_resource type="Script" uid="uid://b2gpdxyluowho" path="res://scripts/base/UIManager.gd" id="7_y3jew"]
@@ -25,12 +25,12 @@ script = ExtResource("6_podhj")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HouseButton" type="Button" parent="CanvasLayer"]
-offset_left = 70.0
-offset_top = 54.0
-offset_right = 127.0
-offset_bottom = 85.0
+offset_left = 806.0
+offset_top = 28.0
+offset_right = 1005.0
+offset_bottom = 59.0
 scale = Vector2(3.19059, 3.56282)
-text = "House"
+text = "Лесопилка автономная"
 
 [node name="Label" type="Label" parent="CanvasLayer/HouseButton"]
 layout_mode = 0

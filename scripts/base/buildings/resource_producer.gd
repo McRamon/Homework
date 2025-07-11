@@ -1,4 +1,3 @@
-# resource_producer.gd
 extends Node2D
 
 @export var resource_type: String = "food"
@@ -7,12 +6,14 @@ extends Node2D
 @onready var timer: Timer = $Timer
 
 func _ready():
+	print("PRODUCER READY!")
 	timer.connect("timeout", _on_timeout)
-	timer.start()
 
 func _on_timeout():
+	print("==> Добавляем ресурс:", resource_type, "+", amount)
 	ResourceManager.add_resource(resource_type, amount)
-	
-	
+	timer.start()
+
 func start_production():
+	print("==> Старт производства!")
 	timer.start()
