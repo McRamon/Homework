@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dskh0r44rculh"]
+
+[ext_resource type="Script" uid="uid://cxax1aii7l3n8" path="res://scripts/base/buildings/recipe_button.gd" id="1_ay500"]
+
+[node name="RecipeButton" type="Button"]
+scale = Vector2(0.0970528, 0.0995816)
+script = ExtResource("1_ay500")
+
+[node name="text" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

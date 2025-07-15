@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dn62authahmuk"]
+
+[ext_resource type="Texture2D" uid="uid://brbrqtlh0exxd" path="res://assets/spritesTEST/64x64.png" id="1_4pfr7"]
+[ext_resource type="Script" uid="uid://8to4jfgtsuqu" path="res://scripts/base/buildings/Building.gd" id="1_hsuix"]
+[ext_resource type="Script" uid="uid://b70wyslna2p0r" path="res://scripts/base/buildings/ProductionPassive.gd" id="2_2fn42"]
+[ext_resource type="Texture2D" uid="uid://cekms3d8hyamb" path="res://assets/spritesTEST/Icons_27_31.png" id="3_yhmh8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fn42"]
+size = Vector2(65, 64)
+
+[node name="Wood" type="Area2D"]
+script = ExtResource("1_hsuix")
+footprint = Vector2i(2, 2)
+cost = {
+"wood": 10
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4pfr7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_2fn42")
+
+[node name="CountdownLabel" type="Label" parent="."]
+offset_left = -29.0
+offset_top = -56.0
+offset_right = 26.0
+offset_bottom = -33.0
+text = "00:00:00"
+
+[node name="BuildTimer" type="Timer" parent="."]
+
+[node name="LongPressTimer" type="Timer" parent="."]
+
+[node name="InfoMenu" type="PopupPanel" parent="."]
+size = Vector2i(108, 65)
+
+[node name="Sprite2D" type="Sprite2D" parent="InfoMenu"]
+position = Vector2(62, 35)
+scale = Vector2(0.783643, 0.731499)
+texture = ExtResource("3_yhmh8")
+
+[node name="Label" type="Label" parent="InfoMenu"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 104.0
+offset_bottom = 61.0
+scale = Vector2(1.00308, 0.991072)
+text = "      + 1"
+vertical_alignment = 1
+
+[node name="Passive_Production" type="Node2D" parent="."]
+script = ExtResource("2_2fn42")
+resource_type = "wood"
+
+[node name="Timer" type="Timer" parent="Passive_Production"]

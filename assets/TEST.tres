@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://c1vbuspwmyra3"]
+
+[ext_resource type="Script" uid="uid://cbx12gyix5yax" path="res://scripts/base/buildings/Recipe.gd" id="1_m0r2t"]
+[ext_resource type="Texture2D" uid="uid://cekms3d8hyamb" path="res://assets/spritesTEST/Icons_27_31.png" id="1_ww7ts"]
+
+[resource]
+script = ExtResource("1_m0r2t")
+name = "Test"
+icon = ExtResource("1_ww7ts")
+input = {
+"wood": 10
+}
+output = {
+"wood": 55
+}
+duration = 5.0
+metadata/_custom_type_script = "uid://cbx12gyix5yax"

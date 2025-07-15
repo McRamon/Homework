@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://bf14hpigxyphw"]
+
+[ext_resource type="Script" uid="uid://cc871txs03kxv" path="res://scripts/base/buildings/BuildingManager.gd" id="1_0rmdu"]
+[ext_resource type="PackedScene" uid="uid://dn62authahmuk" path="res://scenes/base/buildings/passive_building.tscn" id="3_2a5cp"]
+[ext_resource type="Script" uid="uid://b2gpdxyluowho" path="res://scripts/base/UIManager.gd" id="3_tw1wi"]
+[ext_resource type="PackedScene" uid="uid://b6mhjohaju7ph" path="res://scenes/base/buildings/Production_building.tscn" id="4_2a5cp"]
+[ext_resource type="Script" uid="uid://cwih4o76gqssw" path="res://scripts/base/grid.gd" id="4_iyal2"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("3_tw1wi")
+
+[node name="food_label" type="Label" parent="CanvasLayer"]
+offset_left = 1687.0
+offset_top = 187.0
+offset_right = 1898.0
+offset_bottom = 272.0
+text = "еда"
+metadata/_edit_use_anchors_ = true
+
+[node name="wood_label" type="Label" parent="CanvasLayer"]
+offset_left = 1702.0
+offset_top = 15.0
+offset_right = 1913.0
+offset_bottom = 100.0
+text = "дерево"
+metadata/_edit_use_anchors_ = true
+
+[node name="stone_label" type="Label" parent="CanvasLayer"]
+offset_left = 1695.0
+offset_top = 112.0
+offset_right = 1906.0
+offset_bottom = 197.0
+text = "камень"
+metadata/_edit_use_anchors_ = true
+
+[node name="HouseButton" type="Button" parent="CanvasLayer"]
+offset_left = 519.0
+offset_top = 27.0
+offset_right = 718.0
+offset_bottom = 58.0
+scale = Vector2(3.19059, 3.56282)
+text = "Лесопилка автономная"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/HouseButton"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 31.0
+offset_right = 93.0
+offset_bottom = 80.0
+scale = Vector2(0.475934, 0.5896)
+text = "10 дерево
+5     камень"
+metadata/_edit_use_anchors_ = true
+
+[node name="BarnButton" type="Button" parent="CanvasLayer"]
+offset_left = 304.0
+offset_top = 16.0
+offset_right = 370.0
+offset_bottom = 47.0
+text = "Пассив"
+metadata/_edit_use_anchors_ = true
+
+[node name="MillButton" type="Button" parent="CanvasLayer"]
+offset_left = 210.0
+offset_top = 28.0
+offset_right = 276.0
+offset_bottom = 59.0
+text = "Пассив"
+metadata/_edit_use_anchors_ = true
+
+[node name="PlaceDialog" type="ConfirmationDialog" parent="CanvasLayer"]
+size = Vector2i(420, 195)
+
+[node name="MoveDialog" type="ConfirmationDialog" parent="CanvasLayer"]
+auto_translate_mode = 1
+
+[node name="HBoxContainer" type="CanvasLayer" parent="."]
+
+[node name="BuildButton" type="Button" parent="HBoxContainer"]
+offset_right = 66.0
+offset_bottom = 31.0
+text = "Пассив"
+metadata/_edit_use_anchors_ = true
+
+[node name="BuildingManager" type="Node2D" parent="."]
+script = ExtResource("1_0rmdu")
+house_scene = ExtResource("3_2a5cp")
+barn_scene = ExtResource("3_2a5cp")
+mill_scene = ExtResource("4_2a5cp")
+
+[node name="Grid" type="Node2D" parent="."]
+script = ExtResource("4_iyal2")
+
+[node name="Buildings" type="Node2D" parent="."]

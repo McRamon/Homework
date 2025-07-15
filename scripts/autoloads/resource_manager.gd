@@ -1,6 +1,6 @@
+# ResourceManager.gd
 extends Node
 
-# словарь ресурсов: String → int
 var resources := {
 	"wood": 100,
 	"stone": 50,
@@ -9,7 +9,7 @@ var resources := {
 
 signal resource_changed(type: String, amount: int)
 
-func add_resource(type: String, amount: int) -> void:
+func add_resource(type: String, amount: int):
 	resources[type] = resources.get(type, 0) + amount
 	emit_signal("resource_changed", type, resources[type])
 
@@ -19,7 +19,7 @@ func can_afford(cost: Dictionary) -> bool:
 			return false
 	return true
 
-func spend(cost: Dictionary) -> void:
+func spend(cost: Dictionary):
 	for t in cost.keys():
 		resources[t] = resources.get(t, 0) - cost[t]
 		emit_signal("resource_changed", t, resources[t])
