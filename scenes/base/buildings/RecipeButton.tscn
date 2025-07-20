@@ -8,5 +8,7 @@ script = ExtResource("1_ay500")
 
 [node name="text" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
+offset_right = 10.0
 offset_bottom = 23.0
+scale = Vector2(0.792744, 0.319069)
+text = "1"

@@ -42,7 +42,7 @@ offset_right = 444.0
 offset_bottom = 356.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(9.24132, 5.58381)
+scale = Vector2(1.00054, 1.00812)
 script = ExtResource("6_qdbmf")
 recipes = Array[Resource]([ExtResource("6_32b66")])
 
@@ -55,15 +55,17 @@ offset_left = 15.5822
 offset_top = 0.179089
 offset_right = 11.1822
 offset_bottom = 0.299088
-scale = Vector2(0.115535, 0.289194)
-text = "f"
+scale = Vector2(1.5113, 2.24479)
 
 [node name="Timer" type="Timer" parent="InfoMenu/MainPanel"]
 
 [node name="ButtonContainer" type="VBoxContainer" parent="InfoMenu/MainPanel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -3.99786
+offset_top = 106.138
+offset_right = 36.0021
+offset_bottom = 146.138
+scale = Vector2(2.56933, 1.70484)
 
 [node name="ConfirmDialog" type="ConfirmationDialog" parent="InfoMenu/MainPanel"]
 
@@ -78,13 +80,13 @@ text = "давай 10 дерева"
 custom_minimum_size = Vector2(137.295, 47.94)
 layout_direction = 2
 layout_mode = 0
-offset_left = -1.94777
-offset_top = 38.3251
-offset_right = 153.862
-offset_bottom = 86.2651
-scale = Vector2(0.2, 0.414)
+offset_left = 5.99679
+offset_top = 219.22
+offset_right = 161.807
+offset_bottom = 267.16
+scale = Vector2(2.82069, 2.81821)
 pivot_offset = Vector2(3.985, 3.535)
-theme_override_constants/separation = 40
+theme_override_constants/separation = 10
 
 [node name="CountdownLabel" type="Label" parent="."]
 offset_left = -32.0

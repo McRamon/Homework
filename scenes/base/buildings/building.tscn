@@ -40,35 +40,58 @@ offset_left = 519.0
 offset_top = 27.0
 offset_right = 718.0
 offset_bottom = 58.0
-scale = Vector2(3.19059, 3.56282)
-text = "Лесопилка автономная"
+scale = Vector2(1.22776, 1.62141)
+text = "Лесопилка
+ автономная"
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/HouseButton"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.227339
+anchor_top = 0.499521
+anchor_right = 0.227339
+anchor_bottom = 0.499521
 offset_left = 2.0
 offset_top = 31.0
 offset_right = 93.0
 offset_bottom = 80.0
-scale = Vector2(0.475934, 0.5896)
-text = "10 дерево
-5     камень"
+scale = Vector2(1.21768, 1.00645)
+text = "10 дерево"
 metadata/_edit_use_anchors_ = true
 
 [node name="BarnButton" type="Button" parent="CanvasLayer"]
-offset_left = 304.0
-offset_top = 16.0
-offset_right = 370.0
-offset_bottom = 47.0
-text = "Пассив"
+offset_left = 803.0
+offset_top = 28.0
+offset_right = 869.0
+offset_bottom = 59.0
+scale = Vector2(1.65703, 1.98531)
+text = " Производство 
+  по рецептам "
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/BarnButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.149076
+anchor_top = 0.443668
+anchor_right = 0.149076
+anchor_bottom = 0.443668
+offset_left = 2.0
+offset_top = 31.0
+offset_right = 93.0
+offset_bottom = 80.0
+scale = Vector2(0.870973, 0.523557)
+text = "20 дерево
+"
 metadata/_edit_use_anchors_ = true
 
 [node name="MillButton" type="Button" parent="CanvasLayer"]
-offset_left = 210.0
-offset_top = 28.0
-offset_right = 276.0
-offset_bottom = 59.0
-text = "Пассив"
+offset_left = 1814.0
+offset_top = 947.0
+offset_right = 1899.0
+offset_bottom = 978.0
+text = "заглушка"
 metadata/_edit_use_anchors_ = true
 
 [node name="PlaceDialog" type="ConfirmationDialog" parent="CanvasLayer"]
@@ -77,18 +100,10 @@ size = Vector2i(420, 195)
 [node name="MoveDialog" type="ConfirmationDialog" parent="CanvasLayer"]
 auto_translate_mode = 1
 
-[node name="HBoxContainer" type="CanvasLayer" parent="."]
-
-[node name="BuildButton" type="Button" parent="HBoxContainer"]
-offset_right = 66.0
-offset_bottom = 31.0
-text = "Пассив"
-metadata/_edit_use_anchors_ = true
-
 [node name="BuildingManager" type="Node2D" parent="."]
 script = ExtResource("1_0rmdu")
 house_scene = ExtResource("3_2a5cp")
-barn_scene = ExtResource("3_2a5cp")
+barn_scene = ExtResource("4_2a5cp")
 mill_scene = ExtResource("4_2a5cp")
 
 [node name="Grid" type="Node2D" parent="."]

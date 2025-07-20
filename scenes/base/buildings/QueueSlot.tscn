@@ -1,24 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://b53slg5yktfuq"]
+[gd_scene load_steps=2 format=3 uid="uid://b53slg5yktfuq"]
 
 [ext_resource type="Script" uid="uid://b5p2e2bcu4anb" path="res://scripts/base/buildings/QueueSlot.gd" id="1_mcpew"]
-[ext_resource type="Texture2D" uid="uid://ddtgp46ty6ymv" path="res://ui/sprites/frame.png" id="2_esc34"]
 
 [node name="QueueSlot" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 8.0
 offset_bottom = 8.0
-scale = Vector2(0.321659, 0.206934)
+scale = Vector2(16.3283, 15.9793)
 script = ExtResource("1_mcpew")
 
 [node name="NameLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "2"
+scale = Vector2(0.191938, 0.152731)
 
 [node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_esc34")
+scale = Vector2(0.195015, 0.202758)
