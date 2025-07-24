@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://co0v1fcs8kwme"]
+
+[ext_resource type="Script" uid="uid://koi2s4m5hkv5" path="res://scripts/mob.gd" id="1_s2wnx"]
+[ext_resource type="PackedScene" uid="uid://dornh2ojnlb68" path="res://scenes/mobs/mob_components/HealthComponent.tscn" id="2_q44lt"]
+[ext_resource type="PackedScene" uid="uid://0wypuj35amd5" path="res://scenes/mobs/mob_components/MovementComponent.tscn" id="3_62b1e"]
+[ext_resource type="PackedScene" uid="uid://bk6bvqafixxwn" path="res://scenes/mobs/mob_components/AnimationComponent.tscn" id="4_62b1e"]
+
+[node name="Mob" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_s2wnx")
+sprite = NodePath("sprite")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="collider" type="CollisionShape2D" parent="."]
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_q44lt")]
+
+[node name="MovementComponent" parent="." instance=ExtResource("3_62b1e")]
+
+[node name="AnimationComponent" parent="." instance=ExtResource("4_62b1e")]
