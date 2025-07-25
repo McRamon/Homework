@@ -3,6 +3,10 @@ class_name AnimationComponent
 
 
 @export var mob: Node2D
+@export var mob_sprite: Node2D
+
+@export var color_shader:= preload("res://assets/shaders/color_shader.gdshader")
+
 var tween: Tween
 
 func _ready():

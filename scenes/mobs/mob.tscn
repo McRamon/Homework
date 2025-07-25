@@ -18,4 +18,6 @@ texture_filter = 1
 
 [node name="MovementComponent" parent="." instance=ExtResource("3_62b1e")]
 
-[node name="AnimationComponent" parent="." instance=ExtResource("4_62b1e")]
+[node name="AnimationComponent" parent="." node_paths=PackedStringArray("mob", "mob_sprite") instance=ExtResource("4_62b1e")]
+mob = NodePath("..")
+mob_sprite = NodePath("../sprite")
