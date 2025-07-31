@@ -16,10 +16,10 @@ func get_movement_input() -> Vector2:
 	return input_direction
 	
 func player_input():
-	if Input.is_action_just_pressed("LMB"):
+	if Input.is_action_just_pressed("mouse_left"):
 		use_attack_main(owner, get_attack_direction())
 		print(owner, " pressed LMB")
-	if Input.is_action_just_pressed("RMB"):
+	if Input.is_action_just_pressed("mouse_right"):
 		print(owner, " pressed RMB")
 		use_attack_secondary(owner, get_attack_direction())
 	if Input.is_action_just_pressed("ability"):

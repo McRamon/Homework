@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bg0fpe7icftou" path="res://Base/base/buildings/house.tscn" id="2_m8tcs"]
 [ext_resource type="PackedScene" uid="uid://cskwht2ywc8fl" path="res://Base/base/buildings/barn.tscn" id="3_5nnj5"]
 [ext_resource type="PackedScene" uid="uid://chi8mgnkjlrte" path="res://Base/base/buildings/mill.tscn" id="4_spyfa"]
-[ext_resource type="Script" uid="uid://bnklsggrwv3r5" path="res://scripts/autoloads/ResourceManager.gd" id="5_bvkwx"]
+[ext_resource type="Script" uid="uid://bnklsggrwv3r5" path="res://Code/autoloads/ResourceManager.gd" id="5_bvkwx"]
 [ext_resource type="Script" uid="uid://cwih4o76gqssw" path="res://Base/code/grid.gd" id="6_podhj"]
 [ext_resource type="Script" uid="uid://b2gpdxyluowho" path="res://Base/code/UIManager.gd" id="7_y3jew"]
 

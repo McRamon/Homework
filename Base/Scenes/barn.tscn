@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b36tmf20yl1kc"]
 
 [ext_resource type="Script" uid="uid://8to4jfgtsuqu" path="res://Base/code/buildings/building.gd" id="1_xlpyp"]
-[ext_resource type="Texture2D" uid="uid://c0uhnt1ai5fq6" path="res://assets/spritesTEST/128x256.png" id="2_ldo1f"]
+[ext_resource type="Texture2D" uid="uid://c0uhnt1ai5fq6" path="res://Base/spritesTEST/128x256.png" id="2_ldo1f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlpyp"]
 size = Vector2(256, 128)

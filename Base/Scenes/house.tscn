@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://l3rxcdrrixgh"]
 
 [ext_resource type="Script" uid="uid://8to4jfgtsuqu" path="res://Base/code/buildings/building.gd" id="1_d7po0"]
-[ext_resource type="Texture2D" uid="uid://brbrqtlh0exxd" path="res://assets/spritesTEST/64x64.png" id="2_qtlar"]
+[ext_resource type="Texture2D" uid="uid://brbrqtlh0exxd" path="res://Base/spritesTEST/64x64.png" id="2_qtlar"]
 [ext_resource type="Script" uid="uid://h5pwy2bvu23f" path="res://Base/code/buildings/resource_producer.gd" id="3_rk7hg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtlar"]
