@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cenido31aoa2b"]
+
+[ext_resource type="PackedScene" uid="uid://js06itgeiovj" path="res://Code/Mobs/mob.tscn" id="1_01xs3"]
+[ext_resource type="Texture2D" uid="uid://bsmgjayugdo1i" path="res://Assets/character_leslie.png" id="2_oc5qm"]
+
+[node name="enemy_basic" node_paths=PackedStringArray("health_component", "movement_component", "control_component") instance=ExtResource("1_01xs3")]
+health_component = NodePath("HealthComponent")
+movement_component = NodePath("MovementComponent")
+control_component = NodePath("ControlComponent")
+
+[node name="mob_sprite" parent="." index="0"]
+texture = ExtResource("2_oc5qm")
+
+[node name="detection_area" parent="." index="2"]
+position = Vector2(-1, 26)
+scale = Vector2(1, 0.6)
+
+[node name="HealthComponent" parent="." index="3"]
+max_health = 20
+
+[node name="ControlComponent" parent="." index="5" node_paths=PackedStringArray("movement_component")]
+movement_component = NodePath("../MovementComponent")
