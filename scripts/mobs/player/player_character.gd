@@ -1,2 +1,0 @@
-extends Mob
-class_name PlayerCharacter

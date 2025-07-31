@@ -21,7 +21,7 @@ buses/default_bus_layout="res://assets/audio/default_bus_layout.tres"
 
 [autoload]
 
-ResourceManager="*res://scripts/autoloads/resource_manager.gd"
+ResourceManager="*res://scripts/autoloads/ResourceManager.gd"
 AudioManager="*res://scripts/autoloads/AudioManager.gd"
 
 [display]
@@ -33,8 +33,9 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
+"res://Base/": "red",
+"res://Quests/": "yellow",
 "res://assets/": "green",
-"res://scenes/": "red",
 "res://scripts/": "blue",
 "res://ui/": "purple"
 }
