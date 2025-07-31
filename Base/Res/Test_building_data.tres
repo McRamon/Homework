@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BuildingData" load_steps=4 format=3 uid="uid://d3cjn0qo436rw"]
+
+[ext_resource type="Texture2D" uid="uid://brbrqtlh0exxd" path="res://Base/spritesTEST/64x64.png" id="1_suvrr"]
+[ext_resource type="PackedScene" uid="uid://cl7jglaj27455" path="res://Base/Scenes/test_building.tscn" id="3_2g6op"]
+[ext_resource type="Script" uid="uid://2bg72wd14nkl" path="res://Base/code/buildings/buildingData.gd" id="3_ogbh1"]
+
+[resource]
+resource_name = "test"
+script = ExtResource("3_ogbh1")
+name = "test"
+icon_preview = ExtResource("1_suvrr")
+built_texture = ExtResource("1_suvrr")
+scene = ExtResource("3_2g6op")
+footprint = Vector2i(2, 2)
+cost = {
+"stone": 0,
+"wood": 0
+}
+build_time = 3.0
+metadata/_custom_type_script = "uid://2bg72wd14nkl"

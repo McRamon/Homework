@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmftm655ex80l"]
+
+[ext_resource type="Script" uid="uid://cc871txs03kxv" path="res://Base/code/buildings/buildingManager.gd" id="1_dy6p6"]
+[ext_resource type="Script" uid="uid://cyef6fm7drt7g" path="res://Base/code/buildings/buildUIManager.gd" id="2_erhp6"]
+[ext_resource type="Script" uid="uid://b2gpdxyluowho" path="res://Base/code/buildings/UIManager.gd" id="2_ikoh5"]
+[ext_resource type="Script" uid="uid://cw66jfeih5jjc" path="res://Base/code/buildings/craftingUI.gd" id="3_erhp6"]
+[ext_resource type="Script" uid="uid://d1qq0w8wspikv" path="res://Base/code/buildings/buildButton.gd" id="3_ikoh5"]
+[ext_resource type="Resource" uid="uid://d3cjn0qo436rw" path="res://Base/Res/Test_building_data.tres" id="4_tea0k"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="BuildingManager" type="Node2D" parent="."]
+script = ExtResource("1_dy6p6")
+
+[node name="Buildings" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BuildUIManager" type="CanvasLayer" parent="CanvasLayer"]
+script = ExtResource("2_erhp6")
+
+[node name="ConfirmDialog" type="ConfirmationDialog" parent="CanvasLayer/BuildUIManager"]
+
+[node name="CraftingUI" type="PopupPanel" parent="CanvasLayer"]
+size = Vector2i(230, 230)
+visible = true
+script = ExtResource("3_erhp6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CraftingUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CloseButton" type="Button" parent="CanvasLayer/CraftingUI"]
+anchors_preset = -1
+anchor_left = 0.852
+anchor_right = 0.991
+anchor_bottom = 0.135
+offset_left = -191.96
+offset_top = 4.0
+offset_right = -1.93001
+offset_bottom = 194.95
+grow_horizontal = 0
+scale = Vector2(0.127287, 0.133184)
+
+[node name="ResourceUI" type="CanvasLayer" parent="."]
+script = ExtResource("2_ikoh5")
+
+[node name="wood_label" type="Label" parent="ResourceUI"]
+offset_left = 1015.0
+offset_top = 11.0
+offset_right = 1055.0
+offset_bottom = 34.0
+
+[node name="stone_label" type="Label" parent="ResourceUI"]
+offset_left = 984.0
+offset_top = 66.0
+offset_right = 1024.0
+offset_bottom = 89.0
+
+[node name="food_label" type="Label" parent="ResourceUI"]
+offset_left = 866.0
+offset_top = 118.0
+offset_right = 906.0
+offset_bottom = 141.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+offset_right = 12.0
+offset_bottom = 8.0
+scale = Vector2(2.05983, 4.26812)
+
+[node name="Button" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_ikoh5")
+building_data = ExtResource("4_tea0k")

@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cl7jglaj27455"]
+
+[ext_resource type="Script" uid="uid://d1a4jdonqx0at" path="res://Base/code/buildings/buildingBase.gd" id="1_81rkv"]
+[ext_resource type="Texture2D" uid="uid://brbrqtlh0exxd" path="res://Base/spritesTEST/64x64.png" id="2_eykwq"]
+[ext_resource type="Script" uid="uid://dxwoovfts22uc" path="res://Base/code/buildings/craftingStation.gd" id="3_eykwq"]
+[ext_resource type="Script" uid="uid://cgk44l0d3guyf" path="res://Base/code/buildings/resource.gd" id="4_cefv1"]
+[ext_resource type="Resource" uid="uid://un8iegvhkv2s" path="res://Base/Res/test_res.tres" id="5_yjwfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdjqh"]
+size = Vector2(64, 64)
+
+[node name="Test_building" type="Area2D"]
+script = ExtResource("1_81rkv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_eykwq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tdjqh")
+
+[node name="BuildTimer" type="Timer" parent="."]
+
+[node name="CountdownLabel" type="Label" parent="."]
+offset_left = -32.0
+offset_top = 32.0
+offset_right = 8.0
+offset_bottom = 55.0
+text = "00000"
+
+[node name="CraftingStation" type="Node2D" parent="."]
+script = ExtResource("3_eykwq")
+recipes = Array[ExtResource("4_cefv1")]([ExtResource("5_yjwfe")])
+
+[node name="Timer" type="Timer" parent="CraftingStation"]
+
+[node name="StatusLabel" type="Label" parent="CraftingStation"]
+offset_right = 40.0
+offset_bottom = 23.0

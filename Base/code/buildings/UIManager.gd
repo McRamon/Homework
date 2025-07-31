@@ -3,16 +3,19 @@ extends CanvasLayer
 @onready var wood_label  : Label = $wood_label
 @onready var stone_label : Label = $stone_label
 @onready var food_label  : Label = $food_label
+ # Кнопка постройки
 
 func _ready() -> void:
 	# Инициализация при старте
 	_on_resource_changed("wood",  ResourceManager.resources["wood"])
 	_on_resource_changed("stone", ResourceManager.resources["stone"])
 	_on_resource_changed("food",  ResourceManager.resources["food"])
-	# Подписка на изменения
+	# Подписка на изменения ресурсов
 	ResourceManager.connect("resource_changed", Callable(self, "_on_resource_changed"))
+	# Подключаем обработчик нажатия на кнопку
 	
 
+	
 func _on_resource_changed(type: String, amount: int) -> void:
 	match type:
 		"wood":
@@ -23,4 +26,4 @@ func _on_resource_changed(type: String, amount: int) -> void:
 			food_label.text  = "Food: %d"  % amount
 		_:
 			pass
-	print("Обновляем ресурс:", type, amount) # ← это должно появиться в Output
+	print("Обновляем ресурс:", type, amount)
