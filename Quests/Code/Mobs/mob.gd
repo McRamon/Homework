@@ -4,6 +4,7 @@ class_name Mob
 @export var health_component: HealthComponent
 @export var movement_component: MovementComponent
 @export var control_component: ControlComponent
+@export var animation_component: AnimationComponent
 
 func _ready():
 	health_component.died.connect(_on_death)

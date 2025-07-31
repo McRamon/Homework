@@ -91,3 +91,4 @@ position = Vector2(-204, 299)
 position = Vector2(600, 340)
 
 [editable path="TEST PLAYER CHARACTER"]
+[editable path="enemy_basic4"]

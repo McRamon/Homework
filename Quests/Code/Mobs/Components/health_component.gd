@@ -14,6 +14,7 @@ func _ready():
 func take_damage(amount: int):
 	var old_health = current_health
 	current_health = max(0, current_health - amount)
+	print(get_parent(), " takes ", amount, " damage")
 	
 	if current_health <= 0:
 		emit_signal("died")

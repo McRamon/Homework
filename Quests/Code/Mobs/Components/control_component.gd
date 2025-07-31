@@ -6,6 +6,7 @@ class_name ControlComponent
 @export var ability: Ability
 @export var movement_component: Node
 
+
 func _ready():
 	set_physics_process(true)
 	
@@ -21,13 +22,13 @@ func _physics_process(delta: float) -> void:
 func get_movement_input() -> Vector2:
 	return Vector2.ZERO
 	
-func use_attack_main(mob, vector):
+func use_attack_main(mob: CharacterBody2D, direction: Vector2):
 	if attack_main:
-		attack_main.activate(mob, vector)
+		attack_main.activate(mob, direction)
 	
-func use_attack_secondary(mob, vector):
+func use_attack_secondary(mob: CharacterBody2D, direction: Vector2):
 	if attack_secondary:
-		attack_secondary.activate(mob, vector)
+		attack_secondary.activate(mob, direction)
 	
 func use_ability(mob, vector):
 	if ability:
