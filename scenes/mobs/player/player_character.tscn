@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://hpfgtc6k61ui"]
+
+[ext_resource type="PackedScene" uid="uid://co0v1fcs8kwme" path="res://scenes/mobs/mob.tscn" id="1_6pido"]
+[ext_resource type="Texture2D" uid="uid://conexrgok6civ" path="res://assets/sprites/mobs/player_character/character_test.png" id="1_auamg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkacd"]
+size = Vector2(16, 8)
+
+[node name="PlayerCharacter" node_paths=PackedStringArray("health_component", "movement_component", "animation_component") instance=ExtResource("1_6pido")]
+health_component = NodePath("HealthComponent")
+movement_component = NodePath("MovementComponent")
+animation_component = NodePath("AnimationComponent")
+
+[node name="sprite" parent="." index="0"]
+texture = ExtResource("1_auamg")
+
+[node name="collider" parent="." index="1"]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_nkacd")
+
+[node name="AnimationComponent" parent="." index="4" node_paths=PackedStringArray("mob")]
+mob = NodePath("../sprite")
