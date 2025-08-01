@@ -27,5 +27,5 @@ func _physics_process(delta: float):
 func _on_death():
 	pass
 	
-func _on_health_change():
+func _on_health_change(old_amount, new_amount):
 	pass

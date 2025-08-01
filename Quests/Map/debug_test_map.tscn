@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=4 uid="uid://towysidyppj3"]
+[gd_scene load_steps=10 format=4 uid="uid://towysidyppj3"]
 
 [ext_resource type="Texture2D" uid="uid://m268xq57vjgi" path="res://Quests/Assets/tiles_test.png" id="1_bmfjl"]
+[ext_resource type="Script" uid="uid://blu5atnes7o6k" path="res://Quests/level.gd" id="1_krwaf"]
 [ext_resource type="PackedScene" uid="uid://c1ku7n70e0th7" path="res://Quests/Code/Mobs/Player/player_character.tscn" id="3_ek1pq"]
 [ext_resource type="PackedScene" uid="uid://dc1as37eao0xm" path="res://Quests/Code/Camera/level_camera.tscn" id="3_vjnn8"]
+[ext_resource type="Resource" uid="uid://b3bbwat83hma" path="res://Quests/Code/Mobs/Actions/Weapon/mace.tres" id="4_tqpee"]
 [ext_resource type="PackedScene" uid="uid://cenido31aoa2b" path="res://Quests/Code/Mobs/Enemies/enemy_basic.tscn" id="5_1yt3y"]
+[ext_resource type="PackedScene" uid="uid://dm2m757ldchg0" path="res://Quests/Map/Spawners/spawner_standard.tscn" id="6_i82wj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vjnn8"]
 texture = ExtResource("1_bmfjl")
@@ -47,6 +50,7 @@ physics_layer_0/collision_mask = 7
 sources/1 = SubResource("TileSetAtlasSource_vjnn8")
 
 [node name="debug_test_map" type="Node2D"]
+script = ExtResource("1_krwaf")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
@@ -60,17 +64,20 @@ target = NodePath("../TEST PLAYER CHARACTER")
 [node name="TEST PLAYER CHARACTER" parent="." instance=ExtResource("3_ek1pq")]
 position = Vector2(210, 273)
 
+[node name="ControlComponent" parent="TEST PLAYER CHARACTER" index="5"]
+attack_main = ExtResource("4_tqpee")
+
 [node name="enemy_basic" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(305, 28)
+position = Vector2(405, 324)
 
 [node name="enemy_basic2" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(421, 94)
+position = Vector2(524, 320)
 
 [node name="enemy_basic3" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(531, 202)
+position = Vector2(577, 235)
 
 [node name="enemy_basic4" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(-181, 147)
+position = Vector2(-209, 325)
 
 [node name="HealthComponent" parent="enemy_basic4" index="3"]
 max_health = 100
@@ -78,27 +85,17 @@ max_health = 100
 [node name="mob_hp_bar" parent="enemy_basic4" index="8"]
 bar_width = 100.0
 
-[node name="enemy_basic5" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(68, -76)
+[node name="spawner" parent="." instance=ExtResource("6_i82wj")]
+position = Vector2(-159, -101)
+spawn_list = Array[PackedScene]([ExtResource("5_1yt3y"), ExtResource("5_1yt3y")])
 
-[node name="HealthComponent" parent="enemy_basic5" index="3"]
-max_health = 10
+[node name="spawner2" parent="." instance=ExtResource("6_i82wj")]
+position = Vector2(98, -157)
+spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
 
-[node name="enemy_basic6" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(-210, 28)
-
-[node name="enemy_basic7" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(-156, -9)
-
-[node name="enemy_basic8" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(-143, 337)
-
-[node name="enemy_basic9" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(-204, 299)
-
-[node name="enemy_basic10" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(600, 340)
+[node name="spawner3" parent="." instance=ExtResource("6_i82wj")]
+position = Vector2(290, -161)
+spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
 
 [editable path="TEST PLAYER CHARACTER"]
 [editable path="enemy_basic4"]
-[editable path="enemy_basic5"]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponRanged" load_steps=3 format=3 uid="uid://ditn4g3p6si45"]
+
+[ext_resource type="Script" uid="uid://cxxnbebrab4xk" path="res://Quests/Code/Mobs/Actions/Weapon/Ranged/weapon_ranged.gd" id="1_n7p3d"]
+[ext_resource type="PackedScene" uid="uid://csaaeh3jfar3t" path="res://Quests/Code/Mobs/Actions/Effects/Weapons/bow_arrow_basic.tscn" id="2_01er1"]
+
+[resource]
+script = ExtResource("1_n7p3d")
+distance = 500.0
+speed = 1000.0
+piercing = false
+weapon_effect = ExtResource("2_01er1")
+damage = 10
+cooldown = 1.0
+metadata/_custom_type_script = "uid://cxxnbebrab4xk"

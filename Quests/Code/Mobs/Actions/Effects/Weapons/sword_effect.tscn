@@ -1,17 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://csaaeh3jfar3t"]
+[gd_scene load_steps=7 format=3 uid="uid://bqptulpjng63v"]
 
-[ext_resource type="Texture2D" uid="uid://b8fw257qmunsx" path="res://Quests/Assets/sword_test_swing.png" id="1_xm1kx"]
+[ext_resource type="Texture2D" uid="uid://b8fw257qmunsx" path="res://Quests/Assets/sword_test_swing.png" id="1_m27yh"]
+[ext_resource type="Script" uid="uid://cfp5xexrmi0hm" path="res://Quests/Code/Mobs/Actions/Effects/Weapons/weapon_effect.gd" id="2_v8cky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb5uq"]
-atlas = ExtResource("1_xm1kx")
+atlas = ExtResource("1_m27yh")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75vsr"]
-atlas = ExtResource("1_xm1kx")
+atlas = ExtResource("1_m27yh")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlxpr"]
-atlas = ExtResource("1_xm1kx")
+atlas = ExtResource("1_m27yh")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xceyr"]
@@ -38,6 +39,7 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_xceyr")
 animation = &"swing"
 offset = Vector2(0, -16)
+script = ExtResource("2_v8cky")
 
 [node name="attack_zone" type="Area2D" parent="."]
 collision_layer = 16

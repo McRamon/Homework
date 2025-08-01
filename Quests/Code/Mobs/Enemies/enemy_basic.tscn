@@ -9,6 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cwsk"]
 
 [node name="enemy_basic" instance=ExtResource("1_01xs3")]
+z_index = 4
 collision_layer = 4
 
 [node name="mob_sprite" parent="." index="0"]

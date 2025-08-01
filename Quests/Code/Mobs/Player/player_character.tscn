@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bsmgjayugdo1i" path="res://Quests/Assets/character_leslie.png" id="2_px0y7"]
 [ext_resource type="Script" uid="uid://6lwrprvgdy8l" path="res://Quests/Code/Mobs/Components/player_control_component.gd" id="2_r48du"]
 [ext_resource type="Script" uid="uid://c06tq0vvvnhfm" path="res://Quests/Code/Mobs/Player/player_character.gd" id="2_y84lb"]
-[ext_resource type="Resource" uid="uid://djq7ufg7eunhp" path="res://Quests/Code/Mobs/Abilities/Dash/Resources/dash_damage.tres" id="4_6gv03"]
-[ext_resource type="Resource" uid="uid://cbeb4ln5a2btn" path="res://Quests/Code/Mobs/Abilities/Attack/sword.tres" id="5_7m8lo"]
+[ext_resource type="Resource" uid="uid://djq7ufg7eunhp" path="res://Quests/Code/Mobs/Actions/Dash/Resources/dash_damage.tres" id="4_6gv03"]
+[ext_resource type="Resource" uid="uid://cbeb4ln5a2btn" path="res://Quests/Code/Mobs/Actions/Weapon/sword.tres" id="5_7m8lo"]
 
 [node name="player_character" instance=ExtResource("1_0wiex")]
 z_index = 5

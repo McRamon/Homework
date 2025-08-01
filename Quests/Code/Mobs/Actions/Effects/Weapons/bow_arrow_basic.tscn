@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://csaaeh3jfar3t"]
+
+[ext_resource type="Texture2D" uid="uid://blfbpw38caqvb" path="res://Quests/Assets/test_arrow.png" id="1_asxxe"]
+[ext_resource type="Script" uid="uid://cy1x6adqwsay1" path="res://Quests/Code/Mobs/Actions/Effects/Weapons/ranged_weapon_effect.gd" id="2_e8ge7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb5uq"]
+atlas = ExtResource("1_asxxe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75vsr"]
+atlas = ExtResource("1_asxxe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlxpr"]
+atlas = ExtResource("1_asxxe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xceyr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb5uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75vsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlxpr")
+}],
+"loop": true,
+"name": &"projectile",
+"speed": 24.0
+}]
+
+[node name="bow_arrow_basic" type="AnimatedSprite2D"]
+z_index = 6
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_xceyr")
+animation = &"projectile"
+offset = Vector2(0, -16)
+script = ExtResource("2_e8ge7")
+
+[node name="collision_zone" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision_zone"]
+position = Vector2(-0.666667, 0.666667)
+scale = Vector2(1.94853, 1.17096)
+polygon = PackedVector2Array(-1.71069, -5.40867, -1.19748, -26.1893, 1.36855, -26.1893, 1.88176, -5.40867)
