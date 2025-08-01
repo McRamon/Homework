@@ -14,7 +14,9 @@ func _ready():
 	health_component = get_parent().get_node_or_null("HealthComponent")
 	if not health_component:
 		push_warning("Mob ", self, " - no HealthComponent found for HP bar")
-		
+		return
+	
+	await get_tree().process_frame
 	shown_health = health_component.max_health
 	health_component.health_changed.connect(_on_health_changed)
 	
@@ -31,6 +33,10 @@ func _update_bar():
 
 	var current = health_component.current_health
 	var max_val = health_component.max_health
+	if health_component.current_health >= health_component.max_health:
+		visible = false
+	else:
+		visible = true
 
 	# Ratios
 	var hp_ratio = clamp(float(current) / float(max_val), 0.0, 1.0)

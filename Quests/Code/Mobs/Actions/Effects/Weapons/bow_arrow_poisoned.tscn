@@ -1,0 +1,8 @@
+[gd_scene load_steps=4 format=3 uid="uid://chu1ats3ihulg"]
+
+[ext_resource type="PackedScene" uid="uid://csaaeh3jfar3t" path="res://Quests/Code/Mobs/Actions/Effects/Weapons/bow_arrow_basic.tscn" id="1_rbes3"]
+[ext_resource type="Script" uid="uid://c14do17onnt64" path="res://Quests/Code/Mobs/Actions/Status Effects/status_effect.gd" id="2_2and3"]
+[ext_resource type="Resource" uid="uid://dtkpo5au6g1no" path="res://Quests/Code/Mobs/Actions/Status Effects/poison.tres" id="3_2and3"]
+
+[node name="bow_arrow_basic" instance=ExtResource("1_rbes3")]
+status_effect_list = Array[ExtResource("2_2and3")]([ExtResource("3_2and3")])

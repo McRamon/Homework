@@ -7,17 +7,24 @@ signal health_changed(old_value, new_value)
 @export var max_health := 100
 var current_health: int
 
+@export var starting_status_effects: Array[StatusEffect] = []
 var active_status_effects: Array[StatusEffect] = []
 
 
 func _ready():
+	await get_tree().process_frame
 	current_health = max_health
+	for i in starting_status_effects:
+		apply_status_effect(i)
+	
 	
 func _process(delta):
 	for i in active_status_effects:
 		if i.on_update(self, delta):
 			i.on_expire(self)
-	active_status_effects = active_status_effects.filter(func(e): return e.elapsed_time < e.duration)
+		active_status_effects = active_status_effects.filter(func(e):
+			return e.duration == 0 or e.elapsed_time < e.duration
+		)
 	
 func take_damage(amount: int):
 	var old_health = current_health

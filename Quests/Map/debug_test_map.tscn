@@ -61,29 +61,11 @@ position = Vector2(208, 274)
 target = NodePath("../TEST PLAYER CHARACTER")
 
 [node name="TEST PLAYER CHARACTER" parent="." instance=ExtResource("3_ek1pq")]
-position = Vector2(210, 273)
-
-[node name="enemy_basic" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(405, 324)
-
-[node name="enemy_basic2" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(524, 320)
-
-[node name="enemy_basic3" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(577, 235)
-
-[node name="enemy_basic4" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(-209, 325)
-
-[node name="HealthComponent" parent="enemy_basic4" index="3"]
-max_health = 100
-
-[node name="mob_hp_bar" parent="enemy_basic4" index="8"]
-bar_width = 100.0
+position = Vector2(134, -20)
 
 [node name="spawner" parent="." instance=ExtResource("6_i82wj")]
 position = Vector2(-159, -101)
-spawn_list = Array[PackedScene]([ExtResource("5_1yt3y"), ExtResource("5_1yt3y")])
+spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
 
 [node name="spawner2" parent="." instance=ExtResource("6_i82wj")]
 position = Vector2(98, -157)
@@ -94,4 +76,3 @@ position = Vector2(290, -161)
 spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
 
 [editable path="TEST PLAYER CHARACTER"]
-[editable path="enemy_basic4"]

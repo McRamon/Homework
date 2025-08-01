@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://csaaeh3jfar3t"]
+[gd_scene load_steps=7 format=3 uid="uid://csaaeh3jfar3t"]
 
 [ext_resource type="Texture2D" uid="uid://blfbpw38caqvb" path="res://Quests/Assets/test_arrow.png" id="1_asxxe"]
 [ext_resource type="Script" uid="uid://cy1x6adqwsay1" path="res://Quests/Code/Mobs/Actions/Effects/Weapons/ranged_weapon_effect.gd" id="2_e8ge7"]
-[ext_resource type="Script" uid="uid://c14do17onnt64" path="res://Quests/Code/Mobs/Actions/Status Effects/status_effect.gd" id="3_tdmd5"]
-[ext_resource type="Resource" uid="uid://dtkpo5au6g1no" path="res://Quests/Code/Mobs/Actions/Status Effects/poison.tres" id="4_usy05"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb5uq"]
 atlas = ExtResource("1_asxxe")
@@ -42,7 +40,6 @@ sprite_frames = SubResource("SpriteFrames_xceyr")
 animation = &"projectile"
 offset = Vector2(0, -16)
 script = ExtResource("2_e8ge7")
-status_effect_list = Array[ExtResource("3_tdmd5")]([ExtResource("4_usy05")])
 
 [node name="collision_zone" type="Area2D" parent="."]
 collision_layer = 16

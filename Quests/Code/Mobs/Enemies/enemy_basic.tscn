@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cenido31aoa2b"]
+[gd_scene load_steps=9 format=3 uid="uid://cenido31aoa2b"]
 
 [ext_resource type="PackedScene" uid="uid://js06itgeiovj" path="res://Quests/Code/Mobs/mob.tscn" id="1_01xs3"]
 [ext_resource type="Texture2D" uid="uid://bsmgjayugdo1i" path="res://Quests/Assets/character_leslie.png" id="2_oc5qm"]
 [ext_resource type="Script" uid="uid://bfodvopuwngus" path="res://Quests/Code/Mobs/Components/ai_control_component.gd" id="3_tg2n1"]
+[ext_resource type="Script" uid="uid://c14do17onnt64" path="res://Quests/Code/Mobs/Actions/Status Effects/status_effect.gd" id="3_u1bbe"]
 [ext_resource type="Resource" uid="uid://b1yprkm6m74fq" path="res://Quests/Code/Mobs/Enemies/Scripts/basic_behavior.tres" id="4_8cwsk"]
 [ext_resource type="PackedScene" uid="uid://b0so11ubfa77f" path="res://Quests/Code/Mobs/Enemies/mob_hp_bar.tscn" id="5_7vxgb"]
+[ext_resource type="Resource" uid="uid://c76yv13vhfs2i" path="res://Quests/Code/Mobs/Actions/Status Effects/regeneration.tres" id="5_30272"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cwsk"]
 
@@ -21,6 +23,7 @@ scale = Vector2(1.04, 0.624)
 
 [node name="HealthComponent" parent="." index="3"]
 max_health = 20
+starting_status_effects = Array[ExtResource("3_u1bbe")]([ExtResource("5_30272")])
 
 [node name="ControlComponent" parent="." index="5"]
 script = ExtResource("3_tg2n1")

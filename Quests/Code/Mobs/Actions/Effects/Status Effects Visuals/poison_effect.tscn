@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dubcxwigl4o0q"]
+
+[ext_resource type="Texture2D" uid="uid://cf6b0h8na0irr" path="res://Quests/Assets/test_poison_visual_effect.png" id="1_up32w"]
+
+[node name="PoisonEffect" type="Sprite2D"]
+z_index = 10
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_up32w")
