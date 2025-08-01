@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqptulpjng63v"]
 
 [ext_resource type="Texture2D" uid="uid://b8fw257qmunsx" path="res://Quests/Assets/sword_test_swing.png" id="1_m27yh"]
-[ext_resource type="Script" uid="uid://cfp5xexrmi0hm" path="res://Quests/Code/Mobs/Actions/Effects/Weapons/weapon_effect.gd" id="2_v8cky"]
+[ext_resource type="Script" uid="uid://cfp5xexrmi0hm" path="res://Quests/Code/Mobs/Actions/Effects/Weapons/melee_weapon_effect.gd" id="2_v8cky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb5uq"]
 atlas = ExtResource("1_m27yh")

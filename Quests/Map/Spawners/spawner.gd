@@ -12,14 +12,14 @@ func _ready():
 		spawn_random()
 	$spawner_sprite.visible = false
 		
-func spawn_random() -> CharacterBody2D:
+func spawn_random() -> Node2D:
 	if spawn_list.is_empty():
 		push_warning("Spawner ", self, " has no entities to spawn!")
 		return null
 		
 	var random_index = randi() % spawn_list.size()
 	var scene_to_spawn = spawn_list[random_index]
-	var instance = scene_to_spawn.instantiate() as CharacterBody2D
+	var instance = scene_to_spawn.instantiate() as Node2D
 	print(self, " selected a mob to spawn: ", instance)
 	
 	instance.global_position = global_position
@@ -27,5 +27,5 @@ func spawn_random() -> CharacterBody2D:
 		instance.rotation = randf_range(0, TAU)
 		
 	get_parent().add_child(instance)
-	print("ADDED MOB: ", instance.is_inside_tree())
+	print("SPAWNED: ", instance.is_inside_tree())
 	return instance

@@ -7,5 +7,7 @@
 script = ExtResource("1_r5qoy")
 damage = 2
 weapon_effect = ExtResource("2_nf8xg")
+name = "Sword"
+description = "Standard Sword"
 cooldown = 0.2
 metadata/_custom_type_script = "uid://cnm7si338aakj"

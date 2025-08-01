@@ -1,6 +1,9 @@
 extends Resource
 class_name Action
 
+@export var name: String
+@export var description: String
+
 @export var cooldown: float
 var _on_cooldown:= false
 

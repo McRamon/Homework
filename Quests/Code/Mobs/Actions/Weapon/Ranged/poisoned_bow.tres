@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponRanged" load_steps=3 format=3 uid="uid://cih2rnknuniou"]
+
+[ext_resource type="Script" uid="uid://cxxnbebrab4xk" path="res://Quests/Code/Mobs/Actions/Weapon/Ranged/weapon_ranged.gd" id="1_v15li"]
+[ext_resource type="PackedScene" uid="uid://csaaeh3jfar3t" path="res://Quests/Code/Mobs/Actions/Effects/Weapons/bow_arrow_basic.tscn" id="2_ovkqt"]
+
+[resource]
+script = ExtResource("1_v15li")
+distance = 500.0
+speed = 1000.0
+piercing = true
+weapon_effect = ExtResource("2_ovkqt")
+damage = 2
+pellets = 1
+spread = 0.0
+name = "Poisoned Bow"
+description = "Bow that automatically tips arrows with toxin"
+cooldown = 0.0
+metadata/_custom_type_script = "uid://cxxnbebrab4xk"

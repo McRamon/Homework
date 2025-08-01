@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://towysidyppj3"]
+[gd_scene load_steps=9 format=4 uid="uid://towysidyppj3"]
 
 [ext_resource type="Texture2D" uid="uid://m268xq57vjgi" path="res://Quests/Assets/tiles_test.png" id="1_bmfjl"]
 [ext_resource type="Script" uid="uid://blu5atnes7o6k" path="res://Quests/level.gd" id="1_krwaf"]
 [ext_resource type="PackedScene" uid="uid://c1ku7n70e0th7" path="res://Quests/Code/Mobs/Player/player_character.tscn" id="3_ek1pq"]
 [ext_resource type="PackedScene" uid="uid://dc1as37eao0xm" path="res://Quests/Code/Camera/level_camera.tscn" id="3_vjnn8"]
-[ext_resource type="Resource" uid="uid://b3bbwat83hma" path="res://Quests/Code/Mobs/Actions/Weapon/mace.tres" id="4_tqpee"]
 [ext_resource type="PackedScene" uid="uid://cenido31aoa2b" path="res://Quests/Code/Mobs/Enemies/enemy_basic.tscn" id="5_1yt3y"]
 [ext_resource type="PackedScene" uid="uid://dm2m757ldchg0" path="res://Quests/Map/Spawners/spawner_standard.tscn" id="6_i82wj"]
 
@@ -63,9 +62,6 @@ target = NodePath("../TEST PLAYER CHARACTER")
 
 [node name="TEST PLAYER CHARACTER" parent="." instance=ExtResource("3_ek1pq")]
 position = Vector2(210, 273)
-
-[node name="ControlComponent" parent="TEST PLAYER CHARACTER" index="5"]
-attack_main = ExtResource("4_tqpee")
 
 [node name="enemy_basic" parent="." instance=ExtResource("5_1yt3y")]
 position = Vector2(405, 324)

@@ -7,5 +7,7 @@
 script = ExtResource("1_yrauh")
 damage = 18
 weapon_effect = ExtResource("2_ikwds")
+name = "Mace"
+description = "Standard mace"
 cooldown = 0.8
 metadata/_custom_type_script = "uid://cnm7si338aakj"
