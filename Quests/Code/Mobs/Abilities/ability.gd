@@ -1,5 +1,5 @@
 extends Resource
-class_name Ability
+class_name Action
 
 @export var cooldown: int
 

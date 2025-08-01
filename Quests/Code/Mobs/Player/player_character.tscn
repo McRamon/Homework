@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://6lwrprvgdy8l" path="res://Quests/Code/Mobs/Components/player_control_component.gd" id="2_r48du"]
 [ext_resource type="Script" uid="uid://c06tq0vvvnhfm" path="res://Quests/Code/Mobs/Player/player_character.gd" id="2_y84lb"]
 [ext_resource type="Resource" uid="uid://djq7ufg7eunhp" path="res://Quests/Code/Mobs/Abilities/Dash/Resources/dash_damage.tres" id="4_6gv03"]
-[ext_resource type="Resource" uid="uid://cbeb4ln5a2btn" path="res://Quests/Code/Mobs/Abilities/Attack/sword_basic.tres" id="5_7m8lo"]
+[ext_resource type="Resource" uid="uid://cbeb4ln5a2btn" path="res://Quests/Code/Mobs/Abilities/Attack/sword.tres" id="5_7m8lo"]
 
 [node name="player_character" instance=ExtResource("1_0wiex")]
 z_index = 5
@@ -14,6 +14,9 @@ script = ExtResource("2_y84lb")
 [node name="mob_sprite" parent="." index="0"]
 scale = Vector2(3, 3)
 texture = ExtResource("2_px0y7")
+
+[node name="mob_collision" parent="." index="1"]
+position = Vector2(0, 43.25)
 
 [node name="detection_area" parent="." index="2"]
 position = Vector2(-1, 29)
@@ -27,3 +30,6 @@ control_component = NodePath("../ControlComponent")
 script = ExtResource("2_r48du")
 attack_main = ExtResource("5_7m8lo")
 ability = ExtResource("4_6gv03")
+
+[node name="AnimationComponent" parent="." index="6" node_paths=PackedStringArray("sprite")]
+sprite = NodePath("../mob_sprite")

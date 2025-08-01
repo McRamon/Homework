@@ -1,9 +1,9 @@
 extends Node
 class_name ControlComponent
 
-@export var attack_main: Ability
-@export var attack_secondary: Ability
-@export var ability: Ability
+@export var attack_main: Action
+@export var attack_secondary: Action
+@export var ability: Action
 @export var movement_component: Node
 
 

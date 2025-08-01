@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AttackRanged" load_steps=3 format=3 uid="uid://ditn4g3p6si45"]
+
+[ext_resource type="Script" uid="uid://cxxnbebrab4xk" path="res://Quests/Code/Mobs/Abilities/Attack/Ranged/attack_ranged.gd" id="1_jbsk8"]
+[ext_resource type="PackedScene" uid="uid://csaaeh3jfar3t" path="res://Quests/Effects/Weapons/sword.tscn" id="2_c2h6k"]
+
+[resource]
+script = ExtResource("1_jbsk8")
+distance = 1500.0
+speed = 300.0
+piercing = false
+damage = 10
+weapon_effect = ExtResource("2_c2h6k")
+cooldown = 0
+metadata/_custom_type_script = "uid://cxxnbebrab4xk"

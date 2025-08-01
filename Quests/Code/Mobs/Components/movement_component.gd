@@ -27,6 +27,13 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, deceleration * delta)
 		
 	velocity *= friction
+	
+	if velocity > Vector2.ZERO:
+		var animation_component = get_parent().get_node_or_null("AnimationComponent")
+		animation_component.animation_walk()
+	else:
+		var animation_component = get_parent().get_node_or_null("AnimationComponent")
+		animation_component.animation_idle()	
 
 
 	

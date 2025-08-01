@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_n0lge")
+damage = 2
 weapon_effect = ExtResource("2_074dl")
 cooldown = 0
 metadata/_custom_type_script = "uid://cnm7si338aakj"

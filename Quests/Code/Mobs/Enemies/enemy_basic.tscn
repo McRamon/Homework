@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cenido31aoa2b"]
+[gd_scene load_steps=7 format=3 uid="uid://cenido31aoa2b"]
 
 [ext_resource type="PackedScene" uid="uid://js06itgeiovj" path="res://Quests/Code/Mobs/mob.tscn" id="1_01xs3"]
 [ext_resource type="Texture2D" uid="uid://bsmgjayugdo1i" path="res://Quests/Assets/character_leslie.png" id="2_oc5qm"]
 [ext_resource type="Script" uid="uid://bfodvopuwngus" path="res://Quests/Code/Mobs/Components/ai_control_component.gd" id="3_tg2n1"]
 [ext_resource type="Resource" uid="uid://b1yprkm6m74fq" path="res://Quests/Code/Mobs/Enemies/Scripts/basic_behavior.tres" id="4_8cwsk"]
+[ext_resource type="PackedScene" uid="uid://b0so11ubfa77f" path="res://Quests/Code/Mobs/Enemies/mob_hp_bar.tscn" id="5_7vxgb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cwsk"]
 
@@ -32,3 +33,6 @@ collision_mask = 2
 position = Vector2(0, 26)
 scale = Vector2(13.56, 6.92)
 shape = SubResource("CircleShape2D_8cwsk")
+
+[node name="mob_hp_bar" parent="." index="8" node_paths=PackedStringArray("health_component") instance=ExtResource("5_7vxgb")]
+health_component = NodePath("../HealthComponent")

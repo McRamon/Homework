@@ -72,8 +72,17 @@ position = Vector2(531, 202)
 [node name="enemy_basic4" parent="." instance=ExtResource("5_1yt3y")]
 position = Vector2(-181, 147)
 
+[node name="HealthComponent" parent="enemy_basic4" index="3"]
+max_health = 100
+
+[node name="mob_hp_bar" parent="enemy_basic4" index="8"]
+bar_width = 100.0
+
 [node name="enemy_basic5" parent="." instance=ExtResource("5_1yt3y")]
-position = Vector2(-172, 83)
+position = Vector2(68, -76)
+
+[node name="HealthComponent" parent="enemy_basic5" index="3"]
+max_health = 10
 
 [node name="enemy_basic6" parent="." instance=ExtResource("5_1yt3y")]
 position = Vector2(-210, 28)
@@ -92,3 +101,4 @@ position = Vector2(600, 340)
 
 [editable path="TEST PLAYER CHARACTER"]
 [editable path="enemy_basic4"]
+[editable path="enemy_basic5"]

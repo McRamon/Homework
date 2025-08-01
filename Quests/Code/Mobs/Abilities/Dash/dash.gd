@@ -1,4 +1,4 @@
-extends Ability
+extends Action
 class_name DashAbility
 
 @export var dash_distance: float = 150.0
@@ -36,9 +36,15 @@ func activate(mob: CharacterBody2D, direction: Vector2):
 func update(delta: float):
 	if not _is_dashing:
 		return
-		
+	
+	var old_position = _mob.global_position
 	_mob.velocity = _dash_direction * dash_speed
 	_mob.move_and_slide()
+	
+	if _mob.global_position.distance_to(old_position) < 1.0:
+		# Collision blocked movement → stop dash
+		_end_dash()
+		return
 	
 	if _trail_timer <= 0 and trail_scene:
 		_trail_timer = trail_spawn_rate
