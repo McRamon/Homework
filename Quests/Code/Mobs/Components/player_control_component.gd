@@ -2,8 +2,11 @@ extends ControlComponent
 class_name ControlComponentPlayer
 
 var input_direction:= Vector2.ZERO
+var enabled: bool = true
+var last_dir: Vector2 = Vector2.ZERO
 
 func _ready():
+	super()
 	print(owner)
 
 func _physics_process(delta: float) ->void:
@@ -12,8 +15,12 @@ func _physics_process(delta: float) ->void:
 
 
 func get_movement_input() -> Vector2:
-	input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	return input_direction
+	if enabled:
+		input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		last_dir = input_direction
+		return input_direction
+	else:
+		return last_dir
 	
 func player_input():
 	if Input.is_action_just_pressed("mouse_left"):

@@ -1,11 +1,9 @@
-extends Action
-class_name WeaponRanged
+extends ItemWeapon
+class_name ItemWeaponRanged
 
 @export var distance:= 500.0
 @export var speed:= 1000.0
 @export var piercing: bool = false
-@export var weapon_effect: PackedScene
-@export var damage:= 10
 
 @export var pellets:= 1
 @export var spread:= 0.0
@@ -14,12 +12,8 @@ var _direction: Vector2
 var _travelled_distance: float = 0.0
 
 
-func activate(mob: CharacterBody2D, direction: Vector2):
-	if not super(mob, direction):
-		return  
-		
+func use(mob: CharacterBody2D, direction: Vector2):
 	var spread_radians = deg_to_rad(spread)
-	
 	for i in range(pellets):
 			var angle_offset:= 0.0
 			if pellets > 1:
@@ -30,10 +24,11 @@ func activate(mob: CharacterBody2D, direction: Vector2):
 			projectile.rotation = pellet_direction.angle() + PI/2
 			projectile.global_position = mob.global_position
 			mob.get_parent().add_child(projectile)
-	
+			projectile.weapon_data = self
 			projectile.user = mob
 			projectile.direction = pellet_direction.normalized()
 			projectile.speed = speed
 			projectile.distance = distance
 			projectile.damage = damage
 			projectile.piercing = piercing
+	return true

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://csaaeh3jfar3t"]
 
 [ext_resource type="Texture2D" uid="uid://blfbpw38caqvb" path="res://Quests/Assets/test_arrow.png" id="1_asxxe"]
-[ext_resource type="Script" uid="uid://cy1x6adqwsay1" path="res://Quests/Code/Mobs/Actions/Effects/Weapons/ranged_weapon_effect.gd" id="2_e8ge7"]
+[ext_resource type="Script" uid="uid://cy1x6adqwsay1" path="res://Quests/Code/Mobs/Actions/Effects/Actions/ranged_weapon_effect.gd" id="2_e8ge7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb5uq"]
 atlas = ExtResource("1_asxxe")

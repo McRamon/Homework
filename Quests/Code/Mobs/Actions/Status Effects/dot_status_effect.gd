@@ -25,11 +25,11 @@ func on_update(target: Node, delta: float) -> bool:
 		if !is_heal:
 			if target.has_method("take_damage"):
 				target.take_damage(tick_amount)
-				print("Poison tick on ", target)
+				#print("Poison tick on ", target)
 		else:
 			if target.has_method("restore_health"):
 				target.restore_health(tick_amount)
-				print("Heal tick on ", target)
+				#print("Heal tick on ", target)
 	if duration == 0:
 		return false
 	return elapsed_time >= duration

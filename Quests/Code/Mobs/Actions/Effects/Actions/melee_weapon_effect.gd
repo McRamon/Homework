@@ -1,5 +1,5 @@
-extends BaseWeaponEffect
-class_name WeaponEffect
+extends WeaponEffect
+class_name MeleeWeaponEffect
 
 func _ready():
 	super._ready()

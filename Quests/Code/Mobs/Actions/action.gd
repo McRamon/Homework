@@ -1,25 +1,24 @@
-extends Resource
+extends Node
 class_name Action
 
-@export var name: String
-@export var description: String
+var user: CharacterBody2D
+var direction: Vector2
 
-@export var cooldown: float
+var cooldown: float = 0.0
 var _on_cooldown:= false
+
+func can_activate() -> bool:
+	return not _on_cooldown
 
 func activate(mob: CharacterBody2D, direction: Vector2):
 	if _on_cooldown:
 		return false
+	_start_cooldown()
+	
+func _start_cooldown():
 	_on_cooldown = true
-	
-	var timer = mob.get_tree().create_timer(cooldown)
+	get_tree().create_timer(cooldown).timeout.connect(_reset_cooldown)
 	print("attack is on cooldown")
-	timer.timeout.connect(_reset_cooldown)
-	
-	return true
-	
-func update(delta: float):
-	pass
 	
 func _reset_cooldown():
 	_on_cooldown = false

@@ -1,11 +1,15 @@
-[gd_scene load_steps=9 format=4 uid="uid://towysidyppj3"]
+[gd_scene load_steps=13 format=4 uid="uid://towysidyppj3"]
 
 [ext_resource type="Texture2D" uid="uid://m268xq57vjgi" path="res://Quests/Assets/tiles_test.png" id="1_bmfjl"]
 [ext_resource type="Script" uid="uid://blu5atnes7o6k" path="res://Quests/level.gd" id="1_krwaf"]
 [ext_resource type="PackedScene" uid="uid://c1ku7n70e0th7" path="res://Quests/Code/Mobs/Player/player_character.tscn" id="3_ek1pq"]
 [ext_resource type="PackedScene" uid="uid://dc1as37eao0xm" path="res://Quests/Code/Camera/level_camera.tscn" id="3_vjnn8"]
+[ext_resource type="PackedScene" uid="uid://q3ym0jwwg4ks" path="res://Quests/Map/Containers/weapon_container.tscn" id="5_00s84"]
 [ext_resource type="PackedScene" uid="uid://cenido31aoa2b" path="res://Quests/Code/Mobs/Enemies/enemy_basic.tscn" id="5_1yt3y"]
 [ext_resource type="PackedScene" uid="uid://dm2m757ldchg0" path="res://Quests/Map/Spawners/spawner_standard.tscn" id="6_i82wj"]
+[ext_resource type="Resource" uid="uid://chp6l0nvcyqpx" path="res://Code/Items/Weapons/bow.tres" id="8_00s84"]
+[ext_resource type="Resource" uid="uid://bpsuyomtcqy6f" path="res://Code/Items/Weapons/bow_multishot.tres" id="9_5uspp"]
+[ext_resource type="Resource" uid="uid://cxu3xbw5b6mv4" path="res://Code/Items/Weapons/bow_poisoned.tres" id="10_n4jx5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vjnn8"]
 texture = ExtResource("1_bmfjl")
@@ -57,11 +61,8 @@ tile_map_data = PackedByteArray("AAAGAAgAAQADAAIAAAAGAAcAAQABAAQAAAAHAAcAAQABAAQ
 tile_set = SubResource("TileSet_ek1pq")
 
 [node name="level_camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_vjnn8")]
-position = Vector2(208, 274)
-target = NodePath("../TEST PLAYER CHARACTER")
-
-[node name="TEST PLAYER CHARACTER" parent="." instance=ExtResource("3_ek1pq")]
-position = Vector2(134, -20)
+position = Vector2(180, -59)
+target = NodePath("../player_character")
 
 [node name="spawner" parent="." instance=ExtResource("6_i82wj")]
 position = Vector2(-159, -101)
@@ -75,4 +76,43 @@ spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
 position = Vector2(290, -161)
 spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
 
-[editable path="TEST PLAYER CHARACTER"]
+[node name="spawner4" parent="." instance=ExtResource("6_i82wj")]
+position = Vector2(-173, 127)
+spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
+
+[node name="spawner5" parent="." instance=ExtResource("6_i82wj")]
+position = Vector2(-154, 184)
+spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
+
+[node name="spawner6" parent="." instance=ExtResource("6_i82wj")]
+position = Vector2(-92, 221)
+spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
+
+[node name="spawner7" parent="." instance=ExtResource("6_i82wj")]
+position = Vector2(175, 348)
+spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
+
+[node name="spawner8" parent="." instance=ExtResource("6_i82wj")]
+position = Vector2(167, 293)
+spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
+
+[node name="spawner9" parent="." instance=ExtResource("6_i82wj")]
+position = Vector2(229, 330)
+spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
+
+[node name="player_character" parent="." instance=ExtResource("3_ek1pq")]
+position = Vector2(174, -72)
+
+[node name="weapon_container" parent="." instance=ExtResource("5_00s84")]
+position = Vector2(548, -28)
+weapon_data = ExtResource("8_00s84")
+
+[node name="weapon_container2" parent="." instance=ExtResource("5_00s84")]
+position = Vector2(552, 128)
+weapon_data = ExtResource("9_5uspp")
+
+[node name="weapon_container3" parent="." instance=ExtResource("5_00s84")]
+position = Vector2(556, 282)
+weapon_data = ExtResource("10_n4jx5")
+
+[editable path="player_character"]

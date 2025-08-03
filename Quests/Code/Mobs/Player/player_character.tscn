@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1ku7n70e0th7"]
+[gd_scene load_steps=9 format=3 uid="uid://c1ku7n70e0th7"]
 
 [ext_resource type="PackedScene" uid="uid://js06itgeiovj" path="res://Quests/Code/Mobs/mob.tscn" id="1_0wiex"]
 [ext_resource type="Texture2D" uid="uid://bsmgjayugdo1i" path="res://Quests/Assets/character_leslie.png" id="2_px0y7"]
 [ext_resource type="Script" uid="uid://6lwrprvgdy8l" path="res://Quests/Code/Mobs/Components/player_control_component.gd" id="2_r48du"]
 [ext_resource type="Script" uid="uid://c06tq0vvvnhfm" path="res://Quests/Code/Mobs/Player/player_character.gd" id="2_y84lb"]
-[ext_resource type="Resource" uid="uid://djq7ufg7eunhp" path="res://Quests/Code/Mobs/Actions/Dash/Resources/dash_damage.tres" id="4_6gv03"]
-[ext_resource type="Resource" uid="uid://cih2rnknuniou" path="res://Quests/Code/Mobs/Actions/Weapon/Ranged/poisoned_bow.tres" id="5_7m8lo"]
+[ext_resource type="Script" uid="uid://cnm7si338aakj" path="res://Quests/Code/Mobs/Actions/Weapon/action_use_item.gd" id="5_7m8lo"]
+[ext_resource type="Script" uid="uid://bdu8qj4fliuji" path="res://Quests/Code/Mobs/Actions/Dash/dash.gd" id="7_kfh73"]
+[ext_resource type="PackedScene" uid="uid://dcy4vdirggo3p" path="res://Quests/Code/Mobs/Actions/Scenes/trail_ghost.tscn" id="8_14sc7"]
+[ext_resource type="Resource" uid="uid://cofvve73yfytv" path="res://Code/Items/Weapons/sword.tres" id="8_v6cru"]
 
 [node name="player_character" instance=ExtResource("1_0wiex")]
 z_index = 5
@@ -19,7 +21,7 @@ texture = ExtResource("2_px0y7")
 position = Vector2(0, 43.25)
 
 [node name="detection_area" parent="." index="2"]
-position = Vector2(-1, 29)
+position = Vector2(0, 43)
 scale = Vector2(1.4, 0.840001)
 collision_mask = 6
 
@@ -28,8 +30,14 @@ control_component = NodePath("../ControlComponent")
 
 [node name="ControlComponent" parent="." index="5"]
 script = ExtResource("2_r48du")
-attack_main = ExtResource("5_7m8lo")
-ability = ExtResource("4_6gv03")
+
+[node name="action_use_item" type="Node" parent="ControlComponent" index="0"]
+script = ExtResource("5_7m8lo")
+item = ExtResource("8_v6cru")
+
+[node name="ability" type="Node" parent="ControlComponent" index="1"]
+script = ExtResource("7_kfh73")
+trail_scene = ExtResource("8_14sc7")
 
 [node name="AnimationComponent" parent="." index="6" node_paths=PackedStringArray("sprite")]
 sprite = NodePath("../mob_sprite")
