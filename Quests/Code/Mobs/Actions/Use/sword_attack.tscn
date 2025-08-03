@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://daui8pm4i10hs"]
+
+[ext_resource type="Script" uid="uid://cnm7si338aakj" path="res://Quests/Code/Mobs/Actions/Use/action_use_item.gd" id="1_axkfs"]
+
+[node name="Action" type="Node"]
+script = ExtResource("1_axkfs")

@@ -20,8 +20,9 @@ buses/default_bus_layout="res://assets/audio/default_bus_layout.tres"
 
 [autoload]
 
-ResourceManager="*res://Code/autoloads/ResourceManager.gd"
-AudioManager="*res://Code/autoloads/AudioManager.gd"
+ResourceManager="*res://Code/Autoloads/ResourceManager.gd"
+AudioManager="*res://Code/Autoloads/AudioManager.gd"
+CombatConsts="*res://Code/Autoloads/CombatConsts.gd"
 
 [display]
 

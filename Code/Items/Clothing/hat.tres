@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemClothing" load_steps=2 format=3 uid="uid://ccigyovmqqm1l"]
+
+[ext_resource type="Script" uid="uid://bdwaeg3iioyvj" path="res://Code/Items/Clothing/clothing.gd" id="1_4q2d6"]
+
+[resource]
+script = ExtResource("1_4q2d6")
+clothing_type = 0
+armor = 0
+resist = {}
+name = "Item"
+description = "This should not appear"
+flags = []
+stackable = false
+max_amount = 1
+usable = false
+cooldown = 0.0
+metadata/_custom_type_script = "uid://bdwaeg3iioyvj"

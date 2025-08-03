@@ -1,9 +1,18 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dpt5w44ffb88j"]
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dpt5w44ffb88j"]
 
 [ext_resource type="Texture2D" uid="uid://blfbpw38caqvb" path="res://Quests/Assets/test_arrow.png" id="1_l6qej"]
+[ext_resource type="Texture2D" uid="uid://675dbe07p0a8" path="res://Quests/Assets/altar_asset_test.png" id="2_lvq6b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ab822"]
 atlas = ExtResource("1_l6qej")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np0ja"]
+atlas = ExtResource("2_lvq6b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cdfh"]
+atlas = ExtResource("2_lvq6b")
 region = Rect2(0, 0, 32, 32)
 
 [resource]
@@ -26,12 +35,18 @@ animations = [{
 "name": &"quest_sword_ui_icon",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np0ja")
+}],
 "loop": true,
 "name": &"wood_icon",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cdfh")
+}],
 "loop": true,
 "name": &"wood_ui_icon",
 "speed": 5.0
