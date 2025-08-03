@@ -4,6 +4,7 @@ class_name Mob
 @export var health_component: HealthComponent
 @export var movement_component: MovementComponent
 @export var control_component: ControlComponent
+@export var animation_component: AnimationComponent
 
 func _ready():
 	health_component.died.connect(_on_death)
@@ -26,5 +27,5 @@ func _physics_process(delta: float):
 func _on_death():
 	pass
 	
-func _on_health_change():
+func _on_health_change(old_amount, new_amount):
 	pass

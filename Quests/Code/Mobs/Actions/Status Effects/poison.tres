@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DOTStatusEffect" load_steps=3 format=3 uid="uid://dtkpo5au6g1no"]
+
+[ext_resource type="Script" uid="uid://d0axlwj3h1cyo" path="res://Quests/Code/Mobs/Actions/Status Effects/dot_status_effect.gd" id="1_etjjq"]
+[ext_resource type="PackedScene" uid="uid://dubcxwigl4o0q" path="res://Quests/Code/Mobs/Actions/Effects/Status Effects Visuals/poison_effect.tscn" id="2_05g71"]
+
+[resource]
+script = ExtResource("1_etjjq")
+is_heal = false
+tick_amount = 2
+tick_interval = 1.0
+effect_name = "Basic Posion"
+description = "You better heal this"
+duration = 5.0
+visual_effect_scene = ExtResource("2_05g71")
+metadata/_custom_type_script = "uid://d0axlwj3h1cyo"

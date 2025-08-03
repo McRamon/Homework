@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://q3ym0jwwg4ks"]
+
+[ext_resource type="Script" uid="uid://gkhsaykxwl1q" path="res://Quests/Map/Containers/weapon_container.gd" id="1_1xfpv"]
+[ext_resource type="Texture2D" uid="uid://675dbe07p0a8" path="res://Quests/Assets/altar_asset_test.png" id="2_dw65k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s46py"]
+radius = 14.2258
+
+[node name="weapon_container" type="Node2D"]
+script = ExtResource("1_1xfpv")
+
+[node name="container_sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_dw65k")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+scale = Vector2(5.44, 4.21551)
+shape = SubResource("CircleShape2D_s46py")

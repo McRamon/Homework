@@ -1,22 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://cenido31aoa2b"]
+[gd_scene load_steps=9 format=3 uid="uid://cenido31aoa2b"]
 
 [ext_resource type="PackedScene" uid="uid://js06itgeiovj" path="res://Quests/Code/Mobs/mob.tscn" id="1_01xs3"]
 [ext_resource type="Texture2D" uid="uid://bsmgjayugdo1i" path="res://Quests/Assets/character_leslie.png" id="2_oc5qm"]
+[ext_resource type="Script" uid="uid://bfodvopuwngus" path="res://Quests/Code/Mobs/Components/ai_control_component.gd" id="3_tg2n1"]
+[ext_resource type="Script" uid="uid://c14do17onnt64" path="res://Quests/Code/Mobs/Actions/Status Effects/status_effect.gd" id="3_u1bbe"]
+[ext_resource type="Resource" uid="uid://b1yprkm6m74fq" path="res://Quests/Code/Mobs/Enemies/Scripts/basic_behavior.tres" id="4_8cwsk"]
+[ext_resource type="PackedScene" uid="uid://b0so11ubfa77f" path="res://Quests/Code/Mobs/Enemies/mob_hp_bar.tscn" id="5_7vxgb"]
+[ext_resource type="Resource" uid="uid://c76yv13vhfs2i" path="res://Quests/Code/Mobs/Actions/Status Effects/regeneration.tres" id="5_30272"]
 
-[node name="enemy_basic" node_paths=PackedStringArray("health_component", "movement_component", "control_component") instance=ExtResource("1_01xs3")]
-health_component = NodePath("HealthComponent")
-movement_component = NodePath("MovementComponent")
-control_component = NodePath("ControlComponent")
+[sub_resource type="CircleShape2D" id="CircleShape2D_8cwsk"]
+
+[node name="enemy_basic" instance=ExtResource("1_01xs3")]
+z_index = 4
+collision_layer = 4
 
 [node name="mob_sprite" parent="." index="0"]
 texture = ExtResource("2_oc5qm")
 
 [node name="detection_area" parent="." index="2"]
 position = Vector2(-1, 26)
-scale = Vector2(1, 0.6)
+scale = Vector2(1.04, 0.624)
 
 [node name="HealthComponent" parent="." index="3"]
 max_health = 20
+starting_status_effects = Array[ExtResource("3_u1bbe")]([ExtResource("5_30272")])
 
-[node name="ControlComponent" parent="." index="5" node_paths=PackedStringArray("movement_component")]
-movement_component = NodePath("../MovementComponent")
+[node name="ControlComponent" parent="." index="5"]
+script = ExtResource("3_tg2n1")
+behavior_data = ExtResource("4_8cwsk")
+
+[node name="locator" type="Area2D" parent="." index="7"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="locator" index="0"]
+position = Vector2(0, 26)
+scale = Vector2(13.56, 6.92)
+shape = SubResource("CircleShape2D_8cwsk")
+
+[node name="mob_hp_bar" parent="." index="8" node_paths=PackedStringArray("health_component") instance=ExtResource("5_7vxgb")]
+health_component = NodePath("../HealthComponent")
