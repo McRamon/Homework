@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="buildRequirement" load_steps=3 format=3 uid="uid://dhdxm65xphcqb"]
+
+[ext_resource type="Script" uid="uid://cfm3okk1e2j4t" path="res://Base/code/buildings/buildRequirement.gd" id="1_qxe4g"]
+[ext_resource type="Resource" uid="uid://crd4do40gy6ec" path="res://Base/Res/wood.tres" id="1_wqbao"]
+
+[resource]
+script = ExtResource("1_qxe4g")
+resource = ExtResource("1_wqbao")
+amount = 20
+metadata/_custom_type_script = "uid://cfm3okk1e2j4t"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://cispejpao7i3x"]
+
+[ext_resource type="Texture2D" uid="uid://ddtgp46ty6ymv" path="res://ui/sprites/frame.png" id="1_wk4yo"]
+[ext_resource type="Script" uid="uid://cgk44l0d3guyf" path="res://Base/code/buildings/ResourceData.gd" id="2_hcsmt"]
+
+[resource]
+script = ExtResource("2_hcsmt")
+name = "Test_res_01"
+icon = ExtResource("1_wk4yo")
+input = {
+"wood": 1
+}
+output = {
+"wood": 5
+}
+duration = 2.0

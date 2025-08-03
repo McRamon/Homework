@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BuildingData" load_steps=5 format=3 uid="uid://cmisornjydpu6"]
+
+[ext_resource type="Texture2D" uid="uid://c0uhnt1ai5fq6" path="res://Base/spritesTEST/128x256.png" id="1_rs7j7"]
+[ext_resource type="Texture2D" uid="uid://ddtgp46ty6ymv" path="res://ui/sprites/frame.png" id="2_btujd"]
+[ext_resource type="PackedScene" uid="uid://cl7jglaj27455" path="res://Base/Scenes/test_building.tscn" id="2_cxvon"]
+[ext_resource type="Script" uid="uid://2bg72wd14nkl" path="res://Base/code/buildings/buildingData.gd" id="3_btujd"]
+
+[resource]
+resource_name = "test"
+script = ExtResource("3_btujd")
+name = "test"
+menu_icon = ExtResource("2_btujd")
+preview_icon = ExtResource("1_rs7j7")
+built_texture = ExtResource("1_rs7j7")
+construction_texture = ExtResource("1_rs7j7")
+scene = ExtResource("2_cxvon")
+footprint = Vector2i(2, 2)
+build_time = 3.0
+build_requirements = Array[Dictionary]([])
+metadata/_custom_type_script = "uid://2bg72wd14nkl"
