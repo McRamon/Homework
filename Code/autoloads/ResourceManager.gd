@@ -1,25 +1,42 @@
 extends Node
-
-# словарь ресурсов: String → int
-var resources := {
-	"wood": 100,
-	"stone": 50,
-	"food": 30
-}
-
 signal resource_changed(type: String, amount: int)
 
-func add_resource(type: String, amount: int) -> void:
-	resources[type] = resources.get(type, 0) + amount
-	emit_signal("resource_changed", type, resources[type])
+var resources: Dictionary = {}      # { "wood": 100, "stone": 50 }
+var resource_icons: Dictionary = {} # { "wood": Texture2D, "stone": Texture2D }
 
-func can_afford(cost: Dictionary) -> bool:
-	for t in cost.keys():
-		if resources.get(t, 0) < cost[t]:
+func _ready():
+	# Загружаем ресурсы
+	var wood = load("res://Base/Res/wood.tres") as ResourceData
+	var stone = load("res://Base/Res/stone.tres") as ResourceData
+
+	register_resource(wood.id, wood.icon, 100)
+	register_resource(stone.id, stone.icon, 50)
+
+	print("✅ Ресурсы инициализированы:", resources)
+
+func register_resource(id: String, icon: Texture2D, start_amount: int = 0):
+	if id in resources: return
+	resources[id] = start_amount
+	resource_icons[id] = icon
+	emit_signal("resource_changed", id, start_amount)
+
+func add_resource(id: String, amount: int):
+	resources[id] = resources.get(id, 0) + amount
+	emit_signal("resource_changed", id, resources[id])
+
+func get_amount(id: String) -> int:
+	return resources.get(id, 0)
+
+func can_afford(requirements: Array) -> bool:
+	for req in requirements:
+		var res: ResourceData = req["resource"]
+		var amount = req["amount"]
+		if resources.get(res.id, 0) < amount:
 			return false
 	return true
 
-func spend(cost: Dictionary) -> void:
-	for t in cost.keys():
-		resources[t] = resources.get(t, 0) - cost[t]
-		emit_signal("resource_changed", t, resources[t])
+func spend(requirements: Array):
+	for req in requirements:
+		var res: ResourceData = req["resource"]
+		var amount = req["amount"]
+		add_resource(res.id, -amount)

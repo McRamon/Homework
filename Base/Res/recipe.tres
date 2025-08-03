@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=2 format=3 uid="uid://tfso6ro3pj3p"]
+
+[ext_resource type="Script" uid="uid://cgk44l0d3guyf" path="res://Base/code/buildings/ResourceData.gd" id="1_g0t0a"]
+
+[resource]
+script = ExtResource("1_g0t0a")
+name = "build_01"
+input = {}
+output = {}
+duration = 5.0
+metadata/_custom_type_script = "uid://cgk44l0d3guyf"

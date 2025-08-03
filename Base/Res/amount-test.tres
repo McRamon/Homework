@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ResourceAmount" load_steps=2 format=3 uid="uid://cs4l1m0oafel"]
+
+[ext_resource type="Script" uid="uid://uh3xffxhkef6" path="res://Base/code/buildings/resourceAmount.gd" id="1_ikiha"]
+
+[resource]
+script = ExtResource("1_ikiha")
+amount = 1
+metadata/_custom_type_script = "uid://uh3xffxhkef6"
