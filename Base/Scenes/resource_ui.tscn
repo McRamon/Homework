@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://4gp4osf6otnl"]
+
+[ext_resource type="Script" uid="uid://bhigx2l346h11" path="res://Base/code/resourceUI.gd" id="1_ecg7h"]
+
+[node name="ResourceUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ecg7h")
+
+[node name="ResourcesBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 42.0
+offset_top = 60.0
+offset_right = 242.0
+offset_bottom = 120.0
+
+[node name="ResourceContainer" type="VBoxContainer" parent="ResourcesBox"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ResourcesBox/ResourceContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ResourcesBox/ResourceContainer"]
+layout_mode = 2

@@ -1,7 +1,7 @@
 extends Button
 
 @export var building_data: BuildingData
-@onready var manager = $"../../../BuildingManager"
+@onready var manager = $"../BuildingManager"
 
 var name_label: Label
 var icon_rect: TextureRect
@@ -49,13 +49,13 @@ func _update_cost_icons(requirements: Array):
 		child.queue_free()
 
 	for req in requirements:
-		var res: ResourceData = req["resource"]
+		var res: Item = req["resource"]
 		var amount = req["amount"]
 
 		var hbox = HBoxContainer.new()
 
 		var icon_tex = TextureRect.new()
-		icon_tex.texture = res.icon
+		icon_tex.texture = res.spritesheet.get_frame_texture(res.get_animation("ui"), 0)
 		icon_tex.custom_minimum_size = Vector2(16, 16)
 		hbox.add_child(icon_tex)
 
@@ -66,4 +66,4 @@ func _update_cost_icons(requirements: Array):
 		cost_box.add_child(hbox)
 
 func _on_pressed():
-	manager.request_build(building_data)
+	manager.request_build(building_data) # ✅ Только активируем режим постройки, без диалога

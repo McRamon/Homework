@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ItemRecipe" load_steps=4 format=3 uid="uid://tdc1pn66ah4d"]
+
+[ext_resource type="Resource" uid="uid://naf6hl7axdlr" path="res://Base/Res/wood.tres" id="1_3h16y"]
+[ext_resource type="Script" uid="uid://dmmx1c5tj5n14" path="res://Code/Items/Recipies/recipe.gd" id="1_sumbt"]
+[ext_resource type="SpriteFrames" uid="uid://dpt5w44ffb88j" path="res://Base/Res/items.tres" id="3_56utb"]
+
+[resource]
+script = ExtResource("1_sumbt")
+input = Array[Dictionary]([{
+"amount": 10,
+"resource": ExtResource("1_3h16y")
+}])
+output = Array[Dictionary]([{
+"amount": 25,
+"resource": ExtResource("1_3h16y")
+}])
+duration = 5.0
+name = "wood"
+description = "This should not appear"
+spritesheet = ExtResource("3_56utb")
+flags = []
+stackable = false
+max_amount = 1
+usable = false
+cooldown = 0.0
+metadata/_custom_type_script = "uid://dmmx1c5tj5n14"
