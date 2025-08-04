@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b884bjdk2db0a"]
+
+[ext_resource type="Script" uid="uid://df025srebiqt4" path="res://Code/Items/item.gd" id="1_jx6ae"]
+[ext_resource type="SpriteFrames" uid="uid://3r0dkbdcdek2" path="res://Code/Items/Test Items/balls_spritesheet.tres" id="2_knhxq"]
+
+[resource]
+script = ExtResource("1_jx6ae")
+name = "Red Ball"
+description = "This should not appear"
+spritesheet = ExtResource("2_knhxq")
+flags = []
+stackable = true
+max_amount = 2
+usable = false
+cooldown = 0.0
+metadata/_custom_type_script = "uid://df025srebiqt4"

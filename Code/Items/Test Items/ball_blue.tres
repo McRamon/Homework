@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c2b7q3b5wsiwj"]
+
+[ext_resource type="Script" uid="uid://df025srebiqt4" path="res://Code/Items/item.gd" id="1_uo11b"]
+[ext_resource type="SpriteFrames" uid="uid://3r0dkbdcdek2" path="res://Code/Items/Test Items/balls_spritesheet.tres" id="2_i2ivs"]
+
+[resource]
+script = ExtResource("1_uo11b")
+name = "Blue Ball"
+description = "blue ball"
+spritesheet = ExtResource("2_i2ivs")
+flags = []
+stackable = true
+max_amount = 10
+usable = false
+cooldown = 0.0
+metadata/_custom_type_script = "uid://df025srebiqt4"

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DashAbility" load_steps=3 format=3 uid="uid://hsck7y8gev2c"]
 
-[ext_resource type="Script" uid="uid://bdu8qj4fliuji" path="res://Quests/Code/Mobs/Actions/Dash/dash.gd" id="1_uklqs"]
-[ext_resource type="PackedScene" uid="uid://dcy4vdirggo3p" path="res://Quests/Code/Mobs/Actions/Scenes/trail_ghost.tscn" id="2_bctb4"]
+[ext_resource type="Script" uid="uid://bdu8qj4fliuji" path="res://Quests/Code/Mobs/Actions/Dash/Scripts/dash.gd" id="1_uklqs"]
+[ext_resource type="PackedScene" uid="uid://dcy4vdirggo3p" path="res://Quests/Code/Mobs/Actions/Visual Effects/Dash Visuals/trail_ghost.tscn" id="2_bctb4"]
 
 [resource]
 script = ExtResource("1_uklqs")

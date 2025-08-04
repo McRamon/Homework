@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://3r0dkbdcdek2"]
+
+[ext_resource type="Texture2D" uid="uid://i1mrld6shfvm" path="res://Quests/Assets/balls_test_icons.png" id="1_oqbkk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dtgk"]
+atlas = ExtResource("1_oqbkk")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn7vl"]
+atlas = ExtResource("1_oqbkk")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08fqs"]
+atlas = ExtResource("1_oqbkk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnfsl"]
+atlas = ExtResource("1_oqbkk")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dtgk")
+}],
+"loop": false,
+"name": &"blue_ball_icon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn7vl")
+}],
+"loop": true,
+"name": &"green_ball_icon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08fqs")
+}],
+"loop": true,
+"name": &"purple_ball_icon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnfsl")
+}],
+"loop": true,
+"name": &"red_ball_icon",
+"speed": 5.0
+}]

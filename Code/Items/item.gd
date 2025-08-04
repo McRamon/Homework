@@ -28,11 +28,11 @@ func _init():
 		max_amount = 1
 	
 func get_animation(icon_type: String) -> String:
-	var anim_name = name.to_lower() + "_" + icon_type + "_icon"
+	var anim_name = name.to_lower().replace(" ", "_") + "_" + icon_type + "_icon"
 	if spritesheet and spritesheet.has_animation(anim_name):
 		return anim_name
-	elif spritesheet.has_animation(name.to_lower() + "_icon"):
-		return name.to_lower() + "_icon"
+	elif spritesheet.has_animation(name.to_lower().replace(" ", "_") + "_icon"):
+		return name.to_lower().replace(" ", "_") + "_icon"
 	elif spritesheet.has_animation("default_icon"):
 		return "default_icon"
 	else:

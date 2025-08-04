@@ -18,7 +18,8 @@ func _on_body_entered(body: Node2D):
 	hit_targets.append(body)
 	
 	if body.has_node("HealthComponent") and body.get_node("HealthComponent").has_method("take_damage"):
-		body.get_node("HealthComponent").take_damage(damage)
+		var randomized_damage = int(round(damage * randf_range(0.8, 1.1)))
+		body.get_node("HealthComponent").take_damage(randomized_damage)
 		
 	if weapon_data.status_effects and body.has_node("HealthComponent") and body.get_node("HealthComponent").has_method("apply_status_effect"):
 		for i in weapon_data.status_effects:
