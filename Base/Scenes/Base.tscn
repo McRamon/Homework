@@ -16,6 +16,7 @@ script = ExtResource("2_n5p7k")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CraftingMenu" parent="CanvasLayer" instance=ExtResource("2_7q7ng")]
+visible = false
 
 [node name="ResourceUI" parent="CanvasLayer" instance=ExtResource("1_ss1js")]
 anchors_preset = 0
@@ -43,8 +44,10 @@ layout_mode = 2
 [node name="BuildConfirmDialog" type="ConfirmationDialog" parent="CanvasLayer"]
 
 [node name="Label" type="Label" parent="CanvasLayer/BuildConfirmDialog"]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 51.0
 
 [node name="BuildingButton" parent="." instance=ExtResource("3_74c0f")]
 offset_left = 4.0

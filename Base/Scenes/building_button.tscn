@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://7bf5mgp1ofqd"]
 
-[ext_resource type="Script" uid="uid://fvghlrri1nhx" path="res://Base/code/buildings/buildButton.gd" id="1_o02p0"]
+[ext_resource type="Script" uid="uid://fvghlrri1nhx" path="res://Base/code/buildings/BuildButton.gd" id="1_o02p0"]
 
 [node name="BuildingButton" type="Button"]
 anchors_preset = 15

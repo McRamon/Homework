@@ -39,6 +39,8 @@ item = ExtResource("8_v6cru")
 
 [node name="ability" type="Node" parent="ControlComponent" index="1"]
 script = ExtResource("7_kfh73")
+dash_distance = 100.0
+dash_speed = 1000.0
 trail_scene = ExtResource("8_14sc7")
 
 [node name="AnimationComponent" parent="." index="6" node_paths=PackedStringArray("sprite")]

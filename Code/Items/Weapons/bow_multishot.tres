@@ -20,5 +20,5 @@ flags = []
 stackable = false
 max_amount = 1
 usable = false
-cooldown = 0.0
+cooldown = 0.5
 metadata/_custom_type_script = "uid://dgphufkoponew"

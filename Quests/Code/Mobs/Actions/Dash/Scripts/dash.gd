@@ -256,7 +256,7 @@ func _physics_process(delta: float) -> void:
 		
 	_trail_timer -= delta
 	
-	var move_step = _mob.velocity.length() * delta
+	var move_step = _mob.velocity.length()
 	_remaining_distance -= move_step
 	
 	if _remaining_distance <= 0:

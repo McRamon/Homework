@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0v5mjtcmdvvx"]
+[gd_scene load_steps=4 format=3 uid="uid://b0v5mjtcmdvvx"]
 
 [ext_resource type="Script" uid="uid://u8n4cvvkbnn0" path="res://ui/Quest UI/inventory_ui.gd" id="1_4x77g"]
 [ext_resource type="Texture2D" uid="uid://q734mib3pe6e" path="res://Quests/Assets/inventory.png" id="1_yy1b3"]
+[ext_resource type="Texture2D" uid="uid://bsmgjayugdo1i" path="res://Quests/Assets/character_leslie.png" id="3_p8hd7"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 276.0
+offset_bottom = 344.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 script = ExtResource("1_4x77g")
@@ -37,6 +40,11 @@ layout_mode = 2
 [node name="BoxContainer" type="BoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer" groups=["inventory_slot"]]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/BoxContainer"]
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+texture = ExtResource("3_p8hd7")
 
 [node name="BoxContainer2" type="BoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer" groups=["inventory_slot"]]
 custom_minimum_size = Vector2(64, 64)
