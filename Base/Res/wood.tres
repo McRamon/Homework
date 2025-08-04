@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemMaterial" load_steps=3 format=3 uid="uid://naf6hl7axdlr"]
 
 [ext_resource type="Script" uid="uid://cfapkm4bwhk50" path="res://Code/Items/material.gd" id="1_p035l"]
-[ext_resource type="SpriteFrames" uid="uid://dpt5w44ffb88j" path="res://Quests/Assets/items.tres" id="2_0w05h"]
+[ext_resource type="SpriteFrames" uid="uid://dpt5w44ffb88j" path="res://Base/Res/items.tres" id="2_0w05h"]
 
 [resource]
 script = ExtResource("1_p035l")

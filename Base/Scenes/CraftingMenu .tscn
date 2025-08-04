@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://do1piwr56e4r"]
 
 [ext_resource type="Script" uid="uid://dviwoanbvj8cb" path="res://Base/code/buildings/crafting_UI.gd" id="1_fmrws"]
-[ext_resource type="SpriteFrames" uid="uid://dpt5w44ffb88j" path="res://Quests/Assets/items.tres" id="1_ymwik"]
+[ext_resource type="SpriteFrames" uid="uid://dpt5w44ffb88j" path="res://Base/Res/items.tres" id="1_ymwik"]
 
 [node name="CraftingMenu" type="Control"]
 custom_minimum_size = Vector2(250, 150)

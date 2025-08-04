@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://naf6hl7axdlr" path="res://Base/Res/wood.tres" id="1_3h16y"]
 [ext_resource type="Script" uid="uid://dmmx1c5tj5n14" path="res://Code/Items/Recipies/recipe.gd" id="1_sumbt"]
-[ext_resource type="SpriteFrames" uid="uid://dpt5w44ffb88j" path="res://Quests/Assets/items.tres" id="3_56utb"]
+[ext_resource type="SpriteFrames" uid="uid://dpt5w44ffb88j" path="res://Base/Res/items.tres" id="3_56utb"]
 
 [resource]
 script = ExtResource("1_sumbt")

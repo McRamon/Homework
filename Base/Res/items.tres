@@ -1,11 +1,11 @@
 [gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dpt5w44ffb88j"]
 
-[ext_resource type="Texture2D" uid="uid://blfbpw38caqvb" path="res://Quests/Assets/test_arrow.png" id="1_l6qej"]
-[ext_resource type="Texture2D" uid="uid://fy0e4moo1j6l" path="res://Base/icon_materials/wood_icon.png" id="2_lvq6b"]
-[ext_resource type="Texture2D" uid="uid://behiau5fuaqth" path="res://Base/icon_materials/stone_icon.png" id="2_np0ja"]
+[ext_resource type="Texture2D" uid="uid://blfbpw38caqvb" path="res://Quests/Assets/test_arrow.png" id="1_xm005"]
+[ext_resource type="Texture2D" uid="uid://behiau5fuaqth" path="res://Base/icon_materials/stone_icon.png" id="2_6f1i8"]
+[ext_resource type="Texture2D" uid="uid://fy0e4moo1j6l" path="res://Base/icon_materials/wood_icon.png" id="3_avd7f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ab822"]
-atlas = ExtResource("1_l6qej")
+atlas = ExtResource("1_xm005")
 region = Rect2(0, 0, 32, 32)
 
 [resource]
@@ -30,7 +30,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_np0ja")
+"texture": ExtResource("2_6f1i8")
 }],
 "loop": true,
 "name": &"stone_icon",
@@ -38,7 +38,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_np0ja")
+"texture": ExtResource("2_6f1i8")
 }],
 "loop": true,
 "name": &"stone_ui_icon",
@@ -46,7 +46,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_lvq6b")
+"texture": ExtResource("3_avd7f")
 }],
 "loop": true,
 "name": &"wood_icon",
@@ -54,7 +54,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_lvq6b")
+"texture": ExtResource("3_avd7f")
 }],
 "loop": true,
 "name": &"wood_ui_icon",
