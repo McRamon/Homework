@@ -30,6 +30,8 @@ func get_movement_input() -> Vector2:
 	
 func player_input():
 	if Input.is_action_just_pressed("mouse_left"):
+		if get_viewport().gui_get_hovered_control() != null:
+			return
 		use_action_use_item(owner, get_attack_direction())
 		print(owner, " pressed LMB")
 	if Input.is_action_just_pressed("ability"):
