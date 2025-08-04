@@ -1,18 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://csaaeh3jfar3t"]
+[gd_scene load_steps=7 format=3 uid="uid://bqrxpitdt0yn4"]
 
-[ext_resource type="Texture2D" uid="uid://blfbpw38caqvb" path="res://Quests/Assets/test_arrow.png" id="1_asxxe"]
-[ext_resource type="Script" uid="uid://cy1x6adqwsay1" path="res://Quests/Code/Mobs/Actions/Effects/Actions/ranged_weapon_effect.gd" id="2_e8ge7"]
+[ext_resource type="Texture2D" uid="uid://blfbpw38caqvb" path="res://Quests/Assets/test_arrow.png" id="1_ccdo0"]
+[ext_resource type="Script" uid="uid://cy1x6adqwsay1" path="res://Quests/Code/Mobs/Actions/Weapons/ranged_weapon_effect.gd" id="2_7oy88"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb5uq"]
-atlas = ExtResource("1_asxxe")
+atlas = ExtResource("1_ccdo0")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75vsr"]
-atlas = ExtResource("1_asxxe")
+atlas = ExtResource("1_ccdo0")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlxpr"]
-atlas = ExtResource("1_asxxe")
+atlas = ExtResource("1_ccdo0")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xceyr"]
@@ -33,13 +33,14 @@ animations = [{
 }]
 
 [node name="bow_arrow_basic" type="AnimatedSprite2D"]
+modulate = Color(0.178318, 0.97, 0.1649, 1)
 z_index = 6
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_xceyr")
 animation = &"projectile"
 offset = Vector2(0, -16)
-script = ExtResource("2_e8ge7")
+script = ExtResource("2_7oy88")
 
 [node name="collision_zone" type="Area2D" parent="."]
 collision_layer = 16

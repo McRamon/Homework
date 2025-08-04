@@ -9,10 +9,6 @@ var _tick_timer: float = 0.0
 
 func on_apply(target: Node):
 	super(target)
-	if !is_heal:
-		print("Poison applied to ", target)
-	else:
-		print("Regeneration applied to ", target)
 
 func on_update(target: Node, delta: float) -> bool:
 	if duration != 0:

@@ -41,9 +41,8 @@ script = ExtResource("2_5rdlm")
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("4_3vsk1")
 
-[node name="ControlComponent" type="Node" parent="." node_paths=PackedStringArray("movement_component")]
+[node name="ControlComponent" type="Node" parent="."]
 script = ExtResource("5_agqau")
-movement_component = NodePath("../MovementComponent")
 
 [node name="AnimationComponent" type="Node" parent="." node_paths=PackedStringArray("mob")]
 script = ExtResource("5_ylirh")

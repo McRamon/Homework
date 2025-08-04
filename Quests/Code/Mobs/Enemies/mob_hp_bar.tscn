@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b0so11ubfa77f"]
 
-[ext_resource type="Script" uid="uid://4q1cejac7663" path="res://Quests/Code/Mobs/Enemies/Scripts/mob_hp_bar.gd" id="1_vipfo"]
+[ext_resource type="Script" uid="uid://4q1cejac7663" path="res://Quests/Code/Mobs/Enemies/mob_hp_bar.gd" id="1_vipfo"]
 
 [node name="mob_hp_bar" type="Control"]
 layout_mode = 3

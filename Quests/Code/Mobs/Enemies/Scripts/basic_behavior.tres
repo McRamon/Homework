@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="AiBehaviorData" load_steps=2 format=3 uid="uid://b1yprkm6m74fq"]
-
-[ext_resource type="Script" uid="uid://c40m4krwny87y" path="res://Quests/Code/Mobs/Enemies/Scripts/behavior_data.gd" id="1_xmcmf"]
-
-[resource]
-script = ExtResource("1_xmcmf")
-metadata/_custom_type_script = "uid://c40m4krwny87y"

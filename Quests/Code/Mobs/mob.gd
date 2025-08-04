@@ -7,7 +7,7 @@ class_name Mob
 @export var animation_component: AnimationComponent
 
 func _ready():
-	health_component.died.connect(_on_death)
+	health_component.died.connect(on_death)
 	health_component.health_changed.connect(_on_health_change)
 	
 
@@ -24,8 +24,9 @@ func _physics_process(delta: float):
 		sprite.flip_h = false
 
 
-func _on_death():
-	pass
+func on_death():
+	get_parent().alive_enemies.erase(self)
+	queue_free()
 	
 func _on_health_change(old_amount, new_amount):
 	pass

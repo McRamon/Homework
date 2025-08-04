@@ -33,13 +33,9 @@ func take_damage(amount: int):
 	
 	if current_health <= 0:
 		emit_signal("died")
-		_on_death()
 	else:
 		emit_signal("health_changed", old_health, current_health)
 		
-		
-func _on_death():
-	get_parent().queue_free()
 	
 func restore_health(amount: int):
 	var old_health = current_health

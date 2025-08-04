@@ -5,6 +5,8 @@ class_name Spawner
 @export var spawn_once: bool = true
 @export var random_rotation: bool = false
 
+signal spawner_finished(spawned_entities: Array)
+
 func _ready():
 	await get_tree().process_frame
 	print("Spawner ", self, " is ready.")
@@ -28,4 +30,6 @@ func spawn_random() -> Node2D:
 		
 	get_parent().add_child(instance)
 	print("SPAWNED: ", instance.is_inside_tree())
+	emit_signal("spawner_finished", instance)
+	get_parent().alive_enemies.append(instance)
 	return instance
