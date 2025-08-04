@@ -1,9 +1,18 @@
-[gd_resource type="Resource" script_class="ResourceData" load_steps=3 format=3 uid="uid://ekeldpw16aty"]
+[gd_resource type="Resource" script_class="ItemMaterial" load_steps=3 format=3 uid="uid://gg7hii8meva4"]
 
-[ext_resource type="Texture2D" uid="uid://ddtgp46ty6ymv" path="res://ui/sprites/frame.png" id="1_pmcx6"]
-[ext_resource type="Script" uid="uid://cgk44l0d3guyf" path="res://Base/code/buildings/ResourceData.gd" id="2_lo0do"]
+[ext_resource type="Script" uid="uid://cfapkm4bwhk50" path="res://Code/Items/material.gd" id="1_bmms0"]
+[ext_resource type="SpriteFrames" uid="uid://dpt5w44ffb88j" path="res://Quests/Assets/items.tres" id="2_pmcx6"]
 
 [resource]
-script = ExtResource("2_lo0do")
+script = ExtResource("1_bmms0")
+gather_method = "harvested"
+gather_time = 1.0
 name = "stone"
-icon = ExtResource("1_pmcx6")
+description = "This should not appear"
+spritesheet = ExtResource("2_pmcx6")
+flags = []
+stackable = true
+max_amount = 1
+usable = false
+cooldown = 0.0
+metadata/_custom_type_script = "uid://cfapkm4bwhk50"

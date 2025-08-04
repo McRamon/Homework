@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BuildingData" load_steps=6 format=3 uid="uid://cck257dvu0aan"]
+
+[ext_resource type="Script" uid="uid://cav4ytsssem6x" path="res://Base/code/buildings/buildingData.gd" id="1_2w51d"]
+[ext_resource type="Resource" uid="uid://naf6hl7axdlr" path="res://Base/Res/wood.tres" id="1_q7adr"]
+[ext_resource type="Texture2D" uid="uid://ddtgp46ty6ymv" path="res://ui/sprites/frame.png" id="1_x8ff7"]
+[ext_resource type="Texture2D" uid="uid://brbrqtlh0exxd" path="res://Base/spritesTEST/64x64.png" id="2_q7adr"]
+[ext_resource type="PackedScene" uid="uid://ckpm7num6gdm6" path="res://Base/Scenes/lumbermill.tscn" id="3_is3rp"]
+
+[resource]
+script = ExtResource("1_2w51d")
+name = "lambermill"
+menu_icon = ExtResource("1_x8ff7")
+preview_icon = ExtResource("2_q7adr")
+scene = ExtResource("3_is3rp")
+footprint = Vector2i(2, 2)
+build_time = 3.0
+build_requirements = Array[Dictionary]([{
+"amount": 15,
+"resource": ExtResource("1_q7adr")
+}])
+metadata/_custom_type_script = "uid://cav4ytsssem6x"
