@@ -8,9 +8,9 @@
 [ext_resource type="Script" uid="uid://bdu8qj4fliuji" path="res://Quests/Code/Mobs/Actions/Dash/Scripts/dash.gd" id="7_kfh73"]
 [ext_resource type="PackedScene" uid="uid://dcy4vdirggo3p" path="res://Quests/Code/Mobs/Actions/Visual Effects/Dash Visuals/trail_ghost.tscn" id="8_14sc7"]
 [ext_resource type="Resource" uid="uid://cofvve73yfytv" path="res://Code/Items/Weapons/sword.tres" id="8_v6cru"]
-[ext_resource type="Script" uid="uid://cnr1x5ivgul2p" path="res://Quests/Map/Containers/container.gd" id="9_14sc7"]
+[ext_resource type="Script" uid="uid://bdsxp7ly065or" path="res://Quests/Map/Containers/player_bag.gd" id="9_14sc7"]
 
-[node name="player_character" node_paths=PackedStringArray("player_inventory") instance=ExtResource("1_0wiex")]
+[node name="player_character" node_paths=PackedStringArray("player_inventory") groups=["player_character"] instance=ExtResource("1_0wiex")]
 z_index = 5
 script = ExtResource("2_y84lb")
 player_inventory = NodePath("player_inventory")
@@ -48,3 +48,4 @@ sprite = NodePath("../mob_sprite")
 
 [node name="player_inventory" type="Node2D" parent="." index="7"]
 script = ExtResource("9_14sc7")
+size = 16

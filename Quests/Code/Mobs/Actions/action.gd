@@ -14,6 +14,8 @@ func activate(mob: CharacterBody2D, direction: Vector2):
 	if _on_cooldown:
 		return false
 	_start_cooldown()
+	print("Super activate function activated")
+	return true
 	
 func _start_cooldown():
 	_on_cooldown = true

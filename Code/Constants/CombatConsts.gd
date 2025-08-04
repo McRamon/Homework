@@ -1,4 +1,4 @@
-extends Node
+extends Resource
 
 enum DamageType {
 	FIRE,

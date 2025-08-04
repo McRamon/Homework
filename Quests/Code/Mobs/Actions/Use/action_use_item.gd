@@ -7,7 +7,8 @@ func _ready():
 	cooldown = item.cooldown
 	
 func activate(mob: CharacterBody2D, direction: Vector2):
-	super(mob, direction)
+	if !super(mob, direction):
+		return
 	if not item:
 		return
 	item.use(mob, direction)

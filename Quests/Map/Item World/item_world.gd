@@ -5,7 +5,12 @@ var drop_radius: float = 50.0
 var drop_heigt:float = 30.0
 var drop_time: float = 0.5
 
+var pickup_speed: float = 400
+var pickup_range = 10
+
 @onready var sprite: AnimatedSprite2D
+@onready var pickup_area: Area2D = $pickup_area
+var player_target: CharacterBody2D = null
 
 var item_data: Item
 var item_amount: int
@@ -44,7 +49,23 @@ func _ready():
 	position = start_position
 	
 	_play_drop_animation(start_position, target_position)
+	pickup_area.body_entered.connect(_on_body_entered)
+	pickup_area.body_exited.connect(_on_body_exited)
 
+func _process(delta):
+	if player_target and active:
+		var direction = (player_target.global_position - global_position).normalized()
+		position += direction * pickup_speed * delta
+	
+		
+		if global_position.distance_to(player_target.global_position) <= pickup_range:
+			if player_target.player_inventory:
+				player_target.player_inventory.add_item(item_data, item_amount)
+			print("PICKED UP ITEM: ", item_data, " = ", item_amount)
+			print(" CURRENT BAG CONTENTS: ", player_target.player_inventory.items)
+			queue_free()
+				
+		
 
 func _play_drop_animation(start_pos: Vector2, end_pos: Vector2):
 	var tween = create_tween()
@@ -60,3 +81,8 @@ func _play_drop_animation(start_pos: Vector2, end_pos: Vector2):
 func _on_drop_finished():
 	print("DROPPED: ", item_data.name, " - ", item_amount)
 	active = true
+	
+func _on_body_entered(body):
+	player_target = body
+func _on_body_exited(body):
+	player_target = null

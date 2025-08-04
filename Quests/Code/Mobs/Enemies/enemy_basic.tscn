@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cenido31aoa2b"]
+[gd_scene load_steps=11 format=3 uid="uid://cenido31aoa2b"]
 
 [ext_resource type="PackedScene" uid="uid://js06itgeiovj" path="res://Quests/Code/Mobs/mob.tscn" id="1_01xs3"]
 [ext_resource type="Texture2D" uid="uid://bsmgjayugdo1i" path="res://Quests/Assets/character_leslie.png" id="2_oc5qm"]
@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b0so11ubfa77f" path="res://Quests/Code/Mobs/Enemies/mob_hp_bar.tscn" id="5_7vxgb"]
 [ext_resource type="Resource" uid="uid://c76yv13vhfs2i" path="res://Quests/Code/Mobs/Actions/Status Effects/regeneration.tres" id="5_30272"]
 [ext_resource type="Script" uid="uid://b7glesco0byjm" path="res://Quests/Code/Mobs/Enemies/AI Controller/ai_state_machine.gd" id="6_u1bbe"]
-[ext_resource type="Script" uid="uid://cnr1x5ivgul2p" path="res://Quests/Map/Containers/container.gd" id="8_30272"]
+[ext_resource type="Script" uid="uid://ceosak4w0w1n0" path="res://Quests/Map/Containers/loot_container.gd" id="8_30272"]
+[ext_resource type="Resource" uid="uid://cy6xet4ebqbj4" path="res://Quests/Map/Containers/Loot Tables/loot_table_test.tres" id="9_tol18"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cwsk"]
 
@@ -52,3 +53,4 @@ health_component = NodePath("../HealthComponent")
 
 [node name="loot_container" type="Node2D" parent="." index="10"]
 script = ExtResource("8_30272")
+loot_table = ExtResource("9_tol18")
