@@ -1,21 +1,25 @@
 [gd_resource type="Resource" script_class="BuildingData" load_steps=6 format=3 uid="uid://cck257dvu0aan"]
 
-[ext_resource type="Script" uid="uid://cav4ytsssem6x" path="res://Base/code/buildings/buildingData.gd" id="1_2w51d"]
-[ext_resource type="Resource" uid="uid://naf6hl7axdlr" path="res://Base/Res/wood.tres" id="1_q7adr"]
-[ext_resource type="Texture2D" uid="uid://ddtgp46ty6ymv" path="res://ui/sprites/frame.png" id="1_x8ff7"]
-[ext_resource type="Texture2D" uid="uid://brbrqtlh0exxd" path="res://Base/spritesTEST/64x64.png" id="2_q7adr"]
-[ext_resource type="PackedScene" uid="uid://ckpm7num6gdm6" path="res://Base/Scenes/lumbermill.tscn" id="3_is3rp"]
+[ext_resource type="Script" uid="uid://drpqgpy33guaw" path="res://Base/code/buildings/BuildingData.gd" id="1_2w51d"]
+[ext_resource type="PackedScene" uid="uid://ckpm7num6gdm6" path="res://Base/Scenes/lumbermill.tscn" id="1_q7adr"]
+[ext_resource type="Script" uid="uid://df025srebiqt4" path="res://Code/Items/item.gd" id="2_q7adr"]
+[ext_resource type="Resource" uid="uid://naf6hl7axdlr" path="res://Base/Res/wood.tres" id="3_q7adr"]
+[ext_resource type="SpriteFrames" uid="uid://crpflad7agoac" path="res://Base/Res/buildings.tres" id="4_q7adr"]
 
 [resource]
 script = ExtResource("1_2w51d")
-name = "lambermill"
-menu_icon = ExtResource("1_x8ff7")
-preview_icon = ExtResource("2_q7adr")
-scene = ExtResource("3_is3rp")
-footprint = Vector2i(2, 2)
-build_time = 3.0
-build_requirements = Array[Dictionary]([{
-"amount": 15,
-"resource": ExtResource("1_q7adr")
-}])
-metadata/_custom_type_script = "uid://cav4ytsssem6x"
+building_scene = ExtResource("1_q7adr")
+spawn_position = Vector2(0, 0)
+requirement_items = Array[ExtResource("2_q7adr")]([ExtResource("3_q7adr")])
+requirement_amounts = Array[int]([15])
+build_time = 2.0
+size = Vector2i(4, 4)
+name = "lumbermill"
+description = "Тут дерево обрабатывать"
+spritesheet = ExtResource("4_q7adr")
+flags = []
+stackable = false
+max_amount = 1
+usable = false
+cooldown = 0.0
+metadata/_custom_type_script = "uid://drpqgpy33guaw"

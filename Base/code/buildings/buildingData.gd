@@ -1,13 +1,17 @@
-extends Resource
+extends Item
 class_name BuildingData
 
-@export var name: String
-@export var menu_icon: Texture2D
-@export var preview_icon: Texture2D
-@export var scene: PackedScene
+# Сцена префаб здания
+@export var building_scene     : PackedScene
+# Опциональная позиция спавна (локальные координаты в сцене)
+@export var spawn_position     : Vector2 = Vector2.ZERO
 
-@export var footprint: Vector2i = Vector2i.ONE
-@export var build_time: float = 3.0
+# Материалы для строительства
+@export var requirement_items   : Array[Item] = []
+@export var requirement_amounts : Array[int]  = []
 
-# 🔹 Требования: [{ "resource": Item, "amount": int }]
-@export var build_requirements: Array[Dictionary] = []
+# Время строительства (в секундах)
+@export var build_time         : float = 2.0
+
+# Размер постройки в клетках (ширина × высота)
+@export var size              : Vector2i = Vector2i(1, 1)

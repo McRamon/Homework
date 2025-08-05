@@ -1,11 +1,20 @@
 [gd_scene load_steps=2 format=3 uid="uid://7bf5mgp1ofqd"]
 
-[ext_resource type="Script" uid="uid://fvghlrri1nhx" path="res://Base/code/buildings/buildButton.gd" id="1_o02p0"]
+[ext_resource type="SpriteFrames" uid="uid://crpflad7agoac" path="res://Base/Res/buildings.tres" id="2_ox30e"]
 
 [node name="BuildingButton" type="Button"]
-anchors_preset = 15
+custom_minimum_size = Vector2(100, 100)
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 23.0
 grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_o02p0")
+
+[node name="Icon" type="AnimatedSprite2D" parent="."]
+position = Vector2(50, 60)
+sprite_frames = ExtResource("2_ox30e")
+animation = &"lumbermill_icon"

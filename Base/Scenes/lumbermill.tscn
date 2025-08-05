@@ -1,25 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckpm7num6gdm6"]
+[gd_scene load_steps=6 format=3 uid="uid://ckpm7num6gdm6"]
 
 [ext_resource type="Texture2D" uid="uid://brbrqtlh0exxd" path="res://Base/spritesTEST/64x64.png" id="1_0j437"]
-[ext_resource type="Script" uid="uid://cm3310rl0hpw8" path="res://Base/code/buildings/building.gd" id="1_nlt33"]
-[ext_resource type="Script" uid="uid://b0jcviumrgcv4" path="res://Base/code/buildings/сrafting_station.gd" id="3_xhbrt"]
-[ext_resource type="Script" uid="uid://dmmx1c5tj5n14" path="res://Code/Items/Recipies/recipe.gd" id="4_ieblm"]
-[ext_resource type="Resource" uid="uid://tdc1pn66ah4d" path="res://Base/Res/buildings/wood_resipe.tres" id="5_1icd2"]
+[ext_resource type="Script" uid="uid://cvj64jpbj87nq" path="res://Base/code/buildings/Building.gd" id="1_nlt33"]
+[ext_resource type="Script" uid="uid://dmmx1c5tj5n14" path="res://Code/Items/Recipies/recipe.gd" id="2_tqa16"]
+[ext_resource type="Resource" uid="uid://tdc1pn66ah4d" path="res://Base/Res/buildings/wood_resipe.tres" id="3_xhbrt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlt33"]
-size = Vector2(64, 64)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqa16"]
+size = Vector2(143, 103)
 
-[node name="Lumbermill" type="Area2D"]
+[node name="Lumbermill" type="Node2D"]
 script = ExtResource("1_nlt33")
+recipes = Array[ExtResource("2_tqa16")]([ExtResource("3_xhbrt")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_0j437")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_nlt33")
-
-[node name="BuildTimer" type="Timer" parent="."]
-one_shot = true
 
 [node name="CountdownLabel" type="Label" parent="."]
 offset_left = -21.0
@@ -28,5 +22,13 @@ offset_right = 19.0
 offset_bottom = 55.0
 
 [node name="CraftingStation" type="Node2D" parent="."]
-script = ExtResource("3_xhbrt")
-recipes = Array[ExtResource("4_ieblm")]([ExtResource("5_1icd2")])
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5.5, 8.5)
+shape = SubResource("RectangleShape2D_tqa16")

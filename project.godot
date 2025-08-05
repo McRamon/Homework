@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Homework"
+run/main_scene="uid://bxhe5ri7jehd2"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
@@ -22,6 +23,7 @@ buses/default_bus_layout="res://assets/audio/default_bus_layout.tres"
 
 ResourceManager="*res://Code/Autoloads/ResourceManager.gd"
 AudioManager="*res://Code/Autoloads/AudioManager.gd"
+BuildingManager="*res://Code/autoloads/BuildingManager.gd"
 
 [display]
 

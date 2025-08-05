@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8hulfmr1egcw"]
+
+[ext_resource type="SpriteFrames" uid="uid://dpt5w44ffb88j" path="res://Base/Res/items.tres" id="1_wkkhr"]
+
+[node name="BuildingInfoDialog" type="PopupPanel"]
+size = Vector2i(500, 300)
+visible = true
+
+[node name="Content" type="GridContainer" parent="."]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 496.0
+offset_bottom = 296.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Content"]
+layout_mode = 2
+text = "Title"
+
+[node name="DescriptionLabel" type="Label" parent="Content"]
+layout_mode = 2
+text = "DescriptionLabel
+
+
+
+
+
+"
+
+[node name="CancelButton" type="Button" parent="Content"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="BuildButton" type="Button" parent="Content"]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+
+[node name="RequirementsContainer" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+
+[node name="ResourceIcon" type="AnimatedSprite2D" parent="Content/RequirementsContainer"]
+position = Vector2(45, 14)
+sprite_frames = ExtResource("1_wkkhr")
+animation = &"icon"
+
+[node name="ResourceLabel" type="Label" parent="Content/RequirementsContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "100"

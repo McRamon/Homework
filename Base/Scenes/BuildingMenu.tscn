@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtp5y8l2kkn4g"]
+
+[ext_resource type="Script" uid="uid://c35jh8trbypi0" path="res://Base/code/buildings/buildingMenu.gd" id="1_psjch"]
+
+[node name="BuildingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_psjch")
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="."]
+layout_mode = 2

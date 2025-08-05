@@ -7,12 +7,12 @@
 [resource]
 script = ExtResource("1_sumbt")
 input = Array[Dictionary]([{
-"amount": 10,
-"resource": ExtResource("1_3h16y")
+"Item": ExtResource("1_3h16y"),
+"amount": 10
 }])
 output = Array[Dictionary]([{
-"amount": 25,
-"resource": ExtResource("1_3h16y")
+"Item": ExtResource("1_3h16y"),
+"amount": 25
 }])
 duration = 5.0
 name = "wood"

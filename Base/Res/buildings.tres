@@ -1,0 +1,22 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://crpflad7agoac"]
+
+[ext_resource type="Texture2D" uid="uid://brbrqtlh0exxd" path="res://Base/spritesTEST/64x64.png" id="1_ff18g"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ff18g")
+}],
+"loop": true,
+"name": &"lumbermill_icon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ff18g")
+}],
+"loop": true,
+"name": &"lumbermill_ui_icon",
+"speed": 5.0
+}]
