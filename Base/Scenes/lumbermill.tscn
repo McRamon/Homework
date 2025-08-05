@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckpm7num6gdm6"]
+[gd_scene load_steps=7 format=3 uid="uid://ckpm7num6gdm6"]
 
 [ext_resource type="Texture2D" uid="uid://brbrqtlh0exxd" path="res://Base/spritesTEST/64x64.png" id="1_0j437"]
 [ext_resource type="Script" uid="uid://cvj64jpbj87nq" path="res://Base/code/buildings/Building.gd" id="1_nlt33"]
 [ext_resource type="Script" uid="uid://dmmx1c5tj5n14" path="res://Code/Items/Recipies/recipe.gd" id="2_tqa16"]
 [ext_resource type="Resource" uid="uid://tdc1pn66ah4d" path="res://Base/Res/buildings/wood_resipe.tres" id="3_xhbrt"]
+[ext_resource type="PackedScene" uid="uid://bfrwejf6hd228" path="res://Base/Scenes/crafting_menu.tscn" id="5_xhbrt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqa16"]
 size = Vector2(143, 103)
@@ -32,3 +33,5 @@ offset_bottom = 23.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(5.5, 8.5)
 shape = SubResource("RectangleShape2D_tqa16")
+
+[node name="CraftingMenu" parent="." instance=ExtResource("5_xhbrt")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxhe5ri7jehd2"]
+[gd_scene load_steps=8 format=3 uid="uid://bxhe5ri7jehd2"]
 
 [ext_resource type="PackedScene" uid="uid://4gp4osf6otnl" path="res://Base/Scenes/resource_ui.tscn" id="1_ss1js"]
 [ext_resource type="Resource" uid="uid://cck257dvu0aan" path="res://Base/Res/buildings/lumbermill.tres" id="3_3ioic"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dtp5y8l2kkn4g" path="res://Base/Scenes/BuildingMenu.tscn" id="3_74c0f"]
 [ext_resource type="PackedScene" uid="uid://c8hulfmr1egcw" path="res://Base/Scenes/building_info_dialog.tscn" id="5_4lwyu"]
 [ext_resource type="TileSet" uid="uid://ch3l56yewlrit" path="res://Base/Scenes/base_tile_set.tres" id="6_7q7ng"]
-[ext_resource type="PackedScene" uid="uid://bfrwejf6hd228" path="res://Base/Scenes/crafting_menu.tscn" id="6_ev6pw"]
 [ext_resource type="PackedScene" uid="uid://ckpm7num6gdm6" path="res://Base/Scenes/lumbermill.tscn" id="8_c36tp"]
 
 [node name="Base" type="Node2D"]
@@ -23,11 +22,6 @@ grow_vertical = 1
 size_flags_horizontal = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="CraftingMenu" parent="CanvasLayer" instance=ExtResource("6_ev6pw")]
-visible = false
-offset_right = 400.0
-offset_bottom = 250.0
 
 [node name="BuildingMenu" parent="CanvasLayer" instance=ExtResource("3_74c0f")]
 offset_left = 592.0
