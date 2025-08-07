@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemRecipe" load_steps=5 format=3 uid="uid://d4lae65d18xld"]
+
+[ext_resource type="Resource" uid="uid://naf6hl7axdlr" path="res://Base/Res/wood.tres" id="1_r5qmb"]
+[ext_resource type="Resource" uid="uid://c0k8dc38wye6l" path="res://Base/Res/plank.tres" id="2_j35x5"]
+[ext_resource type="Script" uid="uid://dmmx1c5tj5n14" path="res://Code/Items/Recipies/recipe.gd" id="2_yfemn"]
+[ext_resource type="SpriteFrames" uid="uid://dpt5w44ffb88j" path="res://Base/Res/items.tres" id="3_j35x5"]
+
+[resource]
+script = ExtResource("2_yfemn")
+input = Array[Dictionary]([{
+"Item": ExtResource("1_r5qmb"),
+"amount": 10
+}])
+output = Array[Dictionary]([{
+"Item": ExtResource("2_j35x5"),
+"amount": 1
+}])
+duration = 5.0
+name = "plank"
+description = "This should not appear"
+spritesheet = ExtResource("3_j35x5")
+flags = []
+stackable = false
+max_amount = 1
+usable = false
+cooldown = 0.0
+metadata/_custom_type_script = "uid://dmmx1c5tj5n14"

@@ -12,7 +12,7 @@ class_name CraftingMenu
 @onready var timer            := $Panel/Timer
 
 var current_recipe: ItemRecipe = null
-var queue: Array[ItemRecipe]  = []
+var queue: Array[ItemRecipe]   = []
 var recipes: Array[ItemRecipe] = []
 
 func _ready() -> void:
@@ -29,20 +29,20 @@ func open(recipes_list: Array[ItemRecipe]) -> void:
 	# Очищаем старые кнопки
 	for child in recipe_container.get_children():
 		child.queue_free()
-	# Очищаем очередь
 
+	# Очищаем очередь справа
 	_update_queue_display()
 
 	# Сбрасываем правую панель
 	current_recipe = null
-	info_label.text = "Выберите рецепт"
+	info_label.text      = "Выберите рецепт"
 	confirm_button.disabled = true
 
-	# Создаём кнопку на каждый рецепт
+	# Создаём кнопку на каждый рецепт (сначала настраиваем, затем добавляем)
 	for r in recipes_list:
 		var btn = recipe_button_scene.instantiate() as RecipeButton
-		recipe_container.add_child(btn)  # Сначала в дерево
-		btn.setup(r)                     # Потом настраиваем
+		btn.setup(r)
+		recipe_container.add_child(btn)
 		btn.pressed.connect(func () -> void:
 			_on_recipe_selected(r)
 		)
@@ -53,11 +53,12 @@ func open(recipes_list: Array[ItemRecipe]) -> void:
 	# Центрируем по экрану
 	position = (get_viewport().get_visible_rect().size - size) * 0.5
 
-
 func _on_recipe_selected(r: ItemRecipe) -> void:
 	current_recipe = r
 	# название и длительность
-	var name_out = r.output.size() > 0 and (r.output[0]["Item"] as Item).name or ""
+	var name_out = ""
+	if r.output.size() > 0 and r.output[0].has("Item"):
+		name_out = (r.output[0]["Item"] as Item).name
 	info_label.text = "%s\nДлительность: %ss" % [name_out, r.duration]
 	# проверяем ресурсы
 	confirm_button.disabled = not ResourceManager.can_afford(r.input)
@@ -70,9 +71,8 @@ func _on_confirm_pressed() -> void:
 	# добавляем в очередь и стартуем таймер, если он свободен
 	queue.append(current_recipe)
 	_update_queue_display()
-	if not timer.is_stopped():
-		return
-	timer.start(current_recipe.duration)
+	if timer.is_stopped():
+		timer.start(current_recipe.duration)
 
 func _on_timer_timeout() -> void:
 	if queue.is_empty():
@@ -80,7 +80,9 @@ func _on_timer_timeout() -> void:
 	var finished = queue.pop_front()
 	# выдаём результат
 	for out in finished.output:
-		ResourceManager.add_resource((out["Item"] as Item).name.to_lower(), out["amount"])
+		var item = out.get("Item") as Item
+		var amount = out.get("amount", 1)
+		ResourceManager.add_resource(item.name.to_lower(), amount)
 	_update_queue_display()
 	if not queue.is_empty():
 		timer.start(queue[0].duration)
@@ -93,11 +95,8 @@ func _update_queue_display() -> void:
 	# Рисуем текущую очередь
 	for recipe in queue:
 		var lbl := Label.new()
-		# Получаем имя выходного Item или “?” если его нет
 		var name_out : String = ""
 		if recipe.output.size() > 0 and recipe.output[0].has("Item"):
 			name_out = (recipe.output[0]["Item"] as Item).name
-		else:
-			name_out = "?"
 		lbl.text = name_out
 		queue_container.add_child(lbl)

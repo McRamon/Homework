@@ -1,7 +1,8 @@
-[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dpt5w44ffb88j"]
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dpt5w44ffb88j"]
 
 [ext_resource type="Texture2D" uid="uid://blfbpw38caqvb" path="res://Quests/Assets/test_arrow.png" id="1_xm005"]
 [ext_resource type="Texture2D" uid="uid://behiau5fuaqth" path="res://Base/icon_materials/stone_icon.png" id="2_6f1i8"]
+[ext_resource type="Texture2D" uid="uid://tqb5x866fayb" path="res://Base/icon_materials/Icons_27_34.png" id="2_avd7f"]
 [ext_resource type="Texture2D" uid="uid://fy0e4moo1j6l" path="res://Base/icon_materials/wood_icon.png" id="3_avd7f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ab822"]
@@ -16,6 +17,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"icon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_avd7f")
+}],
+"loop": true,
+"name": &"plank_icon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_avd7f")
+}],
+"loop": true,
+"name": &"plank_ui_icon",
 "speed": 5.0
 }, {
 "frames": [],

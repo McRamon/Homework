@@ -10,10 +10,12 @@ var resource_icons: Dictionary = {}   # { "wood": Texture2D }
 
 func _ready():
 	var wood = load("res://Base/Res/wood.tres") as ItemMaterial
-	var stone = load("res://Base/Res/stone.tres") as ItemMaterial
+	var stone = load("res://Base/Res/stone.tres") as ItemMaterial	
+	var plank = load("res://Base/Res/plank.tres") as ItemMaterial
 
 	register_resource(wood, 100)
 	register_resource(stone, 50)
+	register_resource(plank, 10)
 	print("✅ Ресурсы инициализированы:", resources)
 
 func register_resource(item: Item, start_amount: int = 0):
