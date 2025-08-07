@@ -1,20 +1,26 @@
 [gd_scene load_steps=11 format=3 uid="uid://cenido31aoa2b"]
 
 [ext_resource type="PackedScene" uid="uid://js06itgeiovj" path="res://Quests/Code/Mobs/mob.tscn" id="1_01xs3"]
+[ext_resource type="Script" uid="uid://bnrv1b2aevgby" path="res://Quests/Code/Mobs/Enemies/enemy_basic.gd" id="2_800f1"]
 [ext_resource type="Texture2D" uid="uid://chc5bx8tel3mu" path="res://Quests/Assets/gaybaby_test.png" id="2_tol18"]
 [ext_resource type="Script" uid="uid://bfodvopuwngus" path="res://Quests/Code/Mobs/Components/control_component_ai.gd" id="3_tg2n1"]
 [ext_resource type="Script" uid="uid://c14do17onnt64" path="res://Quests/Code/Mobs/Actions/Status Effects/status_effect.gd" id="3_u1bbe"]
 [ext_resource type="PackedScene" uid="uid://b0so11ubfa77f" path="res://Quests/Code/Mobs/Enemies/mob_hp_bar.tscn" id="5_7vxgb"]
 [ext_resource type="Resource" uid="uid://c76yv13vhfs2i" path="res://Quests/Code/Mobs/Actions/Status Effects/regeneration.tres" id="5_30272"]
-[ext_resource type="Script" uid="uid://b7glesco0byjm" path="res://Quests/Code/Mobs/Enemies/AI Controller/ai_state_machine.gd" id="6_u1bbe"]
 [ext_resource type="Script" uid="uid://ceosak4w0w1n0" path="res://Quests/Map/Containers/loot_container.gd" id="8_30272"]
 [ext_resource type="Resource" uid="uid://cy6xet4ebqbj4" path="res://Quests/Map/Containers/Loot Tables/loot_table_test.tres" id="9_tol18"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cwsk"]
 
-[node name="enemy_basic" instance=ExtResource("1_01xs3")]
+[node name="enemy_basic" node_paths=PackedStringArray("locator") instance=ExtResource("1_01xs3")]
 z_index = 4
 collision_layer = 4
+script = ExtResource("2_800f1")
+locator = NodePath("locator")
+patrol_points = Array[Vector2]([])
+chase_range = 400.0
+attack_range = 40.0
+enemy_groups = Array[StringName]([&"player_character"])
 
 [node name="mob_sprite" parent="." index="0"]
 texture = ExtResource("2_tol18")
@@ -33,12 +39,9 @@ starting_status_effects = Array[ExtResource("3_u1bbe")]([ExtResource("5_30272")]
 [node name="MovementComponent" parent="." index="4" node_paths=PackedStringArray("control_component")]
 control_component = NodePath("../ControlComponent")
 
-[node name="ControlComponent" parent="." index="5"]
+[node name="ControlComponent" parent="." index="5" node_paths=PackedStringArray("navigator")]
 script = ExtResource("3_tg2n1")
-
-[node name="ai_state_machine" type="Node" parent="ControlComponent" index="0" node_paths=PackedStringArray("control_ai")]
-script = ExtResource("6_u1bbe")
-control_ai = NodePath("..")
+navigator = NodePath("../mob_navigator")
 
 [node name="locator" type="Area2D" parent="." index="7"]
 position = Vector2(3.55271e-15, 30)

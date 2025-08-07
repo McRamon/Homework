@@ -25,7 +25,6 @@ func _physics_process(delta: float):
 
 
 func on_death():
-	get_parent().alive_enemies.erase(self)
 	queue_free()
 	
 func _on_health_change(old_amount, new_amount):

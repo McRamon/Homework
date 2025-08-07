@@ -140,9 +140,7 @@ region_rect = Rect2(5, 37, 22, 22)
 follow_viewport_enabled = true
 
 [node name="BaseUIWindow" parent="CanvasLayer" instance=ExtResource("1_txoe5")]
-
-[node name="Label (title)" parent="CanvasLayer/BaseUIWindow/PanelContainer/MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer" index="0"]
-text = "SOUND TESTING"
+visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
@@ -156,7 +154,7 @@ offset_right = -314.0
 offset_bottom = -166.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(5, 5)
+scale = Vector2(4, 4)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 

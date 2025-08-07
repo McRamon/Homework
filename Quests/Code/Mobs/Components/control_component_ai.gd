@@ -1,8 +1,7 @@
 extends ControlComponent
 class_name ControlComponentAi
 
-@onready var navigator: NavigationAgent2D = owner.get_node("mob_navigator")
-@onready var state_machine: AIStateMachine = get_node("ai_state_machine")
+@export var navigator: NavigationAgent2D
 
 var current_target: Vector2 = Vector2.ZERO
 

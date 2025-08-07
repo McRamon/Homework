@@ -20,6 +20,10 @@ func _process(delta):
 		
 func _on_body_entered(body: Node2D):
 	super(body)
+	print("Arrow collides with: ", body)
+	if body is TileMapLayer:
+		queue_free()
+		return
 	if !piercing:
 		queue_free()
 
