@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://ckpm7num6gdm6"]
 
-[ext_resource type="Texture2D" uid="uid://brbrqtlh0exxd" path="res://Base/spritesTEST/64x64.png" id="1_0j437"]
 [ext_resource type="Script" uid="uid://cvj64jpbj87nq" path="res://Base/code/buildings/Building.gd" id="1_nlt33"]
 [ext_resource type="Script" uid="uid://dmmx1c5tj5n14" path="res://Code/Items/Recipies/recipe.gd" id="2_tqa16"]
 [ext_resource type="Resource" uid="uid://tdc1pn66ah4d" path="res://Base/Res/buildings/wood_resipe.tres" id="3_xhbrt"]
 [ext_resource type="Resource" uid="uid://d4lae65d18xld" path="res://Base/Res/buildings/plank_resipe.tres" id="4_ieblm"]
+[ext_resource type="Texture2D" uid="uid://bi1nj1d0l4q7i" path="res://Base/spritesTEST/woodcutter.png" id="5_ieblm"]
 [ext_resource type="PackedScene" uid="uid://bfrwejf6hd228" path="res://Base/Scenes/crafting_menu.tscn" id="5_xhbrt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqa16"]
@@ -15,7 +15,7 @@ script = ExtResource("1_nlt33")
 recipes = Array[ExtResource("2_tqa16")]([ExtResource("3_xhbrt"), ExtResource("4_ieblm")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_0j437")
+texture = ExtResource("5_ieblm")
 
 [node name="CraftingStation" type="Node2D" parent="."]
 
