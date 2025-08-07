@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cenido31aoa2b"]
 
 [ext_resource type="PackedScene" uid="uid://js06itgeiovj" path="res://Quests/Code/Mobs/mob.tscn" id="1_01xs3"]
-[ext_resource type="Texture2D" uid="uid://bsmgjayugdo1i" path="res://Quests/Assets/character_leslie.png" id="2_oc5qm"]
+[ext_resource type="Texture2D" uid="uid://chc5bx8tel3mu" path="res://Quests/Assets/gaybaby_test.png" id="2_tol18"]
 [ext_resource type="Script" uid="uid://bfodvopuwngus" path="res://Quests/Code/Mobs/Components/control_component_ai.gd" id="3_tg2n1"]
 [ext_resource type="Script" uid="uid://c14do17onnt64" path="res://Quests/Code/Mobs/Actions/Status Effects/status_effect.gd" id="3_u1bbe"]
 [ext_resource type="PackedScene" uid="uid://b0so11ubfa77f" path="res://Quests/Code/Mobs/Enemies/mob_hp_bar.tscn" id="5_7vxgb"]
@@ -17,11 +17,14 @@ z_index = 4
 collision_layer = 4
 
 [node name="mob_sprite" parent="." index="0"]
-texture = ExtResource("2_oc5qm")
+texture = ExtResource("2_tol18")
+
+[node name="mob_collision" parent="." index="1"]
+position = Vector2(0, 31)
 
 [node name="detection_area" parent="." index="2"]
-position = Vector2(-1, 26)
-scale = Vector2(1.04, 0.624)
+position = Vector2(0, 30)
+scale = Vector2(1.04, 0.784001)
 
 [node name="HealthComponent" parent="." index="3"]
 max_health = 20
@@ -38,11 +41,12 @@ script = ExtResource("6_u1bbe")
 control_ai = NodePath("..")
 
 [node name="locator" type="Area2D" parent="." index="7"]
+position = Vector2(3.55271e-15, 30)
+scale = Vector2(1, 1.6)
 collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="locator" index="0"]
-position = Vector2(0, 26)
 scale = Vector2(13.56, 6.92)
 shape = SubResource("CircleShape2D_8cwsk")
 

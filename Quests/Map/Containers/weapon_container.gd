@@ -29,7 +29,7 @@ func _on_body_exited(body):
 		
 		
 func _assign_weapon_to_player(player):
-	var control = player.get_node_or_null("ControlComponent/action_use_item")
+	var control = player.get_node_or_null("ControlComponent/action_attack")
 	if control:
 		control.item = weapon_data
 		

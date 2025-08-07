@@ -1,7 +1,7 @@
 extends Resource
 class_name StatusEffect
 
-@export var effect_name: String = "Unnamed Effect"
+@export var name: String = "Unnamed Effect"
 @export var description: String = "This should not appear, fix the bug"
 @export var duration: float = 1.0  # in seconds
 @export var icon: Texture2D

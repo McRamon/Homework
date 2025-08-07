@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dgphufkoponew" path="res://Code/Items/Weapons/weapon_ranged.gd" id="1_wwi3g"]
 [ext_resource type="Script" uid="uid://c14do17onnt64" path="res://Quests/Code/Mobs/Actions/Status Effects/status_effect.gd" id="2_2wv71"]
 [ext_resource type="Resource" uid="uid://dtkpo5au6g1no" path="res://Quests/Code/Mobs/Actions/Status Effects/poison.tres" id="3_2wv71"]
-[ext_resource type="PackedScene" uid="uid://bqrxpitdt0yn4" path="res://Quests/Code/Mobs/Actions/Visual Effects/Weapon Visuals/arrow_posioned.tscn" id="4_2wv71"]
+[ext_resource type="PackedScene" uid="uid://bqrxpitdt0yn4" path="res://Quests/Code/Mobs/Actions/Effects/Weapon Visuals/arrow_posioned.tscn" id="4_2wv71"]
 
 [resource]
 script = ExtResource("1_wwi3g")

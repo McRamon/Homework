@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://c06tq0vvvnhfm" path="res://Quests/Code/Mobs/Player/player_character.gd" id="2_y84lb"]
 [ext_resource type="Script" uid="uid://cnm7si338aakj" path="res://Quests/Code/Mobs/Actions/Use/action_use_item.gd" id="5_7m8lo"]
 [ext_resource type="Script" uid="uid://bdu8qj4fliuji" path="res://Quests/Code/Mobs/Actions/Dash/Scripts/dash.gd" id="7_kfh73"]
-[ext_resource type="PackedScene" uid="uid://dcy4vdirggo3p" path="res://Quests/Code/Mobs/Actions/Visual Effects/Dash Visuals/trail_ghost.tscn" id="8_14sc7"]
+[ext_resource type="PackedScene" uid="uid://dcy4vdirggo3p" path="res://Quests/Code/Mobs/Actions/Effects/Dash Visuals/trail_ghost.tscn" id="8_14sc7"]
 [ext_resource type="Resource" uid="uid://cofvve73yfytv" path="res://Code/Items/Weapons/sword.tres" id="8_v6cru"]
 [ext_resource type="Script" uid="uid://bdsxp7ly065or" path="res://Quests/Map/Containers/player_bag.gd" id="9_14sc7"]
 
@@ -16,15 +16,14 @@ script = ExtResource("2_y84lb")
 player_inventory = NodePath("player_inventory")
 
 [node name="mob_sprite" parent="." index="0"]
-scale = Vector2(3, 3)
 texture = ExtResource("2_px0y7")
 
 [node name="mob_collision" parent="." index="1"]
-position = Vector2(0, 43.25)
+position = Vector2(0, 28)
 
 [node name="detection_area" parent="." index="2"]
-position = Vector2(0, 43)
-scale = Vector2(1.4, 0.840001)
+position = Vector2(0, 29)
+scale = Vector2(1.4, 1.04)
 collision_mask = 6
 
 [node name="MovementComponent" parent="." index="4" node_paths=PackedStringArray("control_component")]
@@ -33,11 +32,14 @@ control_component = NodePath("../ControlComponent")
 [node name="ControlComponent" parent="." index="5"]
 script = ExtResource("2_r48du")
 
-[node name="action_use_item" type="Node" parent="ControlComponent" index="0"]
+[node name="action_attack" type="Node" parent="ControlComponent" index="0"]
 script = ExtResource("5_7m8lo")
 item = ExtResource("8_v6cru")
 
-[node name="ability" type="Node" parent="ControlComponent" index="1"]
+[node name="action_use_item" type="Node" parent="ControlComponent" index="1"]
+script = ExtResource("5_7m8lo")
+
+[node name="ability" type="Node" parent="ControlComponent" index="2"]
 script = ExtResource("7_kfh73")
 dash_distance = 100.0
 dash_speed = 1000.0

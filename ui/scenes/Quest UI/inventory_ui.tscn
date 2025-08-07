@@ -1,13 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://b0v5mjtcmdvvx"]
 
-[ext_resource type="Script" uid="uid://u8n4cvvkbnn0" path="res://ui/Quest UI/inventory_ui.gd" id="1_4x77g"]
+[ext_resource type="Script" uid="uid://u8n4cvvkbnn0" path="res://ui/scripts/inventory_ui.gd" id="1_4x77g"]
 [ext_resource type="Texture2D" uid="uid://q734mib3pe6e" path="res://Quests/Assets/inventory.png" id="1_yy1b3"]
-[ext_resource type="Script" uid="uid://bs5614qahf2a" path="res://ui/Quest UI/inventory_slot.gd" id="3_7sd41"]
+[ext_resource type="Script" uid="uid://bs5614qahf2a" path="res://ui/scripts/inventory_slot.gd" id="3_7sd41"]
 [ext_resource type="SpriteFrames" uid="uid://3r0dkbdcdek2" path="res://Code/Items/Test Items/balls_spritesheet.tres" id="3_p8hd7"]
 
-[node name="HBoxContainer" type="HBoxContainer"]
-offset_right = 276.0
-offset_bottom = 344.0
+[node name="HBoxContainer" type="BoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -172.0
+offset_right = 138.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 script = ExtResource("1_4x77g")

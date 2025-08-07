@@ -4,7 +4,8 @@ class_name UseItem
 @export var item: Item
 
 func _ready():
-	cooldown = item.cooldown
+	if item:
+		cooldown = item.cooldown
 	
 func activate(mob: CharacterBody2D, direction: Vector2):
 	if !super(mob, direction):

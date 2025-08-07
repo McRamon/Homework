@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bed4hn6pwlq7w" path="res://Quests/Code/Mobs/Components/animation_component.gd" id="5_ylirh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcqgo"]
-size = Vector2(48, 21.5)
+size = Vector2(28, 10)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gdtso"]
 radius = 33.9559

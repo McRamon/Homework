@@ -44,6 +44,10 @@ func restore_health(amount: int):
 	
 func apply_status_effect(status_effect):
 	var new_effect = status_effect.duplicate()
+	for effect in active_status_effects:
+		if new_effect.name == effect.name:
+			effect.elapsed_time = 0
+			return
 	active_status_effects.append(new_effect)
 	new_effect.on_apply(self)
 	

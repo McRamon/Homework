@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://chyttdhtr1g0y"]
 
-[ext_resource type="PackedScene" uid="uid://b0v5mjtcmdvvx" path="res://ui/Quest UI/inventory_ui.tscn" id="1_ex5hp"]
+[ext_resource type="PackedScene" uid="uid://b0v5mjtcmdvvx" path="res://ui/scenes/Quest UI/inventory_ui.tscn" id="1_ex5hp"]
 [ext_resource type="Script" uid="uid://cyfdk7ak66k0s" path="res://ui/scripts/ui_canvas.gd" id="1_gct66"]
 [ext_resource type="Texture2D" uid="uid://xjefgwu114ni" path="res://ui/sprites/buttons_sound_test.png" id="2_d48hy"]
 

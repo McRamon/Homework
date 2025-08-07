@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends BoxContainer
 class_name BagUI
 
 var player_bag: PlayerBag

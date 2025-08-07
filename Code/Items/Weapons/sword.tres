@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2b0c18gmvvuf" path="res://Code/Items/Weapons/weapon.gd" id="1_3v88d"]
 [ext_resource type="Script" uid="uid://c14do17onnt64" path="res://Quests/Code/Mobs/Actions/Status Effects/status_effect.gd" id="2_0enhs"]
-[ext_resource type="PackedScene" uid="uid://bqptulpjng63v" path="res://Quests/Code/Mobs/Actions/Visual Effects/Weapon Visuals/sword.tscn" id="4_3prvq"]
+[ext_resource type="PackedScene" uid="uid://bqptulpjng63v" path="res://Quests/Code/Mobs/Actions/Effects/Weapon Visuals/sword.tscn" id="4_3prvq"]
 
 [resource]
 script = ExtResource("1_3v88d")
