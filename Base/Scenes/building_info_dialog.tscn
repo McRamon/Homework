@@ -3,7 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dpt5w44ffb88j" path="res://Base/Res/items.tres" id="1_wkkhr"]
 
 [node name="BuildingInfoDialog" type="PopupPanel"]
-size = Vector2i(500, 300)
+size = Vector2i(500, 311)
 visible = true
 
 [node name="Content" type="GridContainer" parent="."]
@@ -14,12 +14,22 @@ anchor_bottom = 1.0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 496.0
-offset_bottom = 296.0
+offset_bottom = 307.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CancelButton" type="Button" parent="Content"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "X"
 
 [node name="Title" type="Label" parent="Content"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 text = "Title"
 
 [node name="DescriptionLabel" type="Label" parent="Content"]
@@ -32,17 +42,15 @@ text = "DescriptionLabel
 
 "
 
-[node name="CancelButton" type="Button" parent="Content"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 8
-
 [node name="BuildButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
+size_flags_vertical = 10
+text = "Ok"
 
 [node name="RequirementsContainer" type="HBoxContainer" parent="Content"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="ResourceIcon" type="AnimatedSprite2D" parent="Content/RequirementsContainer"]
 position = Vector2(45, 14)

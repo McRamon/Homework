@@ -6,7 +6,7 @@ class_name CraftingMenu
 
 @onready var recipe_container := $Panel/VBoxContainer
 @onready var queue_container  := $Panel/HBoxContainer/Queue
-@onready var info_label       := $Panel/InfoLabel
+@onready var info_label       := $VBoxContainer/InfoLabel
 @onready var confirm_button   := $Panel/HBoxContainer/ConfirmButton
 @onready var close_button     := $Panel/CloseButton
 @onready var timer            := $Panel/Timer
@@ -23,22 +23,16 @@ func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 
 func open(recipes_list: Array[ItemRecipe]) -> void:
-	# Сохраняем список (если нужно)
 	recipes = recipes_list
-
 	# Очищаем старые кнопки
 	for child in recipe_container.get_children():
 		child.queue_free()
-
-	# Очищаем очередь справа
 	_update_queue_display()
-
-	# Сбрасываем правую панель
 	current_recipe = null
-	info_label.text      = "Выберите рецепт"
+	info_label.text       = "Выберите рецепт"
 	confirm_button.disabled = true
 
-	# Создаём кнопку на каждый рецепт (сначала настраиваем, затем добавляем)
+	# Сначала настраиваем button, потом добавляем
 	for r in recipes_list:
 		var btn = recipe_button_scene.instantiate() as RecipeButton
 		btn.setup(r)
@@ -47,28 +41,19 @@ func open(recipes_list: Array[ItemRecipe]) -> void:
 			_on_recipe_selected(r)
 		)
 
-	# Показываем меню и поднимаем его наверх
 	show()
-
-	# Центрируем по экрану
 	position = (get_viewport().get_visible_rect().size - size) * 0.5
 
 func _on_recipe_selected(r: ItemRecipe) -> void:
 	current_recipe = r
-	# название и длительность
-	var name_out = ""
-	if r.output.size() > 0 and r.output[0].has("Item"):
-		name_out = (r.output[0]["Item"] as Item).name
-	info_label.text = "%s\nДлительность: %ss" % [name_out, r.duration]
-	# проверяем ресурсы
+	var name_out = r.output.size() > 0 and (r.output[0]["Item"] as Item).name or ""
+	info_label.text       = "%s\nДлительность: %ss" % [name_out, r.duration]
 	confirm_button.disabled = not ResourceManager.can_afford(r.input)
 
 func _on_confirm_pressed() -> void:
 	if not current_recipe:
 		return
-	# списываем ресурсы
 	ResourceManager.spend(current_recipe.input)
-	# добавляем в очередь и стартуем таймер, если он свободен
 	queue.append(current_recipe)
 	_update_queue_display()
 	if timer.is_stopped():
@@ -78,9 +63,8 @@ func _on_timer_timeout() -> void:
 	if queue.is_empty():
 		return
 	var finished = queue.pop_front()
-	# выдаём результат
 	for out in finished.output:
-		var item = out.get("Item") as Item
+		var item   = out["Item"] as Item
 		var amount = out.get("amount", 1)
 		ResourceManager.add_resource(item.name.to_lower(), amount)
 	_update_queue_display()
@@ -88,15 +72,47 @@ func _on_timer_timeout() -> void:
 		timer.start(queue[0].duration)
 
 func _update_queue_display() -> void:
-	# Очищаем предыдущие Label
+	# 1) Убираем всё старое
 	for child in queue_container.get_children():
 		child.queue_free()
 
-	# Рисуем текущую очередь
+	# 2) Задаём отступы между элементами (как separation в Godot 3)
+	queue_container.add_theme_constant_override("separation", 8)
+
+	# 3) Для каждого рецепта в очереди рисуем TextureRect
 	for recipe in queue:
-		var lbl := Label.new()
-		var name_out : String = ""
+		var item: Item = null
 		if recipe.output.size() > 0 and recipe.output[0].has("Item"):
-			name_out = (recipe.output[0]["Item"] as Item).name
-		lbl.text = name_out
-		queue_container.add_child(lbl)
+			item = recipe.output[0]["Item"] as Item
+
+		if not item:
+			var spacer = Control.new()
+			spacer.custom_minimum_size = Vector2(32,32)
+			queue_container.add_child(spacer)
+			continue
+
+		# выбираем анимацию точно так же, как в RecipeButton
+		var frames = item.spritesheet
+		var anims  = frames.get_animation_names()
+		var base   = item.name.strip_edges().to_lower().replace(" ", "_")
+		var chosen = ""
+		if base + "_icon"     in anims:
+			chosen = base + "_icon"
+		elif base + "_ui_icon" in anims:
+			chosen = base + "_ui_icon"
+		elif "default_icon"   in anims:
+			chosen = "default_icon"
+		elif anims.size() > 0:
+			chosen = anims[0]
+
+		# первый кадр выбранной анимации
+		var tex: Texture2D = null
+		if chosen != "":
+			tex = frames.get_frame_texture(chosen, 0)
+
+		var icon = TextureRect.new()
+		icon.texture = tex
+		icon.custom_minimum_size = Vector2(32,32)
+		icon.stretch_mode        = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+
+		queue_container.add_child(icon)

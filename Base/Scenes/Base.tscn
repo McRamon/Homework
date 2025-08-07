@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxhe5ri7jehd2"]
+[gd_scene load_steps=7 format=3 uid="uid://bxhe5ri7jehd2"]
 
 [ext_resource type="PackedScene" uid="uid://4gp4osf6otnl" path="res://Base/Scenes/resource_ui.tscn" id="1_ss1js"]
 [ext_resource type="Resource" uid="uid://cck257dvu0aan" path="res://Base/Res/buildings/lumbermill.tres" id="3_3ioic"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dtp5y8l2kkn4g" path="res://Base/Scenes/BuildingMenu.tscn" id="3_74c0f"]
 [ext_resource type="PackedScene" uid="uid://c8hulfmr1egcw" path="res://Base/Scenes/building_info_dialog.tscn" id="5_4lwyu"]
 [ext_resource type="TileSet" uid="uid://ch3l56yewlrit" path="res://Base/Scenes/base_tile_set.tres" id="6_7q7ng"]
-[ext_resource type="PackedScene" uid="uid://ckpm7num6gdm6" path="res://Base/Scenes/lumbermill.tscn" id="8_c36tp"]
 
 [node name="Base" type="Node2D"]
 
@@ -24,10 +23,10 @@ size_flags_horizontal = 2
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="BuildingMenu" parent="CanvasLayer" instance=ExtResource("3_74c0f")]
-offset_left = 592.0
-offset_top = 153.0
-offset_right = 592.0
-offset_bottom = 153.0
+offset_left = 65.0
+offset_top = 585.0
+offset_right = 65.0
+offset_bottom = 585.0
 building_types = Array[ExtResource("3_4lwyu")]([ExtResource("3_3ioic"), ExtResource("3_3ioic")])
 
 [node name="BuildingInfoDialog" parent="CanvasLayer/BuildingMenu" instance=ExtResource("5_4lwyu")]
@@ -43,6 +42,3 @@ offset_bottom = 51.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = ExtResource("6_7q7ng")
-
-[node name="Lumbermill" parent="." instance=ExtResource("8_c36tp")]
-position = Vector2(403, 550)

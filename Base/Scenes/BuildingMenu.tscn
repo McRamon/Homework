@@ -7,5 +7,5 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_psjch")
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="."]
+[node name="ButtonsContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
