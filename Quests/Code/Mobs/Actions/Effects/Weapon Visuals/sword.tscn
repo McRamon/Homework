@@ -40,10 +40,11 @@ sprite_frames = SubResource("SpriteFrames_xceyr")
 animation = &"swing"
 offset = Vector2(0, -16)
 script = ExtResource("2_krq4s")
+force = 3
 
 [node name="attack_zone" type="Area2D" parent="."]
 collision_layer = 16
-collision_mask = 4
+collision_mask = 12
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="attack_zone"]
 position = Vector2(0, -1.1625)

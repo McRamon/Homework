@@ -31,4 +31,5 @@ func use(mob: CharacterBody2D, direction: Vector2):
 			projectile.distance = distance
 			projectile.damage = damage
 			projectile.piercing = piercing
+			projectile.force = force
 	return true

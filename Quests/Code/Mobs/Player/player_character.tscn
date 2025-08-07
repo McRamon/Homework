@@ -11,18 +11,19 @@
 [ext_resource type="Script" uid="uid://bdsxp7ly065or" path="res://Quests/Map/Containers/player_bag.gd" id="9_14sc7"]
 
 [node name="player_character" node_paths=PackedStringArray("player_inventory") groups=["player_character"] instance=ExtResource("1_0wiex")]
-z_index = 5
+collision_layer = 8
 script = ExtResource("2_y84lb")
 player_inventory = NodePath("player_inventory")
 
 [node name="mob_sprite" parent="." index="0"]
 texture = ExtResource("2_px0y7")
+offset = Vector2(0, -14)
 
 [node name="mob_collision" parent="." index="1"]
-position = Vector2(0, 28)
+position = Vector2(0, 0)
 
 [node name="detection_area" parent="." index="2"]
-position = Vector2(0, 29)
+position = Vector2(0, 1.90735e-06)
 scale = Vector2(1.4, 1.04)
 collision_mask = 6
 
@@ -49,5 +50,6 @@ trail_scene = ExtResource("8_14sc7")
 sprite = NodePath("../mob_sprite")
 
 [node name="player_inventory" type="Node2D" parent="." index="7"]
+position = Vector2(0, -29)
 script = ExtResource("9_14sc7")
 size = 16

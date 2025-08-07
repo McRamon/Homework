@@ -12,3 +12,9 @@ enum MobType {
 	HOSTILE,
 	AGRESSIVE
 }
+
+enum MobCombatState {
+	ATTACKING,
+	CHARGING,
+	MOVING
+}

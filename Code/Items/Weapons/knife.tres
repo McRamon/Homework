@@ -23,6 +23,7 @@ animations = [{
 script = ExtResource("1_nu8dy")
 status_effects = Array[ExtResource("2_c66cc")]([])
 damage = 10
+force = 1
 name = "Item"
 description = "This should not appear"
 spritesheet = SubResource("SpriteFrames_nu8dy")

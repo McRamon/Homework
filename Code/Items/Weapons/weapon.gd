@@ -5,6 +5,7 @@ class_name ItemWeapon
 @export var status_effects: Array[StatusEffect] = []
 
 @export var damage:= 10
+@export var force:= 0
 
 	
 func use(mob: CharacterBody2D, direction: Vector2):
@@ -16,4 +17,5 @@ func use(mob: CharacterBody2D, direction: Vector2):
 	effect.position = Vector2.ZERO
 	effect.user = mob
 	effect.damage = damage
+	effect.force = force
 	return true

@@ -22,6 +22,7 @@ func spawn_random() -> Node2D:
 	var random_index = randi() % spawn_list.size()
 	var scene_to_spawn = spawn_list[random_index]
 	var instance = scene_to_spawn.instantiate() as Node2D
+	instance.mob_data = instance.mob_data.duplicate()
 	print(self, " selected a mob to spawn: ", instance)
 	
 	instance.global_position = global_position

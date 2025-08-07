@@ -44,7 +44,7 @@ script = ExtResource("2_7oy88")
 
 [node name="collision_zone" type="Area2D" parent="."]
 collision_layer = 16
-collision_mask = 5
+collision_mask = 13
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision_zone"]
 position = Vector2(-0.666667, 0.666667)

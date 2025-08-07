@@ -102,6 +102,16 @@ use={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Terrain"
+2d_physics/layer_2="Objects"
+2d_physics/layer_3="Mobs"
+2d_physics/layer_4="Player"
+2d_physics/layer_5="Weapon Effects"
+2d_physics/layer_6="Items"
+2d_physics/layer_7="Mob Locators"
+
 [rendering]
 
 renderer/rendering_method="mobile"

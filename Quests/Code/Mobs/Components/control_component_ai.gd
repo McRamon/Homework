@@ -2,6 +2,7 @@ extends ControlComponent
 class_name ControlComponentAi
 
 @export var navigator: NavigationAgent2D
+var movement_input := Vector2.ZERO
 
 var current_target: Vector2 = Vector2.ZERO
 
@@ -16,8 +17,10 @@ func set_target(target_pos: Vector2):
 func get_movement_input() -> Vector2:
 	if navigator.is_navigation_finished():
 		return Vector2.ZERO
-	var next_point = navigator.get_next_path_position()
-	return (next_point - owner.global_position).normalized()
+	else:
+		var next_point = navigator.get_next_path_position()
+		var direction = next_point - owner.global_position
+		return direction.normalized()
 
 
 #extends Node

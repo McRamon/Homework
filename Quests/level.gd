@@ -13,9 +13,9 @@ func _ready():
 	await get_tree().process_frame
 	print(alive_enemies)
 
-	
-
-		
+func _process(delta):
+	var label = $UI_canvas/Label
+	label.text = str(alive_enemies.size())
 
 
 func _on_toggle_button_pressed() -> void:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cenido31aoa2b"]
+[gd_scene load_steps=12 format=3 uid="uid://cenido31aoa2b"]
 
 [ext_resource type="PackedScene" uid="uid://js06itgeiovj" path="res://Quests/Code/Mobs/mob.tscn" id="1_01xs3"]
 [ext_resource type="Script" uid="uid://bnrv1b2aevgby" path="res://Quests/Code/Mobs/Enemies/enemy_basic.gd" id="2_800f1"]
 [ext_resource type="Texture2D" uid="uid://chc5bx8tel3mu" path="res://Quests/Assets/gaybaby_test.png" id="2_tol18"]
+[ext_resource type="Resource" uid="uid://b4hqstke7xjow" path="res://Quests/Code/Mobs/Enemies/MobData/little_kid.tres" id="3_800f1"]
 [ext_resource type="Script" uid="uid://bfodvopuwngus" path="res://Quests/Code/Mobs/Components/control_component_ai.gd" id="3_tg2n1"]
 [ext_resource type="Script" uid="uid://c14do17onnt64" path="res://Quests/Code/Mobs/Actions/Status Effects/status_effect.gd" id="3_u1bbe"]
 [ext_resource type="PackedScene" uid="uid://b0so11ubfa77f" path="res://Quests/Code/Mobs/Enemies/mob_hp_bar.tscn" id="5_7vxgb"]
@@ -12,48 +13,54 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cwsk"]
 
-[node name="enemy_basic" node_paths=PackedStringArray("locator") instance=ExtResource("1_01xs3")]
-z_index = 4
+[node name="enemy_basic" node_paths=PackedStringArray("locator", "navigator") instance=ExtResource("1_01xs3")]
 collision_layer = 4
+collision_mask = 3
 script = ExtResource("2_800f1")
 locator = NodePath("locator")
 patrol_points = Array[Vector2]([])
 chase_range = 400.0
 attack_range = 40.0
+mob_data = ExtResource("3_800f1")
 enemy_groups = Array[StringName]([&"player_character"])
+navigator = NodePath("mob_navigator")
 
 [node name="mob_sprite" parent="." index="0"]
 texture = ExtResource("2_tol18")
+offset = Vector2(0, -14)
 
 [node name="mob_collision" parent="." index="1"]
-position = Vector2(0, 31)
+position = Vector2(-1, -1)
 
 [node name="detection_area" parent="." index="2"]
-position = Vector2(0, 30)
+position = Vector2(0, 1.90735e-06)
 scale = Vector2(1.04, 0.784001)
 
 [node name="HealthComponent" parent="." index="3"]
 max_health = 20
 starting_status_effects = Array[ExtResource("3_u1bbe")]([ExtResource("5_30272")])
 
-[node name="MovementComponent" parent="." index="4" node_paths=PackedStringArray("control_component")]
+[node name="MovementComponent" parent="." index="4" node_paths=PackedStringArray("control_component", "navigator")]
 control_component = NodePath("../ControlComponent")
+navigator = NodePath("../mob_navigator")
 
 [node name="ControlComponent" parent="." index="5" node_paths=PackedStringArray("navigator")]
 script = ExtResource("3_tg2n1")
 navigator = NodePath("../mob_navigator")
 
 [node name="locator" type="Area2D" parent="." index="7"]
-position = Vector2(3.55271e-15, 30)
 scale = Vector2(1, 1.6)
-collision_layer = 8
-collision_mask = 2
+collision_layer = 64
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="locator" index="0"]
+position = Vector2(0, 5.96046e-08)
 scale = Vector2(13.56, 6.92)
 shape = SubResource("CircleShape2D_8cwsk")
 
 [node name="mob_hp_bar" parent="." index="8" node_paths=PackedStringArray("health_component") instance=ExtResource("5_7vxgb")]
+offset_top = -81.0
+offset_bottom = -71.0
 health_component = NodePath("../HealthComponent")
 
 [node name="mob_navigator" type="NavigationAgent2D" parent="." index="9"]
@@ -61,3 +68,10 @@ health_component = NodePath("../HealthComponent")
 [node name="loot_container" type="Node2D" parent="." index="10"]
 script = ExtResource("8_30272")
 loot_table = ExtResource("9_tol18")
+
+[node name="mob_navigation_obstacle" type="NavigationObstacle2D" parent="." index="11"]
+z_index = 5
+y_sort_enabled = true
+position = Vector2(0, -31)
+vertices = PackedVector2Array(-14, 26, -14, 36, 14, 36, 14, 26)
+affect_navigation_mesh = true

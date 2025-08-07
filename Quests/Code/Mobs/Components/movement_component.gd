@@ -7,6 +7,7 @@ class_name MovementComponent
 @export var friction := 0.95
 
 @export var control_component: ControlComponent
+@export var navigator: NavigationAgent2D
 
 var velocity := Vector2.ZERO
 var direction := Vector2.ZERO
@@ -18,7 +19,8 @@ func _physics_process(delta: float) -> void:
 	if !enabled:
 		return
 	if control_component:
-		direction = control_component.get_movement_input()
+			direction = control_component.get_movement_input()
+
 
 	if direction != Vector2.ZERO:
 		velocity += direction * acceleration * delta
@@ -28,12 +30,6 @@ func _physics_process(delta: float) -> void:
 		
 	velocity *= friction
 	
-	if velocity > Vector2.ZERO:
-		var animation_component = get_parent().get_node_or_null("AnimationComponent")
-		animation_component.animation_walk()
-	else:
-		var animation_component = get_parent().get_node_or_null("AnimationComponent")
-		animation_component.animation_idle()	
 
 
 	

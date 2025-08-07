@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://towysidyppj3"]
+[gd_scene load_steps=18 format=4 uid="uid://towysidyppj3"]
 
 [ext_resource type="Texture2D" uid="uid://m268xq57vjgi" path="res://Quests/Assets/tiles_test.png" id="1_bmfjl"]
 [ext_resource type="Script" uid="uid://blu5atnes7o6k" path="res://Quests/level.gd" id="1_krwaf"]
@@ -11,6 +11,8 @@
 [ext_resource type="Resource" uid="uid://bpsuyomtcqy6f" path="res://Code/Items/Weapons/bow_multishot.tres" id="9_5uspp"]
 [ext_resource type="Resource" uid="uid://cxu3xbw5b6mv4" path="res://Code/Items/Weapons/bow_poisoned.tres" id="10_n4jx5"]
 [ext_resource type="PackedScene" uid="uid://chyttdhtr1g0y" path="res://ui/scenes/Quest UI/quest_ui_control.tscn" id="11_5uspp"]
+[ext_resource type="Texture2D" uid="uid://ddtgp46ty6ymv" path="res://ui/sprites/frame.png" id="12_m86b8"]
+[ext_resource type="Script" uid="uid://bbk2un1nsmmyw" path="res://Quests/Map/test_button.gd" id="13_6gve8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vjnn8"]
 texture = ExtResource("1_bmfjl")
@@ -66,12 +68,21 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_ek1pq"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 7
+physics_layer_0/collision_mask = 0
 custom_data_layer_0/name = "TileData"
 custom_data_layer_0/type = 4
 sources/1 = SubResource("TileSetAtlasSource_vjnn8")
 
+[sub_resource type="LabelSettings" id="LabelSettings_5uspp"]
+font_size = 32
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5uspp"]
+vertices = PackedVector2Array(138, 246, 10, 205.078, 54, 202.953, 266, 204.047, 310, 248, 330, 138, 374, 74, 630, 74, 522, 248, 330, -10, 374, -10, -54, 74, 10, 118, -202, 118, -202, 74, 54, -138, -54, -10, 310, 374, 10.3203, 374, 11.6797, 331.844, 138, 329.844, 331.773, -182, 624.297, -182, 629.68, -10, 328.75, -55.5234, 246, -10, 246.156, -59.4609, 246, 54, 138, 54, 138, -138, 244.156, -179.031, -52.1484, -179.961, -54.1563, -54, -202, -10, -138, -54, 266, 138, 394, 374.07, 394, 330, 522, 330, 630, 375.922, -74, 246, -117.07, 204.07, -118.078, 330, -74, 374, -246, 374, -202, 330, -246, -182, -138, -182)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 4), PackedInt32Array(6, 5, 9, 10), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(2, 1, 12, 15), PackedInt32Array(15, 12, 11, 16), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(4, 17, 20, 0), PackedInt32Array(21, 22, 23, 10, 24), PackedInt32Array(24, 10, 9), PackedInt32Array(24, 9, 25, 26), PackedInt32Array(25, 27, 28, 29), PackedInt32Array(26, 25, 29, 30), PackedInt32Array(31, 30, 29, 15), PackedInt32Array(32, 31, 15, 16), PackedInt32Array(32, 16, 33, 34), PackedInt32Array(3, 35, 5, 4), PackedInt32Array(36, 37, 38, 39), PackedInt32Array(7, 39, 38, 8), PackedInt32Array(1, 0, 40, 41), PackedInt32Array(42, 41, 40, 43), PackedInt32Array(42, 43, 44, 45), PackedInt32Array(45, 44, 46, 13), PackedInt32Array(14, 13, 46), PackedInt32Array(33, 14, 46), PackedInt32Array(34, 33, 46, 47)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-256, 384, -256, -192, -128, -192, -128, -64, -64, -64, -62, -190, 254, -189, 256, -69, 319, -66, 322, -192, 634, -192, 640, 0, 384, 0, 384, 64, 640, 64, 640, 386, 384, 384, 384, 320, 512, 320, 512, 258, 320, 258, 320, 384, 0, 384, 2, 322, 128, 320, 128, 256, -64, 256, -64, 384), PackedVector2Array(-64, 0, -192, 0, -192, 64, -64, 64), PackedVector2Array(64, -128, 64, 193, 256, 194, 256, 128, 320, 128, 320, 0, 256, 0, 256, 64, 128, 64, 128, -128), PackedVector2Array(0, 195, 0, 128, -192, 128, -192, 320, -128, 320, -127, 194)])
+
 [node name="debug_test_map" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_krwaf")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -115,15 +126,14 @@ spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
 position = Vector2(167, 293)
 spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
 
-[node name="spawner9" parent="." groups=["spawners"] instance=ExtResource("6_i82wj")]
-position = Vector2(229, 330)
-spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
-
 [node name="player_character" parent="." node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_ek1pq")]
+y_sort_enabled = false
 position = Vector2(174, -72)
 inventory_ui = NodePath("../UI_canvas/quest_ui_control/MarginContainer/HBoxContainer")
 
 [node name="weapon_container" parent="." instance=ExtResource("5_00s84")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(544, -32)
 weapon_data = ExtResource("8_00s84")
 
@@ -143,6 +153,20 @@ mouse_filter = 2
 [node name="MarginContainer" parent="UI_canvas/quest_ui_control" index="0"]
 mouse_filter = 2
 
-[editable path="spawner9"]
+[node name="Label" type="Label" parent="UI_canvas"]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_5uspp")
+
+[node name="Button" type="Button" parent="UI_canvas"]
+offset_left = 61.0
+offset_right = 101.0
+offset_bottom = 40.0
+icon = ExtResource("12_m86b8")
+script = ExtResource("13_6gve8")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_5uspp")
+
 [editable path="player_character"]
 [editable path="UI_canvas/quest_ui_control"]
