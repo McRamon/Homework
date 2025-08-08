@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://tewkwmg2s3vs"]
 
-[ext_resource type="Script" uid="uid://v40onbm744m1" path="res://Quests/Map/Item World/item_world.gd" id="1_sosta"]
+[ext_resource type="Script" uid="uid://v40onbm744m1" path="res://Quests/Map/World Objects/item_world.gd" id="1_sosta"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7u8oo"]
 radius = 100.0

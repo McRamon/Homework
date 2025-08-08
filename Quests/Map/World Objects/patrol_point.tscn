@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjaal126tp78k"]
+
+[ext_resource type="Script" uid="uid://cyb32q6dnssfe" path="res://Quests/Map/World Objects/patrol_point.gd" id="1_8avfv"]
+[ext_resource type="Texture2D" uid="uid://xjefgwu114ni" path="res://ui/sprites/buttons_sound_test.png" id="1_vbtmg"]
+
+[node name="patrol_point" type="Node2D"]
+script = ExtResource("1_8avfv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_vbtmg")
+region_enabled = true
+region_rect = Rect2(101, 5, 22, 22)

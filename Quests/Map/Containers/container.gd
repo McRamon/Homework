@@ -4,7 +4,7 @@ class_name ItemContainer
 @export var size: int = 10
 var items: Array = [] # Each slot: { "item": Item, "amount": int }
 
-const WORLD_ITEM_SCENE = preload("res://Quests/Map/Item World/item_world.tscn")
+const WORLD_ITEM_SCENE = preload("res://Quests/Map/World Objects/item_world.tscn")
 var current_scene: Node = null
 
 signal items_changed

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1ku7n70e0th7"]
+[gd_scene load_steps=12 format=3 uid="uid://c1ku7n70e0th7"]
 
 [ext_resource type="PackedScene" uid="uid://js06itgeiovj" path="res://Quests/Code/Mobs/mob.tscn" id="1_0wiex"]
 [ext_resource type="Texture2D" uid="uid://bsmgjayugdo1i" path="res://Quests/Assets/character_leslie.png" id="2_px0y7"]
@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://dcy4vdirggo3p" path="res://Quests/Code/Mobs/Actions/Effects/Dash Visuals/trail_ghost.tscn" id="8_14sc7"]
 [ext_resource type="Resource" uid="uid://cofvve73yfytv" path="res://Code/Items/Weapons/sword.tres" id="8_v6cru"]
 [ext_resource type="Script" uid="uid://bdsxp7ly065or" path="res://Quests/Map/Containers/player_bag.gd" id="9_14sc7"]
+
+[sub_resource type="Gradient" id="Gradient_14sc7"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v6cru"]
+gradient = SubResource("Gradient_14sc7")
 
 [node name="player_character" node_paths=PackedStringArray("player_inventory") groups=["player_character"] instance=ExtResource("1_0wiex")]
 collision_layer = 8
@@ -53,3 +58,8 @@ sprite = NodePath("../mob_sprite")
 position = Vector2(0, -29)
 script = ExtResource("9_14sc7")
 size = 16
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="8"]
+position = Vector2(0, 12.5)
+scale = Vector2(1, 31)
+texture = SubResource("GradientTexture1D_v6cru")

@@ -33,22 +33,6 @@ func _ready():
 
 func _physics_process(delta):
 	super(delta)
-	mob_data.current_state = current_state 
-	mob_data.current_target = attack_target
-	match current_state:
-		MobDefines.State.IDLE:
-			movement_component.max_speed = mob_data.max_speed / 4
-			_idle_state()
-		MobDefines.State.PATROL:
-			movement_component.max_speed = mob_data.max_speed / 2
-			_patrol_state()
-		MobDefines.State.RETREAT:
-			movement_component.max_speed = mob_data.max_speed * 2
-			_retreat_state()
-		MobDefines.State.ATTACK:
-			movement_component.max_speed = mob_data.max_speed
-			_attack_state()
-	_enemy_escaped()
 
 func on_death():
 	if get_parent().alive_enemies:
@@ -58,74 +42,3 @@ func on_death():
 func _on_health_change(old_amount, new_amount):
 	# Optional reaction (e.g. enter CHASE on hit)
 	pass
-
-func _set_state(new_state: MobDefines.State):
-	current_state = new_state
-
-
-func _idle_state():
-	if mob_data:
-		mob_data.on_idle()
-
-	if _has_targets_to_attack():
-		_set_state(MobDefines.State.ATTACK)
-
-func _patrol_state():
-	if mob_data:
-		mob_data.on_patrol()
-
-	if _has_targets_to_attack():
-		_set_state(MobDefines.State.ATTACK)
-
-func _retreat_state():
-	if mob_data == null:
-		_set_state(MobDefines.State.IDLE)
-		return
-		
-	if attack_target == null:
-		_set_state(MobDefines.State.IDLE)
-		return
-		
-	if navigator.is_navigation_finished():
-		mob_data.on_retreat()
-		
-	
-	
-
-func _attack_state():
-	if mob_data:
-		mob_data.on_attack()
-
-func _has_targets_to_attack() -> bool:
-	if valid_attack_targets:
-		return true
-	else:
-		return false
-
-func _enemy_detected(body):
-	for group in enemy_groups:
-		if body.is_in_group(group) and body not in valid_attack_targets:
-			valid_attack_targets.append(body)
-			if attack_target == null:
-				attack_target = body
-	print(" MOB ", self, " IS FIGHTING: ", valid_attack_targets)
-	print(" Current attack target: ", attack_target)
-	if mob_data.mob_type == MobDefines.MobType.PASSIVE:
-		_set_state(MobDefines.State.RETREAT)
-	else:
-		_set_state(MobDefines.State.ATTACK)
-			
-func _enemy_escaped():
-	var roached_out = []
-	for target in valid_attack_targets:
-		if global_position.distance_to(target.global_position) > chase_range:
-			roached_out.append(target)
-	for roach in roached_out:
-		valid_attack_targets.erase(roach)
-		print(roach, "ROACHED OUT! MOB ", self, " CURRENT TARGETS ARE: ", valid_attack_targets)
-		if roach == attack_target:
-			if valid_attack_targets.size() > 0:
-				attack_target = valid_attack_targets.pick_random()
-			else: attack_target = null
-	if valid_attack_targets == []:
-		_set_state(MobDefines.State.IDLE)

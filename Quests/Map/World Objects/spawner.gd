@@ -4,6 +4,7 @@ class_name Spawner
 @export var spawn_list: Array[PackedScene] = []
 @export var spawn_once: bool = true
 @export var random_rotation: bool = false
+@export var patrol_points_for_mob : Array[Node2D]
 
 signal spawner_finished(spawned_entities: Array)
 
@@ -28,6 +29,9 @@ func spawn_random() -> Node2D:
 	instance.global_position = global_position
 	if random_rotation:
 		instance.rotation = randf_range(0, TAU)
+	for toilet in patrol_points_for_mob:
+		var toilet_hole = toilet.global_position
+		instance.patrol_points.append(toilet_hole)
 		
 	get_parent().add_child(instance)
 	print("SPAWNED: ", instance.is_inside_tree())
