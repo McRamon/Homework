@@ -4,14 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://675dbe07p0a8" path="res://Quests/Assets/altar_asset_test.png" id="2_dw65k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s46py"]
-radius = 14.2258
+radius = 3.13399
 
 [node name="weapon_container" type="Node2D"]
 script = ExtResource("1_1xfpv")
 
 [node name="container_sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
 texture = ExtResource("2_dw65k")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)

@@ -19,9 +19,9 @@ func get_movement_input() -> Vector2:
 		return Vector2.ZERO
 	else:
 		var next_point = navigator.get_next_path_position()
-		var direction = next_point - owner.global_position
-		return direction.normalized()
-
+		var direction = owner.global_position.direction_to(next_point)
+		return direction
+	
 
 #extends Node
 #class_name ControlComponent

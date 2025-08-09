@@ -33,17 +33,16 @@ func animation_attack_melee():
 func animation_jump():
 	pass
 	
-func push(direction: Vector2, force: int):
-	if force <= 0 or push_it:
+func push(direction: Vector2, force: float):
+	if force <= 0:
 		return
-	
-	if _tween:
-		_tween.kill()
-	push_it = true
-	var original_pos = mob.global_position
-	_tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	_tween.tween_property(mob, "global_position", original_pos + (direction * 20 * force), 0.1 * force)
-	_tween.tween_callback(func(): push_it = false)
+	if _tween and _tween.is_valid():
+		_tween.kill
+		
+	var push_velocity = direction.normalized() * force
+	owner.movement_component.external_velocity = push_velocity
+	_tween = create_tween()
+	_tween.tween_property(owner.movement_component, "external_velocity", Vector2.ZERO, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 		
 func _check_collision(body):

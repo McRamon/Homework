@@ -5,8 +5,8 @@ extends Camera2D
 @export var snapper: float = 1.5
 
 var zoom_speed: float = 10
-var zoom_min: float = 1
-var zoom_max: float = 4
+var zoom_min: float = 2
+var zoom_max: float = 6
 
 var target_zoom: float = 1.0
 

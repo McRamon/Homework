@@ -1,9 +1,6 @@
 extends CharacterBody2D
 class_name Mob
 
-@export var mob_name: String = "Mob"
-@export var mob_description: String = "Standard Mob"
-@export var mob_level: int = 1
 @export var health_component: HealthComponent
 @export var movement_component: MovementComponent
 @export var control_component: ControlComponent

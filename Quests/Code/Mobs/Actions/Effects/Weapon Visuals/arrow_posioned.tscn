@@ -36,7 +36,6 @@ animations = [{
 modulate = Color(0.178318, 0.97, 0.1649, 1)
 z_index = 6
 texture_filter = 1
-scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_xceyr")
 animation = &"projectile"
 offset = Vector2(0, -16)
