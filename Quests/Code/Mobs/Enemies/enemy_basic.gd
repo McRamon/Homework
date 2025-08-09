@@ -3,10 +3,6 @@ class_name MobEnemyBasic
 
 const MobDefines = preload("res://Quests/Code/Mobs/mob_defines.gd")
 
-#Общие переменные мобов
-@export var mob_name: String = "Mob"
-@export var mob_description: String = "Standard Mob"
-@export var mob_level: int = 1
 @export var chase_range: float = 400.0
 @export var attack_range: float = 40.0
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cenido31aoa2b"]
+[gd_scene load_steps=17 format=3 uid="uid://cenido31aoa2b"]
 
 [ext_resource type="PackedScene" uid="uid://js06itgeiovj" path="res://Quests/Code/Mobs/mob.tscn" id="1_01xs3"]
 [ext_resource type="Script" uid="uid://bnrv1b2aevgby" path="res://Quests/Code/Mobs/Enemies/enemy_basic.gd" id="2_800f1"]
@@ -13,22 +13,19 @@
 [ext_resource type="Resource" uid="uid://cy6xet4ebqbj4" path="res://Quests/Map/Containers/Loot Tables/loot_table_test.tres" id="9_tol18"]
 [ext_resource type="Script" uid="uid://dqknbdb5ies7v" path="res://Quests/Code/Mobs/Enemies/State Machine/patrol.gd" id="10_dnntc"]
 [ext_resource type="Script" uid="uid://cec3mk46ur8sg" path="res://Quests/Code/Mobs/Enemies/State Machine/retreat.gd" id="11_degoj"]
-[ext_resource type="Script" uid="uid://b64447xnsksv2" path="res://Quests/Code/Mobs/Enemies/state_machine_timer.gd" id="12_138kq"]
 [ext_resource type="Script" uid="uid://dkq5u77mkyau0" path="res://Quests/Code/Mobs/Enemies/State Machine/attack.gd" id="12_nrpao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_138kq"]
-size = Vector2(12, 4)
+size = Vector2(10, 4)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cwsk"]
 radius = 5.38651
 
 [node name="enemy_basic" node_paths=PackedStringArray("navigator", "locator") instance=ExtResource("1_01xs3")]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
+motion_mode = 1
 script = ExtResource("2_800f1")
-mob_name = "Mob"
-mob_description = "Standard Mob"
-mob_level = 1
 chase_range = 400.0
 attack_range = 40.0
 mob_type = 0
@@ -52,7 +49,7 @@ position = Vector2(0, 1.90735e-06)
 scale = Vector2(1.04, 0.784001)
 
 [node name="HealthComponent" parent="." index="3"]
-max_health = 20
+max_health = 25
 starting_status_effects = Array[ExtResource("3_u1bbe")]([ExtResource("5_30272")])
 
 [node name="MovementComponent" parent="." index="4" node_paths=PackedStringArray("control_component", "navigator")]
@@ -85,7 +82,6 @@ script = ExtResource("11_degoj")
 script = ExtResource("12_nrpao")
 
 [node name="StateMachineTimer" type="Timer" parent="StateMachine" index="4"]
-script = ExtResource("12_138kq")
 
 [node name="locator" type="Area2D" parent="." index="8"]
 scale = Vector2(1, 1.6)
@@ -97,16 +93,20 @@ scale = Vector2(13.56, 6.92)
 shape = SubResource("CircleShape2D_8cwsk")
 
 [node name="mob_hp_bar" parent="." index="9" node_paths=PackedStringArray("health_component") instance=ExtResource("5_7vxgb")]
-offset_top = -81.0
-offset_bottom = -71.0
+offset_left = -7.0
+offset_top = -22.0
+offset_right = 7.0
+offset_bottom = -20.0
 health_component = NodePath("../HealthComponent")
+bar_width = 28.0
 
 [node name="mob_navigator" type="NavigationAgent2D" parent="." index="10"]
 path_desired_distance = 16.0
 target_desired_distance = 48.0
 path_postprocessing = 1
+avoidance_enabled = true
 radius = 6.0
-neighbor_distance = 12.0
+max_speed = 1000.0
 debug_enabled = true
 
 [node name="loot_container" type="Node2D" parent="." index="11"]

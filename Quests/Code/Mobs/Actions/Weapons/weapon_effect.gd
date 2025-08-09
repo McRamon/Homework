@@ -3,6 +3,7 @@ class_name WeaponEffect
 
 @export var damage: int = 10
 @export var force: int = 0
+var direction: Vector2
 var user: CharacterBody2D
 var hit_targets: Array = []
 var weapon_data: ItemWeapon
@@ -26,7 +27,7 @@ func _on_body_entered(body: Node2D):
 		for i in weapon_data.status_effects:
 			body.get_node("HealthComponent").apply_status_effect(i)
 	if body.has_node("AnimationComponent"):
-		var direction = (body.global_position - user.global_position).normalized()
+		#var direction = user.global_position.direction_to(body.global_position)
 		body.animation_component.push(direction, force)
 		print(body, " is pushed in the direction ", direction, " with force: ", force)
 

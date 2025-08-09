@@ -3,14 +3,17 @@ class_name RetreatState
 
 const MobDefines = preload("res://Quests/Code/Mobs/mob_defines.gd")
 
-var retreating := false
+var is_retreating := false
+var timer_timing:= false
 
 func run(mob: CharacterBody2D, navigator: NavigationAgent2D):
 	var found := false
 	var tries := 0
 	var map_rid = navigator.get_navigation_map()
 	
-	if !navigator.is_navigation_finished():
+	if !navigator.is_navigation_finished() and is_retreating:
+		return
+	if timer_timing:
 		return
 	
 	while not found and tries < 10:
@@ -25,10 +28,15 @@ func run(mob: CharacterBody2D, navigator: NavigationAgent2D):
 			navigator.target_position = closest_point
 			found = true
 			print("MOB ", mob, " is escaping to: ", closest_point)
-			retreating = true
+			is_retreating = true
+			timer_timing = true
+			get_parent().start_timer(randf_range(5.0, 15.0), self, "_on_timer_timeout")
 		else:
 			tries += 1
 			
 	if not found:
 		print(" MOB ", mob, " tried to escape, but could not")
+		
+func _on_timer_timeout():
+	timer_timing = false
 		

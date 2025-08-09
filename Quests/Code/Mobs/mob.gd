@@ -6,6 +6,12 @@ class_name Mob
 @export var control_component: ControlComponent
 @export var animation_component: AnimationComponent
 
+#Общие переменные мобов
+@export var mob_name: String = "Mob"
+@export var mob_description: String = "Standard Mob"
+@export var mob_level: int = 1
+@export var speed: float = 100
+
 
 func _ready():
 	health_component.died.connect(on_death)

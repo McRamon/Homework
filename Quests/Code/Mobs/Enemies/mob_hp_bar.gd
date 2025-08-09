@@ -1,4 +1,5 @@
 extends Control
+class_name Bar
 
 @export var health_component: HealthComponent
 @export var bar_width: float = 60.0

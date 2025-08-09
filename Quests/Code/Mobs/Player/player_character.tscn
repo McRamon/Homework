@@ -17,6 +17,7 @@ size = Vector2(16, 6)
 collision_layer = 8
 script = ExtResource("2_y84lb")
 player_inventory = NodePath("player_inventory")
+speed = 200.0
 
 [node name="mob_sprite" parent="." index="0"]
 scale = Vector2(1, 1)

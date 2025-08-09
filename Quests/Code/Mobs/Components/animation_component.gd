@@ -37,7 +37,7 @@ func push(direction: Vector2, force: float):
 	if force <= 0:
 		return
 	if _tween and _tween.is_valid():
-		_tween.kill
+		_tween.kill()
 		
 	var push_velocity = direction.normalized() * force
 	owner.movement_component.external_velocity = push_velocity

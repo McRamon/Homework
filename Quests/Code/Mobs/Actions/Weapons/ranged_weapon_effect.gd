@@ -5,7 +5,6 @@ class_name RangedWeaponEffect
 @export var distance: float = 500.0
 @export var piercing:= false
 
-var direction: Vector2
 var travelled_distance: float = 0.0
 
 signal distance_reached

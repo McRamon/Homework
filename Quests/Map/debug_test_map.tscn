@@ -181,7 +181,7 @@ spawn_list = Array[PackedScene]([ExtResource("5_1yt3y")])
 
 [node name="player_character" parent="." node_paths=PackedStringArray("inventory_ui") instance=ExtResource("3_ek1pq")]
 y_sort_enabled = false
-position = Vector2(305, -76)
+position = Vector2(401, 51)
 inventory_ui = NodePath("../UI_canvas/quest_ui_control/MarginContainer/HBoxContainer")
 
 [node name="weapon_container" parent="." instance=ExtResource("5_00s84")]

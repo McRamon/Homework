@@ -3,12 +3,14 @@ class_name IdleState
 
 const MobDefines = preload("res://Quests/Code/Mobs/mob_defines.gd")
 var timer_timing : bool = false
+var is_idle:= false
 
 func run(mob: CharacterBody2D, navigator: NavigationAgent2D):
 	if mob == null:
 		return
-	if !navigator.is_navigation_finished() or timer_timing:
+	if (!navigator.is_navigation_finished() or timer_timing) and is_idle:
 		return
+	is_idle = true
 	var map_rid = navigator.get_navigation_map()
 	var radius = 64.0
 	

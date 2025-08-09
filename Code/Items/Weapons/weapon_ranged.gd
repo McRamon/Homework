@@ -8,9 +8,6 @@ class_name ItemWeaponRanged
 @export var pellets:= 1
 @export var spread:= 0.0
 
-var _direction: Vector2
-var _travelled_distance: float = 0.0
-
 
 func use(mob: CharacterBody2D, direction: Vector2):
 	var spread_radians = deg_to_rad(spread)

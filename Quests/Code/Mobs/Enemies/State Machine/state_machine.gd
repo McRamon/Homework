@@ -55,6 +55,15 @@ func set_state(new_state: MobDefines.State):
 	if current_state == new_state:
 		return
 	current_state = new_state
+	match current_state:
+		MobDefines.State.IDLE:
+			idle_state.is_idle = false
+		MobDefines.State.PATROL:
+			patrol_state.is_patroling = false
+		MobDefines.State.RETREAT:
+			retreat_state.is_retreating = false
+		MobDefines.State.ATTACK:
+			attack_state.is_attacking = false
 
 func _has_targets_to_attack() -> bool:
 	if owner.valid_attack_targets:
@@ -62,19 +71,6 @@ func _has_targets_to_attack() -> bool:
 	else:
 		return false
 	
-
-	#if _has_targets_to_attack():
-		#_set_state(MobDefines.State.ATTACK)
-	#if owner.patrol_points.size() > 0 and current_state != MobDefines.State.PATROL:
-		#_set_state(MobDefines.State.PATROL)
-		#print(self, " goes on a patrol")
-		#
-	#if owner.attack_target == null:
-		#_set_state(MobDefines.State.IDLE)
-		#return
-	
-
-
 func _enemy_detected(body):
 	for group in owner.enemy_groups:
 		if body.is_in_group(group) and body not in valid_attack_targets:

@@ -6,6 +6,7 @@ const MobDefines = preload("res://Quests/Code/Mobs/mob_defines.gd")
 var patrol_index := 0
 var waiting := false
 var wait_time := 5.0
+var is_patroling:= false
 
 func run(mob: CharacterBody2D, navigator: NavigationAgent2D):
 	if mob == null or mob.patrol_points.is_empty():
@@ -13,8 +14,7 @@ func run(mob: CharacterBody2D, navigator: NavigationAgent2D):
 		return
 	if waiting:
 		return
-	
-	if not navigator.is_navigation_finished():
+	if not navigator.is_navigation_finished() and is_patroling:
 		return
 		
 	if not mob.has_meta("patrol_index"):
@@ -32,7 +32,6 @@ func run(mob: CharacterBody2D, navigator: NavigationAgent2D):
 
 	
 func _on_wait_finished() -> void:
-	print(get_parent().timer.number, " finished, going to next point")
 	waiting = false
 
 func _on_mob_navigator_target_reached() -> void:
@@ -42,4 +41,3 @@ func _on_mob_navigator_target_reached() -> void:
 	get_parent().timer.one_shot = true
 	get_parent().timer.timeout.connect(_on_wait_finished, CONNECT_ONE_SHOT)
 	get_parent().timer.start()
-	print(get_parent().timer.number, " starting")
