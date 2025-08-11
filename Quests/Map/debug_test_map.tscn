@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=4 uid="uid://towysidyppj3"]
+[gd_scene load_steps=17 format=4 uid="uid://towysidyppj3"]
 
 [ext_resource type="Texture2D" uid="uid://m268xq57vjgi" path="res://Quests/Assets/tiles_test.png" id="1_bmfjl"]
-[ext_resource type="Script" uid="uid://blu5atnes7o6k" path="res://Quests/level.gd" id="1_krwaf"]
+[ext_resource type="Script" uid="uid://blu5atnes7o6k" path="res://Quests/Map/Quest Level/level_manager.gd" id="1_krwaf"]
 [ext_resource type="PackedScene" uid="uid://c1ku7n70e0th7" path="res://Quests/Code/Mobs/Player/player_character.tscn" id="3_ek1pq"]
 [ext_resource type="PackedScene" uid="uid://dc1as37eao0xm" path="res://Quests/Code/Camera/level_camera.tscn" id="3_vjnn8"]
 [ext_resource type="PackedScene" uid="uid://q3ym0jwwg4ks" path="res://Quests/Map/Containers/weapon_container.tscn" id="5_00s84"]
@@ -11,8 +11,6 @@
 [ext_resource type="Resource" uid="uid://bpsuyomtcqy6f" path="res://Code/Items/Weapons/bow_multishot.tres" id="9_5uspp"]
 [ext_resource type="Resource" uid="uid://cxu3xbw5b6mv4" path="res://Code/Items/Weapons/bow_poisoned.tres" id="10_n4jx5"]
 [ext_resource type="PackedScene" uid="uid://chyttdhtr1g0y" path="res://ui/scenes/Quest UI/quest_ui_control.tscn" id="11_5uspp"]
-[ext_resource type="Texture2D" uid="uid://ddtgp46ty6ymv" path="res://ui/sprites/frame.png" id="12_m86b8"]
-[ext_resource type="Script" uid="uid://bbk2un1nsmmyw" path="res://Quests/Map/test_button.gd" id="13_6gve8"]
 [ext_resource type="PackedScene" uid="uid://bjaal126tp78k" path="res://Quests/Map/World Objects/patrol_point.tscn" id="14_6gve8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6gve8"]
@@ -210,13 +208,6 @@ mouse_filter = 2
 offset_right = 40.0
 offset_bottom = 23.0
 label_settings = SubResource("LabelSettings_5uspp")
-
-[node name="Button" type="Button" parent="UI_canvas"]
-offset_left = 61.0
-offset_right = 101.0
-offset_bottom = 40.0
-icon = ExtResource("12_m86b8")
-script = ExtResource("13_6gve8")
 
 [node name="patrol_point" parent="." groups=["patrol_points"] instance=ExtResource("14_6gve8")]
 position = Vector2(646, 94)

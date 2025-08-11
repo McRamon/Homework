@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cenido31aoa2b"]
+[gd_scene load_steps=13 format=3 uid="uid://cenido31aoa2b"]
 
 [ext_resource type="PackedScene" uid="uid://js06itgeiovj" path="res://Quests/Code/Mobs/mob.tscn" id="1_01xs3"]
 [ext_resource type="Script" uid="uid://bnrv1b2aevgby" path="res://Quests/Code/Mobs/Enemies/enemy_basic.gd" id="2_800f1"]
@@ -7,13 +7,9 @@
 [ext_resource type="Script" uid="uid://c14do17onnt64" path="res://Quests/Code/Mobs/Actions/Status Effects/status_effect.gd" id="3_u1bbe"]
 [ext_resource type="PackedScene" uid="uid://b0so11ubfa77f" path="res://Quests/Code/Mobs/Enemies/mob_hp_bar.tscn" id="5_7vxgb"]
 [ext_resource type="Resource" uid="uid://c76yv13vhfs2i" path="res://Quests/Code/Mobs/Actions/Status Effects/regeneration.tres" id="5_30272"]
-[ext_resource type="Script" uid="uid://dok8x6liy6trn" path="res://Quests/Code/Mobs/Enemies/State Machine/state_machine.gd" id="8_138kq"]
-[ext_resource type="Script" uid="uid://r5hr65upu056" path="res://Quests/Code/Mobs/Enemies/State Machine/idle.gd" id="8_263fr"]
+[ext_resource type="PackedScene" uid="uid://dnurtkfirp3kd" path="res://Quests/Code/Mobs/Enemies/State Machine/state_machine.tscn" id="7_800f1"]
 [ext_resource type="Script" uid="uid://ceosak4w0w1n0" path="res://Quests/Map/Containers/loot_container.gd" id="8_30272"]
 [ext_resource type="Resource" uid="uid://cy6xet4ebqbj4" path="res://Quests/Map/Containers/Loot Tables/loot_table_test.tres" id="9_tol18"]
-[ext_resource type="Script" uid="uid://dqknbdb5ies7v" path="res://Quests/Code/Mobs/Enemies/State Machine/patrol.gd" id="10_dnntc"]
-[ext_resource type="Script" uid="uid://cec3mk46ur8sg" path="res://Quests/Code/Mobs/Enemies/State Machine/retreat.gd" id="11_degoj"]
-[ext_resource type="Script" uid="uid://dkq5u77mkyau0" path="res://Quests/Code/Mobs/Enemies/State Machine/attack.gd" id="12_nrpao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_138kq"]
 size = Vector2(10, 4)
@@ -61,27 +57,7 @@ navigator = NodePath("../mob_navigator")
 script = ExtResource("3_tg2n1")
 navigator = NodePath("../mob_navigator")
 
-[node name="StateMachine" type="Node" parent="." index="7" node_paths=PackedStringArray("idle_state", "patrol_state", "retreat_state", "attack_state", "timer")]
-script = ExtResource("8_138kq")
-idle_state = NodePath("IDLE")
-patrol_state = NodePath("PATROL")
-retreat_state = NodePath("RETREAT")
-attack_state = NodePath("ATTACK")
-timer = NodePath("StateMachineTimer")
-
-[node name="IDLE" type="Node" parent="StateMachine" index="0"]
-script = ExtResource("8_263fr")
-
-[node name="PATROL" type="Node" parent="StateMachine" index="1"]
-script = ExtResource("10_dnntc")
-
-[node name="RETREAT" type="Node" parent="StateMachine" index="2"]
-script = ExtResource("11_degoj")
-
-[node name="ATTACK" type="Node" parent="StateMachine" index="3"]
-script = ExtResource("12_nrpao")
-
-[node name="StateMachineTimer" type="Timer" parent="StateMachine" index="4"]
+[node name="StateMachine" parent="." index="7" instance=ExtResource("7_800f1")]
 
 [node name="locator" type="Area2D" parent="." index="8"]
 scale = Vector2(1, 1.6)
@@ -113,5 +89,6 @@ debug_enabled = true
 script = ExtResource("8_30272")
 loot_table = ExtResource("9_tol18")
 
-[connection signal="target_reached" from="mob_navigator" to="StateMachine/PATROL" method="_on_mob_navigator_target_reached"]
 [connection signal="velocity_computed" from="mob_navigator" to="MovementComponent" method="_on_mob_navigator_velocity_computed"]
+
+[editable path="StateMachine"]

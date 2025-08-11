@@ -1,7 +1,7 @@
 extends Node
 class_name PatrolState
 
-const MobDefines = preload("res://Quests/Code/Mobs/mob_defines.gd")
+const MobDefines = preload("res://Quests/Code/Mobs/Defines/mob_defines.gd")
 
 var patrol_index := 0
 var waiting := false

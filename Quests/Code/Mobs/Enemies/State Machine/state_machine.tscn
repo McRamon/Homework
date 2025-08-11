@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnurtkfirp3kd"]
+
+[ext_resource type="Script" uid="uid://dok8x6liy6trn" path="res://Quests/Code/Mobs/Enemies/State Machine/state_machine.gd" id="1_r5mas"]
+[ext_resource type="Script" uid="uid://r5hr65upu056" path="res://Quests/Code/Mobs/Enemies/State Machine/idle.gd" id="2_p34bo"]
+[ext_resource type="Script" uid="uid://dqknbdb5ies7v" path="res://Quests/Code/Mobs/Enemies/State Machine/patrol.gd" id="3_p2q1y"]
+[ext_resource type="Script" uid="uid://cec3mk46ur8sg" path="res://Quests/Code/Mobs/Enemies/State Machine/retreat.gd" id="4_753sw"]
+[ext_resource type="Script" uid="uid://dkq5u77mkyau0" path="res://Quests/Code/Mobs/Enemies/State Machine/attack.gd" id="5_y7iw6"]
+
+[node name="StateMachine" type="Node" node_paths=PackedStringArray("idle_state", "patrol_state", "retreat_state", "attack_state", "timer")]
+script = ExtResource("1_r5mas")
+idle_state = NodePath("IDLE")
+patrol_state = NodePath("PATROL")
+retreat_state = NodePath("RETREAT")
+attack_state = NodePath("ATTACK")
+timer = NodePath("StateMachineTimer")
+
+[node name="IDLE" type="Node" parent="."]
+script = ExtResource("2_p34bo")
+
+[node name="PATROL" type="Node" parent="."]
+script = ExtResource("3_p2q1y")
+
+[node name="RETREAT" type="Node" parent="."]
+script = ExtResource("4_753sw")
+
+[node name="ATTACK" type="Node" parent="."]
+script = ExtResource("5_y7iw6")
+
+[node name="attack_timer" type="Timer" parent="ATTACK"]
+
+[node name="StateMachineTimer" type="Timer" parent="."]

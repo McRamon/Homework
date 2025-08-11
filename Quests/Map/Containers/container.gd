@@ -22,7 +22,6 @@ func add_item(item: Item, amount: int = 1) -> int:
 	for i in range(size):
 		if items[i]:
 			print("Checking slot ", i, ": slot item =", items[i].item, ", new item =", item)
-			print("Are they equal? ", items[i].item.name == item.name)
 		if items[i] and items[i].item.name == item.name and item.stackable:
 			var space = item.max_amount - items[i].amount
 			var to_add = min(left, space)

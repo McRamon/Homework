@@ -1,7 +1,7 @@
 extends Node
 class_name IdleState
 
-const MobDefines = preload("res://Quests/Code/Mobs/mob_defines.gd")
+const MobDefines = preload("res://Quests/Code/Mobs/Defines/mob_defines.gd")
 var timer_timing : bool = false
 var is_idle:= false
 

@@ -10,6 +10,10 @@ signal spawner_finished(spawned_entities: Array)
 
 func _ready():
 	await get_tree().process_frame
+	
+
+	
+func _initialize():
 	print("Spawner ", self, " is ready.")
 	if spawn_once:
 		spawn_random()
@@ -35,5 +39,5 @@ func spawn_random() -> Node2D:
 	get_parent().add_child(instance)
 	print("SPAWNED: ", instance.is_inside_tree())
 	emit_signal("spawner_finished", instance)
-	get_parent().alive_enemies.append(instance)
+	get_parent().enemies.append(instance)
 	return instance
