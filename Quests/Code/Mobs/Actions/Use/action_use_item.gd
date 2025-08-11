@@ -14,8 +14,9 @@ func activate(user: CharacterBody2D, direction: Vector2):
 		return
 	item.use(user, direction, self)
 	
-func _on_mob_hit(body: Node2D):
-	pass
+func _on_mob_hit(body: CharacterBody2D, damage, type):
+	if body and body.health_component:
+		body.health_component.take_damage(damage, type)
 	
 	#
 	#if body.has_node("HealthComponent") and body.get_node("HealthComponent").has_method("take_damage"):

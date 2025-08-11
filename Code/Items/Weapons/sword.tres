@@ -1,20 +1,20 @@
-[gd_resource type="Resource" script_class="ItemWeapon" load_steps=4 format=3 uid="uid://cofvve73yfytv"]
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=3 format=3 uid="uid://cofvve73yfytv"]
 
 [ext_resource type="Script" uid="uid://c2b0c18gmvvuf" path="res://Code/Items/Weapons/weapon.gd" id="1_3v88d"]
-[ext_resource type="Script" uid="uid://c14do17onnt64" path="res://Quests/Code/Mobs/Actions/Status Effects/status_effect.gd" id="2_0enhs"]
 [ext_resource type="PackedScene" uid="uid://bqptulpjng63v" path="res://Quests/Code/Mobs/Actions/Weapons/Weapon Visuals/sword.tscn" id="4_3prvq"]
 
 [resource]
 script = ExtResource("1_3v88d")
 weapon_effect = ExtResource("4_3prvq")
-status_effects = Array[ExtResource("2_0enhs")]([])
-damage = 10
+status_effects = null
+damage = null
+attack_type = 4
 force = 500
 name = "Sword"
 description = "Standard sword"
-flags = []
-stackable = false
-max_amount = 1
-usable = false
+flags = null
+stackable = null
+max_amount = null
+usable = null
 cooldown = 0.2
 metadata/_custom_type_script = "uid://c2b0c18gmvvuf"

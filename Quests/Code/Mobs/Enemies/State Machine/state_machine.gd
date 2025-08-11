@@ -1,8 +1,6 @@
 extends Node
 class_name AIStateMachine
 
-const MobDefines = preload("res://Code/Defines/mob_defines.gd")
-
 var current_state: int = MobDefines.State.IDLE
 var current_target: Node2D
 var speed_buffer := 0

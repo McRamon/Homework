@@ -39,7 +39,6 @@ sprite_frames = SubResource("SpriteFrames_xceyr")
 animation = &"swing"
 offset = Vector2(0, -16)
 script = ExtResource("2_vb2gp")
-force = 3
 
 [node name="attack_zone" type="Area2D" parent="."]
 collision_layer = 16

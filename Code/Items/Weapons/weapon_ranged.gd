@@ -11,6 +11,7 @@ class_name ItemWeaponRanged
 
 func use(mob: CharacterBody2D, direction: Vector2, action: Action = null):
 	var spread_radians = deg_to_rad(spread)
+	caller_action = action
 	for i in range(pellets):
 			var angle_offset:= 0.0
 			if pellets > 1:
@@ -27,4 +28,6 @@ func use(mob: CharacterBody2D, direction: Vector2, action: Action = null):
 			projectile.speed = speed
 			projectile.distance = distance
 			projectile.piercing = piercing
+			
+			projectile.mob_hit.connect(_on_mob_hit)
 	return true

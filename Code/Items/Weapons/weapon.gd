@@ -7,11 +7,13 @@ class_name ItemWeapon
 @export var damage: Dictionary = {
 	CombatDefines.DamageType.PHYSICAL : 10
 }
+@export var attack_type := CombatDefines.AttackType.MELEE
 @export var force:= 0
+var caller_action : Action = null
 
 	
 func use(user: CharacterBody2D, direction: Vector2, action: Action = null):
-	
+	caller_action = action
 	var effect = weapon_effect.instantiate() as AnimatedSprite2D
 	effect.rotation = direction.angle() + PI / 2
 	effect.direction = direction
@@ -20,7 +22,10 @@ func use(user: CharacterBody2D, direction: Vector2, action: Action = null):
 	effect.position = Vector2.ZERO
 	effect.user = user
 	
-	if action:
-		effect.mob_hit.connect(action._on_mob_hit)
+	effect.mob_hit.connect(_on_mob_hit)
 		
 	return true
+	
+func _on_mob_hit(body):
+	if body is CharacterBody2D:
+		caller_action._on_mob_hit(body, damage, attack_type)

@@ -1,8 +1,6 @@
 extends Node
 class_name RetreatState
 
-const MobDefines = preload("res://Code/Defines/mob_defines.gd")
-
 var is_retreating := false
 var timer_timing:= false
 

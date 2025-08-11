@@ -1,9 +1,23 @@
 extends Object
-class_name DamageCalculator
+class_name CombatDefines
 
-const CombatDefines = preload("res://Code/Defines/combat_defines.gd")
 
-func calculate_damage(damage: Dictionary, damage_resist : Dictionary):
+enum DamageType {
+	PHYSICAL,
+	FIRE,
+	ICE,
+	LIGHTNING,
+	POISON,
+	MAGIC
+}
+
+enum AttackType {
+	MELEE,
+	RANGED,
+	MAGICAL
+}
+
+static func calculate_damage(damage: Dictionary, damage_resist : Dictionary):
 	var total_damage: float = 0.0
 	
 	for dmg in damage.keys():

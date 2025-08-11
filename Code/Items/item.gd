@@ -1,9 +1,6 @@
 extends Resource
 class_name Item
 
-const MobDefines = preload("res://Code/Defines/mob_defines.gd")
-const CombatDefines = preload("res://Code/Defines/combat_defines.gd")
-
 @export var name: String = "Item"
 @export var description: String = "This should not appear"
 @export var spritesheet: SpriteFrames
