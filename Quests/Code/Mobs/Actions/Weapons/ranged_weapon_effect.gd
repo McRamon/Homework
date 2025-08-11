@@ -14,8 +14,8 @@ func _process(delta):
 	global_position += direction * step
 	travelled_distance += step
 	if travelled_distance >= distance:
-		emit_signal("distance_reached")
-		queue_free()
+		_on_distance_reached()
+
 		
 func _on_body_entered(body: Node2D):
 	super(body)
@@ -23,7 +23,7 @@ func _on_body_entered(body: Node2D):
 	if body is TileMapLayer:
 		queue_free()
 		return
-	if !piercing:
+	if !piercing and body != user:
 		queue_free()
 
 func get_animation_name() -> String:
@@ -31,3 +31,6 @@ func get_animation_name() -> String:
 
 func get_area_name() -> String:
 	return "collision_zone"
+	
+func _on_distance_reached():
+	queue_free()

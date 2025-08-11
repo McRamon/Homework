@@ -9,7 +9,7 @@ class_name ItemWeaponRanged
 @export var spread:= 0.0
 
 
-func use(mob: CharacterBody2D, direction: Vector2):
+func use(mob: CharacterBody2D, direction: Vector2, action: Action = null):
 	var spread_radians = deg_to_rad(spread)
 	for i in range(pellets):
 			var angle_offset:= 0.0
@@ -26,7 +26,5 @@ func use(mob: CharacterBody2D, direction: Vector2):
 			projectile.direction = pellet_direction.normalized()
 			projectile.speed = speed
 			projectile.distance = distance
-			projectile.damage = damage
 			projectile.piercing = piercing
-			projectile.force = force
 	return true

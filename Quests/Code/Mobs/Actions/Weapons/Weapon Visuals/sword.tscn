@@ -1,18 +1,18 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqptulpjng63v"]
 
-[ext_resource type="Texture2D" uid="uid://b8fw257qmunsx" path="res://Quests/Assets/sword_test_swing.png" id="1_akemh"]
-[ext_resource type="Script" uid="uid://cfp5xexrmi0hm" path="res://Quests/Code/Mobs/Actions/Weapons/melee_weapon_effect.gd" id="2_krq4s"]
+[ext_resource type="Texture2D" uid="uid://b8fw257qmunsx" path="res://Quests/Assets/sword_test_swing.png" id="1_qrh8c"]
+[ext_resource type="Script" uid="uid://cfp5xexrmi0hm" path="res://Quests/Code/Mobs/Actions/Weapons/melee_weapon_effect.gd" id="2_vb2gp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb5uq"]
-atlas = ExtResource("1_akemh")
+atlas = ExtResource("1_qrh8c")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75vsr"]
-atlas = ExtResource("1_akemh")
+atlas = ExtResource("1_qrh8c")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlxpr"]
-atlas = ExtResource("1_akemh")
+atlas = ExtResource("1_qrh8c")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xceyr"]
@@ -38,7 +38,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xceyr")
 animation = &"swing"
 offset = Vector2(0, -16)
-script = ExtResource("2_krq4s")
+script = ExtResource("2_vb2gp")
 force = 3
 
 [node name="attack_zone" type="Area2D" parent="."]

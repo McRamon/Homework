@@ -10,7 +10,7 @@ var _on_cooldown:= false
 func can_activate() -> bool:
 	return not _on_cooldown
 
-func activate(mob: CharacterBody2D, direction: Vector2):
+func activate(user: CharacterBody2D, direction: Vector2):
 	if _on_cooldown:
 		return false
 	_start_cooldown()

@@ -1,7 +1,7 @@
 extends Mob
 class_name MobEnemyBasic
 
-const MobDefines = preload("res://Quests/Code/Mobs/mob_defines.gd")
+
 
 @export var chase_range: float = 400.0
 @export var attack_range: float = 40.0
@@ -26,8 +26,8 @@ func _physics_process(delta):
 	super(delta)
 
 func on_death():
-	if get_parent().alive_enemies:
-		get_parent().alive_enemies.erase(self)
+	if get_parent().enemies:
+		get_parent().enemies.erase(self)
 	super()
 
 func _on_health_change(old_amount, new_amount):

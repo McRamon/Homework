@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Mob
 
+const MobDefines = preload("res://Code/Defines/mob_defines.gd")
+const CombatDefines = preload("res://Code/Defines/combat_defines.gd")
+
 @export var health_component: HealthComponent
 @export var movement_component: MovementComponent
 @export var control_component: ControlComponent
@@ -11,6 +14,16 @@ class_name Mob
 @export var mob_description: String = "Standard Mob"
 @export var mob_level: int = 1
 @export var speed: float = 100
+
+@export var damage_resist: Dictionary = {
+	CombatDefines.DamageType.PHYSICAL : 0,
+	CombatDefines.DamageType.FIRE : 0,
+	CombatDefines.DamageType.ICE : 0,
+	CombatDefines.DamageType.LIGHTNING : 0,
+	CombatDefines.DamageType.POISON : 0,
+	CombatDefines.DamageType.MAGIC : 0
+}
+
 
 
 func _ready():

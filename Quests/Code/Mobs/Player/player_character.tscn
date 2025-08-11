@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://c06tq0vvvnhfm" path="res://Quests/Code/Mobs/Player/player_character.gd" id="2_y84lb"]
 [ext_resource type="Script" uid="uid://cnm7si338aakj" path="res://Quests/Code/Mobs/Actions/Use/action_use_item.gd" id="5_7m8lo"]
 [ext_resource type="Script" uid="uid://bdu8qj4fliuji" path="res://Quests/Code/Mobs/Actions/Dash/Scripts/dash.gd" id="7_kfh73"]
-[ext_resource type="PackedScene" uid="uid://dcy4vdirggo3p" path="res://Quests/Code/Mobs/Actions/Effects/Dash Visuals/trail_ghost.tscn" id="8_14sc7"]
+[ext_resource type="PackedScene" uid="uid://dcy4vdirggo3p" path="res://Quests/Code/Mobs/Actions/Dash/Dash Visuals/trail_ghost.tscn" id="8_14sc7"]
 [ext_resource type="Resource" uid="uid://cofvve73yfytv" path="res://Code/Items/Weapons/sword.tres" id="8_v6cru"]
 [ext_resource type="Script" uid="uid://bdsxp7ly065or" path="res://Quests/Map/Containers/player_bag.gd" id="9_14sc7"]
 
