@@ -33,9 +33,11 @@ window/stretch/mode="viewport"
 
 folder_colors={
 "res://Base/": "red",
+"res://Camera/": "gray",
 "res://Code/": "blue",
+"res://Effects/": "orange",
+"res://Mobs/": "pink",
 "res://Quests/": "yellow",
-"res://Quests/Code/Mobs/Actions/": "orange",
 "res://assets/": "green",
 "res://ui/": "purple"
 }

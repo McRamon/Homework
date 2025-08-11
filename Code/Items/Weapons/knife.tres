@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="ItemWeapon" load_steps=5 format=3 uid="uid://clv7cfw71g1dv"]
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=6 format=3 uid="uid://clv7cfw71g1dv"]
 
 [ext_resource type="Script" uid="uid://c2b0c18gmvvuf" path="res://Code/Items/Weapons/weapon.gd" id="1_nu8dy"]
 [ext_resource type="Texture2D" uid="uid://675dbe07p0a8" path="res://Quests/Assets/altar_asset_test.png" id="2_uw3an"]
+[ext_resource type="Script" uid="uid://c14do17onnt64" path="res://Code/Status Effects/status_effect.gd" id="3_c66cc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wbcn3"]
 atlas = ExtResource("2_uw3an")
@@ -20,16 +21,18 @@ animations = [{
 
 [resource]
 script = ExtResource("1_nu8dy")
-status_effects = null
-damage = null
-attack_type = null
+status_effects = Array[ExtResource("3_c66cc")]([])
+damage = {
+0: 10
+}
+attack_type = 0
 force = 1
-name = null
-description = null
+name = "Item"
+description = "This should not appear"
 spritesheet = SubResource("SpriteFrames_nu8dy")
-flags = null
-stackable = null
-max_amount = null
-usable = null
-cooldown = null
+flags = []
+stackable = false
+max_amount = 1
+usable = false
+cooldown = 0.0
 metadata/_custom_type_script = "uid://c2b0c18gmvvuf"

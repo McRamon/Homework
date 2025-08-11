@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1ku7n70e0th7"]
+
+[ext_resource type="PackedScene" uid="uid://js06itgeiovj" path="res://Mobs/mob.tscn" id="1_0wiex"]
+[ext_resource type="Texture2D" uid="uid://bsmgjayugdo1i" path="res://Quests/Assets/character_leslie.png" id="2_px0y7"]
+[ext_resource type="Script" uid="uid://6lwrprvgdy8l" path="res://Mobs/Components/control_component_player.gd" id="2_r48du"]
+[ext_resource type="Script" uid="uid://c06tq0vvvnhfm" path="res://Mobs/Player/player_character.gd" id="2_y84lb"]
+[ext_resource type="Resource" uid="uid://cofvve73yfytv" path="res://Code/Items/Weapons/sword.tres" id="6_g7ojx"]
+[ext_resource type="Script" uid="uid://bdsxp7ly065or" path="res://Quests/Containers/player_bag.gd" id="9_14sc7"]
+[ext_resource type="Script" uid="uid://43o8b6sab5ph" path="res://Mobs/Player/action_control.gd" id="9_v6cru"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14sc7"]
+size = Vector2(16, 6)
+
+[node name="player_character" node_paths=PackedStringArray("player_inventory") groups=["player_character"] instance=ExtResource("1_0wiex")]
+collision_layer = 8
+script = ExtResource("2_y84lb")
+player_inventory = NodePath("player_inventory")
+speed = 200.0
+
+[node name="mob_sprite" parent="." index="0"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_px0y7")
+offset = Vector2(0, -16)
+
+[node name="mob_collision" parent="." index="1"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_14sc7")
+
+[node name="detection_area" parent="." index="2"]
+position = Vector2(0, 1.90735e-06)
+scale = Vector2(1.4, 1.04)
+collision_mask = 6
+
+[node name="MovementComponent" parent="." index="4" node_paths=PackedStringArray("control_component")]
+max_speed = 150.0
+control_component = NodePath("../ControlComponent")
+
+[node name="ControlComponent" parent="." index="5" node_paths=PackedStringArray("action_control")]
+script = ExtResource("2_r48du")
+action_control = NodePath("action_control")
+
+[node name="action_control" type="Node" parent="ControlComponent" index="0" node_paths=PackedStringArray("user")]
+script = ExtResource("9_v6cru")
+user = NodePath("../..")
+weapon = ExtResource("6_g7ojx")
+
+[node name="AnimationComponent" parent="." index="6" node_paths=PackedStringArray("sprite")]
+sprite = NodePath("../mob_sprite")
+
+[node name="player_inventory" type="Node2D" parent="." index="7"]
+position = Vector2(0, -29)
+script = ExtResource("9_14sc7")
+size = 16

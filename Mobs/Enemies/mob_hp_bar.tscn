@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxjctufsmolfe"]
+[gd_scene load_steps=2 format=3 uid="uid://b0so11ubfa77f"]
 
-[ext_resource type="Script" uid="uid://4q1cejac7663" path="res://Mobs/Enemies/mob_hp_bar.gd" id="1_v4ijh"]
+[ext_resource type="Script" uid="uid://4q1cejac7663" path="res://Mobs/Enemies/mob_hp_bar.gd" id="1_vipfo"]
 
 [node name="mob_hp_bar" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ offset_left = -30.0
 offset_top = -50.0
 offset_right = 30.0
 offset_bottom = -40.0
-script = ExtResource("1_v4ijh")
+script = ExtResource("1_vipfo")
 
 [node name="HP_Fill" type="ColorRect" parent="."]
 layout_mode = 1

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ItemWeaponRanged" load_steps=5 format=3 uid="uid://cxu3xbw5b6mv4"]
 
 [ext_resource type="Script" uid="uid://dgphufkoponew" path="res://Code/Items/Weapons/weapon_ranged.gd" id="1_wwi3g"]
-[ext_resource type="Script" uid="uid://c14do17onnt64" path="res://Quests/Code/Mobs/Actions/Status Effects/status_effect.gd" id="2_2wv71"]
-[ext_resource type="Resource" uid="uid://dtkpo5au6g1no" path="res://Quests/Code/Mobs/Actions/Status Effects/poison.tres" id="3_2wv71"]
-[ext_resource type="PackedScene" uid="uid://bqrxpitdt0yn4" path="res://Quests/Code/Mobs/Actions/Weapons/Weapon Visuals/arrow_posioned.tscn" id="4_2wv71"]
+[ext_resource type="Script" uid="uid://c14do17onnt64" path="res://Code/Status Effects/status_effect.gd" id="2_2wv71"]
+[ext_resource type="Resource" uid="uid://dtkpo5au6g1no" path="res://Code/Status Effects/poison.tres" id="3_7lu6a"]
+[ext_resource type="PackedScene" uid="uid://bqrxpitdt0yn4" path="res://Effects/Weapons/Weapon Visuals/arrow_posioned.tscn" id="4_2wv71"]
 
 [resource]
 script = ExtResource("1_wwi3g")
@@ -13,9 +13,14 @@ piercing = false
 pellets = 1
 spread = 0.0
 weapon_effect = ExtResource("4_2wv71")
-status_effects = Array[ExtResource("2_2wv71")]([ExtResource("3_2wv71")])
+status_effects = Array[ExtResource("2_2wv71")]([ExtResource("3_7lu6a")])
 damage = {
-0: 10
+0: 2,
+1: 0,
+2: 0,
+3: 0,
+4: 0,
+5: 5
 }
 attack_type = 1
 force = 0

@@ -44,7 +44,7 @@ func get_animation(icon_type: String) -> String:
 func has_flag(flag: String) -> bool:
 	return flag in flags
 	
-func use(mob: CharacterBody2D, direction: Vector2, action: Action):
+func use(mob: CharacterBody2D, direction: Vector2, action: ActionControl):
 	pass
 	
 func on_pick_up():

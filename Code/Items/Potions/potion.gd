@@ -7,5 +7,5 @@ class_name ItemPotion
 @export var visual_effect: PackedScene
 
 
-func use(user: CharacterBody2D, direction: Vector2, action: Action = null):
+func use(user: CharacterBody2D, direction: Vector2, action: ActionControl = null):
 	pass
