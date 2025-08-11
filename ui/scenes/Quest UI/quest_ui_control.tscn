@@ -1,0 +1,78 @@
+[gd_scene load_steps=15 format=3 uid="uid://chyttdhtr1g0y"]
+
+[ext_resource type="PackedScene" uid="uid://b0v5mjtcmdvvx" path="res://ui/scenes/Quest UI/inventory_ui.tscn" id="1_ex5hp"]
+[ext_resource type="Script" uid="uid://cyfdk7ak66k0s" path="res://ui/scripts/ui_canvas.gd" id="1_gct66"]
+[ext_resource type="Texture2D" uid="uid://xjefgwu114ni" path="res://ui/sprites/buttons_sound_test.png" id="2_d48hy"]
+
+[sub_resource type="Theme" id="Theme_gct66"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6neih"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gkyln"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bll2r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_51l0j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ejr2d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8nr6w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rlthp"]
+texture = ExtResource("2_d48hy")
+region_rect = Rect2(101, 5, 22, 22)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_icc11"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j7wry"]
+texture = ExtResource("2_d48hy")
+region_rect = Rect2(101, 37, 22, 22)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t14rx"]
+
+[node name="quest_ui_control" type="Control" node_paths=PackedStringArray("ui_element", "button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_gct66")
+ui_element = NodePath("MarginContainer/HBoxContainer")
+button = NodePath("MarginContainer/toggle_button")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" parent="MarginContainer" instance=ExtResource("1_ex5hp")]
+layout_mode = 2
+
+[node name="toggle_button" type="Button" parent="MarginContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = SubResource("Theme_gct66")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6neih")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gkyln")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bll2r")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_51l0j")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ejr2d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8nr6w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rlthp")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_icc11")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_j7wry")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t14rx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rlthp")

@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://b55jx7riih2xf"]
+
+[ext_resource type="PackedScene" uid="uid://4gp4osf6otnl" path="res://Base/Scenes/resource_ui.tscn" id="1_ss1js"]
+[ext_resource type="PackedScene" uid="uid://do1piwr56e4r" path="res://Base/Scenes/CraftingMenu .tscn" id="2_7q7ng"]
+[ext_resource type="Script" uid="uid://bymhd3fy4ulby" path="res://Base/code/buildings/buildingManager.gd" id="2_n5p7k"]
+[ext_resource type="PackedScene" uid="uid://7bf5mgp1ofqd" path="res://Base/Scenes/building_button.tscn" id="3_74c0f"]
+[ext_resource type="Resource" uid="uid://cck257dvu0aan" path="res://Base/Res/buildings/lumbermill.tres" id="4_3ioic"]
+
+[node name="Base" type="Node2D"]
+
+[node name="Buildings" type="Node2D" parent="."]
+
+[node name="BuildingManager" type="Node" parent="."]
+script = ExtResource("2_n5p7k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CraftingMenu" parent="CanvasLayer" instance=ExtResource("2_7q7ng")]
+visible = false
+
+[node name="ResourceUI" parent="CanvasLayer" instance=ExtResource("1_ss1js")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 2
+
+[node name="BuildUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/BuildUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RecipesContainer" type="VBoxContainer" parent="CanvasLayer/BuildUI/HBoxContainer"]
+layout_mode = 2
+
+[node name="BuildConfirmDialog" type="ConfirmationDialog" parent="CanvasLayer"]
+
+[node name="Label" type="Label" parent="CanvasLayer/BuildConfirmDialog"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 51.0
+
+[node name="BuildingButton" parent="." instance=ExtResource("3_74c0f")]
+offset_left = 4.0
+offset_top = 109.0
+offset_right = 12.0
+offset_bottom = 117.0
+building_data = ExtResource("4_3ioic")

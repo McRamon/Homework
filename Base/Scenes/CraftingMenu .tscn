@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://do1piwr56e4r"]
+
+[ext_resource type="Script" uid="uid://dviwoanbvj8cb" path="res://Base/code/buildings/crafting_UI.gd" id="1_fmrws"]
+[ext_resource type="SpriteFrames" uid="uid://dpt5w44ffb88j" path="res://Base/Res/items.tres" id="1_ymwik"]
+
+[node name="CraftingMenu" type="Control"]
+custom_minimum_size = Vector2(250, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 242.0
+offset_bottom = 124.0
+script = ExtResource("1_fmrws")
+
+[node name="LeftPanel" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -56.0
+offset_right = 85.0
+offset_bottom = 56.0
+grow_vertical = 2
+
+[node name="RecipeList" type="GridContainer" parent="LeftPanel"]
+layout_mode = 2
+
+[node name="LevelLocks" type="HBoxContainer" parent="LeftPanel"]
+layout_mode = 2
+
+[node name="RightPanel" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -60.5
+offset_bottom = 60.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="RightPanel"]
+layout_mode = 2
+
+[node name="WorkInfo" type="Label" parent="RightPanel"]
+layout_mode = 2
+
+[node name="IconPreview" type="AnimatedSprite2D" parent="RightPanel"]
+sprite_frames = ExtResource("1_ymwik")
+animation = &"icon"
+
+[node name="Description" type="Label" parent="RightPanel"]
+layout_mode = 2
+
+[node name="CostInfo" type="Label" parent="RightPanel"]
+layout_mode = 2
+
+[node name="OrderButton" type="Button" parent="RightPanel"]
+layout_mode = 2
+
+[node name="ProgressIndicator" type="TextureProgressBar" parent="RightPanel"]
+layout_mode = 2
+
+[node name="CategoryTabs" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0

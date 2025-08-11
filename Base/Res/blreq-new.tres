@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="buildRequirement" load_steps=2 format=3 uid="uid://dlahcu2i5pxai"]
-
-[ext_resource type="Script" uid="uid://cfm3okk1e2j4t" path="res://Base/code/buildings/buildRequirement.gd" id="1_jbmvl"]
-
-[resource]
-script = ExtResource("1_jbmvl")
-amount = 1
-metadata/_custom_type_script = "uid://cfm3okk1e2j4t"

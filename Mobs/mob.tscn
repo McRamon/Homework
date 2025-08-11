@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://js06itgeiovj"]
+
+[ext_resource type="Script" uid="uid://dod5g50o1plo1" path="res://Mobs/mob.gd" id="1_2mhil"]
+[ext_resource type="Script" uid="uid://bs8yi2m36scs0" path="res://Mobs/Components/health_component.gd" id="2_5rdlm"]
+[ext_resource type="Script" uid="uid://c1kqq80tffwpm" path="res://Mobs/Components/movement_component.gd" id="4_3vsk1"]
+[ext_resource type="Script" uid="uid://b3t0atk31m1eo" path="res://Mobs/Components/control_component.gd" id="5_agqau"]
+[ext_resource type="Script" uid="uid://bed4hn6pwlq7w" path="res://Mobs/Components/animation_component.gd" id="5_ylirh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcqgo"]
+size = Vector2(12, 4)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gdtso"]
+radius = 33.9559
+
+[node name="mob" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "movement_component", "control_component", "animation_component")]
+z_index = 5
+y_sort_enabled = true
+collision_layer = 2
+script = ExtResource("1_2mhil")
+health_component = NodePath("HealthComponent")
+movement_component = NodePath("MovementComponent")
+control_component = NodePath("ControlComponent")
+animation_component = NodePath("AnimationComponent")
+
+[node name="mob_sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+
+[node name="mob_collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 27.5)
+shape = SubResource("RectangleShape2D_tcqgo")
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_gdtso")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_5rdlm")
+
+[node name="MovementComponent" type="Node" parent="."]
+script = ExtResource("4_3vsk1")
+
+[node name="ControlComponent" type="Node" parent="."]
+script = ExtResource("5_agqau")
+
+[node name="AnimationComponent" type="Node" parent="." node_paths=PackedStringArray("mob")]
+script = ExtResource("5_ylirh")
+mob = NodePath("..")

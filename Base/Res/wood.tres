@@ -1,10 +1,18 @@
-[gd_resource type="Resource" script_class="ResourceData" load_steps=3 format=3 uid="uid://crd4do40gy6ec"]
+[gd_resource type="Resource" script_class="ItemMaterial" load_steps=3 format=3 uid="uid://naf6hl7axdlr"]
 
-[ext_resource type="Texture2D" uid="uid://ddtgp46ty6ymv" path="res://ui/sprites/frame.png" id="1_0w05h"]
-[ext_resource type="Script" uid="uid://cgk44l0d3guyf" path="res://Base/code/buildings/ResourceData.gd" id="2_rxp2o"]
+[ext_resource type="Script" uid="uid://cfapkm4bwhk50" path="res://Code/Items/material.gd" id="1_p035l"]
+[ext_resource type="SpriteFrames" uid="uid://dpt5w44ffb88j" path="res://Base/Res/items.tres" id="2_0w05h"]
 
 [resource]
-resource_name = "wood"
-script = ExtResource("2_rxp2o")
+script = ExtResource("1_p035l")
+gather_method = "harvested"
+gather_time = 1.0
 name = "wood"
-icon = ExtResource("1_0w05h")
+description = "This should not appear"
+spritesheet = ExtResource("2_0w05h")
+flags = []
+stackable = true
+max_amount = 1
+usable = false
+cooldown = 0.0
+metadata/_custom_type_script = "uid://cfapkm4bwhk50"

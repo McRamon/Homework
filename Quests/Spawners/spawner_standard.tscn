@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm2m757ldchg0"]
+
+[ext_resource type="Script" uid="uid://b0w323ccwh5pn" path="res://Quests/Spawners/spawner.gd" id="1_jajcr"]
+[ext_resource type="Texture2D" uid="uid://ddtgp46ty6ymv" path="res://ui/sprites/frame.png" id="2_0uchp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ai4e"]
+atlas = ExtResource("2_0uchp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45kwo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ai4e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="spawner" type="Node2D"]
+z_index = 1
+script = ExtResource("1_jajcr")
+
+[node name="spawner_sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_45kwo")
